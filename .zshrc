@@ -11,6 +11,9 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 CASE_SENSITIVE="false"
 PF_INFO="ascii title os wm shell editor kernel uptime pkgs memory"
+# uploaders
+export ZIP_AUTH=$(cat ~/.zip_auth)
+export VCH_AUTH=$(cat ~/.vch_auth)
 
 # aliases
 alias config='/usr/bin/git --git-dir=/home/diced/.cfg/ --work-tree=/home/diced'
