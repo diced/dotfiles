@@ -35,7 +35,7 @@ foreground = ${colors.color1}
 line-size = 2
 padding = 1
 
-font-0=misc termsyn:size=500;1
+font-0=misc termsyn:size=10;1
 font-1=Font Awesome 5 Free Solid:size=8;3
 font-2=Font Awesome 5 Free Regular:size=8;3
 font-3=Font Awesome 5 Brands:size=8;3
