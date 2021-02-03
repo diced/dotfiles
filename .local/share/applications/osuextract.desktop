@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=osu! Extract
-Exec=/home/diced/.local/bin/osu.sh %u
+Exec=/home/diced/scripts/osu.sh %u
 Type=Application
 Icon=lutris_osu
 Categories=Games;wine;lutris;
