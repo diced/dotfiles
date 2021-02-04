@@ -1,23 +1,4 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
-;==========================================================
-
 [colors]
-
 background = #14161b
 color1 = #3498db
 color2 = #fff
@@ -35,14 +16,14 @@ foreground = ${colors.color1}
 line-size = 2
 padding = 1
 
-font-0=misc termsyn:size=10;1
+font-0=m:size=10;1
 font-1=Font Awesome 5 Free Solid:size=8;3
 font-2=Font Awesome 5 Free Regular:size=8;3
 font-3=Font Awesome 5 Brands:size=8;3
 font-4=wuncon siji:style=Regular:size=12;1
 modules-left = bspwm 
 modules-center = xwindow
-modules-right = eth wlan pulseaudio cpu memory time
+modules-right = eth wlan pulseaudio cpu memory time battery
 
 scroll-up = bspwm-wsnext
 scroll-down = bspwm-wsprev
@@ -170,9 +151,7 @@ label = %time%
 [module/battery]
 type = internal/battery
 
-format-prefix = "\ue005"
-
-full-at = 95
+label-prefix = "234"
 
 battery = BAT0
 adapter = ADP1

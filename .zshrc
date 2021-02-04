@@ -7,10 +7,10 @@ export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 export ZSH="/home/diced/.oh-my-zsh"
 
 # vars
-ZSH_AUTOSUGGEST_USE_ASYNC=true
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-CASE_SENSITIVE="false"
-PF_INFO="ascii title os wm shell editor kernel uptime pkgs memory"
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export CASE_SENSITIVE="false"
+export PF_INFO="ascii title os wm shell editor kernel uptime pkgs memory"
 # uploaders
 export ZIP_AUTH=$(cat ~/.zip_auth)
 export VCH_AUTH=$(cat ~/.vch_auth)
