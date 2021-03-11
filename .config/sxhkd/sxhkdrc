@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty --title diced@arch
+	alacritty
 
 # program launcher
 super + @space
@@ -130,7 +130,7 @@ XF86AudioMute
 
 
 super + {v,d}
-  rofi -modi 'drun' -show 'drun' -theme /home/diced/.config/rofi/material.rasi
+  rofi -modi 'drun' -show 'drun' -theme /home/$USER/.config/rofi/material.rasi
 
 Print
 	~/scripts/pic.sh
