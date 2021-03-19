@@ -1,20 +1,19 @@
 configuration {
-  display-run: "2342 ";
-  display-drun: "";
-  display-window: "  ";
-  drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-  font: "JetBrainsMono  10";
   modi: "drun";
+  display-drun: "drun:";
+  drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+  font: "Jetbrains Mono 12";
   show-icons: true;
 }
 
 * {
-  bg: #151515;
-  bg-alt: #232323;
+  bg: #121212;
+  bg-alt: #121212;
   fg: #FFFFFF;
   fg-alt: #424242;
   background-color: @bg;
-  
+  border-color: #3498db;
+
   border: 0;
   margin: 0;
   padding: 0;
@@ -25,6 +24,10 @@ element {
   padding: 12;
   orientation: horizontal;
   text-color: @fg-alt;
+}
+
+element-icon {
+  size: 16;
 }
 
 element selected {
@@ -38,16 +41,18 @@ entry {
 }
 
 inputbar {
-  children: [entry];
+  border: 0 0 1 0;
+  children: [prompt, entry];
 }
 
 listview {
   background-color: @bg;
-  columns: 1;
+  columns: 2;
   lines: 8;
 }
 
 mainbox {
+  border: 1;
   background-color: @bg;
   children: [inputbar, listview];
 }
@@ -55,9 +60,9 @@ mainbox {
 prompt {
   background-color: @bg-alt;
   enabled: true;
-  font: "FontAwesome 12";
+  font: "Jetbrains Mono 12";
   padding: 12 0 0 12;
-  text-color: @fg;
+  text-color: @fg-alt;
 }
 
 window {

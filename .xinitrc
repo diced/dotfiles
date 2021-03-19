@@ -7,6 +7,7 @@ xsetroot -cursor_name left_ptr &
 picom --experimental-backends &
 dunst &
 flameshot &
+# xscreensaver &
 ~/.fehbg &
 ~/.config/polybar/launch.sh &
 
