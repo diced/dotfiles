@@ -1,7 +1,6 @@
 ohmyzsh/ohmyzsh
 ohmyzsh/ohmyzsh path:plugins/yarn
 
-romkatv/powerlevel10k
 zsh-users/zsh-syntax-highlighting 
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
