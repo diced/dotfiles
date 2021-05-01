@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-center '/home/diced/Downloads/wallhaven-2kloxx.jpg' 
+feh --no-fehbg --bg-tile '/home/diced/.config/solid_bg.png' 
