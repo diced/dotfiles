@@ -6,7 +6,7 @@ font:
 colors:
 
   primary:
-    background: '#13151a'
+    background: '#131314'
     foreground: '#ffffff'
 
   cursor:
