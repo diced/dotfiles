@@ -11,6 +11,7 @@ export PF_INFO="ascii title os wm shell editor kernel uptime pkgs memory"
 # uploaders
 export ZIP_AUTH=$(cat ~/.zip_auth)
 export VCH_AUTH=$(cat ~/.vch_auth)
+export RIMG_AUTH=$(cat ~/.rimg_auth)
 
 # aliases
 alias config='/usr/bin/git --git-dir=/home/diced/.cfg/ --work-tree=/home/diced'
