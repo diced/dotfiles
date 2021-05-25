@@ -8,6 +8,7 @@ export DISABLE_AUTO_UPDATE=true
 export CASE_SENSITIVE="false"
 export PF_INFO="ascii title os wm shell editor kernel uptime pkgs memory"
 
+
 # uploaders
 export ZIP_AUTH=$(cat ~/.zip_auth)
 export VCH_AUTH=$(cat ~/.vch_auth)
@@ -24,6 +25,5 @@ bindkey '^H' backward-kill-word
 # antibody
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins
-source $HOME/.cargo/env
 
 eval "$(starship init zsh)"

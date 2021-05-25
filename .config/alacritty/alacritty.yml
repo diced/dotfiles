@@ -17,7 +17,7 @@ colors:
     background: '#feffff'
 
   normal:
-    black:   '#000000'
+    black:   '#737373'
     red:     '#ff5c57'
     green:   '#5af78e'
     yellow:  '#f3f99d'

@@ -8,7 +8,7 @@ request() {
 if [ $1 == "zipline" ]
 then
   # zipline
-  URL=$(request "https://diced.wtf/api/upload" $ZIP_AUTH);
+  URL=$(request "https://i.diced.me/api/upload" $ZIP_AUTH);
   echo -n $URL | xsel -ib
 elif [ $1 == "rimg" ]
 then

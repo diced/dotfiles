@@ -1,0 +1,9 @@
+WARP=$(curl https://cloudflare.com/cdn-cgi/trace --silent | grep warp | sed -e 's/warp=//')
+
+if [ "$WARP" = "off" ]; then
+  sudo wg-quick up .config/wgcf/wgcf-profile.conf 2> /dev/null
+  echo "WARP is on";
+else
+  sudo wg-quick down .config/wgcf/wgcf-profile.conf 2> /dev/null
+  echo "WARP is off";
+fi;
