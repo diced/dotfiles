@@ -4,7 +4,7 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc config window_gap             10
+bspc config window_gap             100r
 bspc config split_ratio            0
 
 bspc config borderless_monocle     true

@@ -10,17 +10,13 @@ super + Return
 super + @space
 	dmenu_run
 
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd
-
 #
 # bspwm hotkeys
 #
 
-# quit/restart bspwm
-super + alt + {q,r}
-	bspc {quit,wm -r}
+# quit/restart bspwm/sxhkd
+super + alt + {q,r,s}
+	{bspc quit, bspc wm -r, pkill -USR1 -x sxhkd}
 
 # close and kill
 super + {_,shift + }w
@@ -59,8 +55,8 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
-super + {p,b,comma,period}
-	bspc node -f @{parent,brother,first,second}
+# super + {p,b,comma,period}
+# 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
@@ -109,11 +105,11 @@ super + ctrl + shift + space
 #
 
 # expand a window by moving one of its side outward
-super + alt + {h,j,k,l}
+super + alt + {Left,Down,Up,Right}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # contract a window by moving one of its side inward
-super + alt + shift + {h,j,k,l}
+super + alt + shift + {Left,Down,Up,Right}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 # move a floating window
@@ -121,19 +117,21 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 XF86AudioLowerVolume
-	pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 XF86AudioRaiseVolume
-	pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 XF86AudioMute
-  pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo toggle
+  	pactl set-sink-mute   @DEFAULT_SINK@ toggle
 
-
+# enable cf warp or restart polybar
+super + {a,p}
+        ~/{scripts/warp,.config/polybar/launch.sh}
 
 super + {v,d}
-  rofi -modi 'drun' -show 'drun' -theme /home/$USER/.config/rofi/material.rasi
+  	rofi -modi 'drun' -show 'drun' -theme /home/$USER/.config/rofi/material.rasi
 
 Print
-	~/scripts/pic.sh
+	~/scripts/pic.sh > /home/diced/test.txt
 
 ctrl + Print
 	flameshot gui

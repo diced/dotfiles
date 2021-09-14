@@ -1,0 +1,1 @@
+youtube-dl -x --audio-format=mp3 --output="$1.%(ext)s" "$2"

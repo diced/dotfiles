@@ -1,5 +1,5 @@
 [global]
-    font = Jetbrains Mono 11
+    font = Jetbrains Mono 12
     markup = full
     format = "<b>%s</b>\n%b"
     sort = yes
@@ -9,13 +9,14 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    geometry = "350x5-10+35"
+    geometry = "350x5-10+40"
     shrink = no
     transparency = 5
     idle_threshold = 120
     monitor = 0
+    ellipsize = end
     follow = mouse
-    sticky_history = yes
+    sticky_history = no
     history_length = 20
     show_indicators = no
     line_height = 0
@@ -25,12 +26,12 @@
     separator_color = frame
     frame_width = 2
     startup_notification = true
-    dmenu = /usr/bin/rofi -dmenu -p dunst:
     browser = /usr/bin/firefox -new-tab
     icon_position = left
-    max_icon_size = 48
+    max_icon_size = 32
     icon_path = /usr/share/icons/Adwaita/48x48/actions:/usr/share/icons/Adwaita/48x48/apps:/usr/share/icons/Adwaita/48x48/categories:/usr/share/icons/Adwaita/48x48/devices:/usr/share/icons/Adwaita/48x48/emblems:/usr/share/icons/Adwaita/48x48/emotes:/usr/share/icons/Adwaita/48x48/legacy:/usr/share/icons/Adwaita/48x48/mimetypes:/usr/share/icons/Adwaita/48x48/places:/usr/share/icons/Adwaita/48x483/status:/usr/share/icons/Adwaita/16x16/ui:/usr/share/icons/hicolor/48x48/apps
     mouse_left_click = do_action
+
 [shortcuts]
     close_all = ctrl+shift+space
     context = ctrl+shift+minus
@@ -46,7 +47,9 @@
     foreground = "#fff"
     frame_color = "#3498db"
     timeout = 3
+
 [urgency_critical]
-    background = "#f71616"
+    background = "#14161b"
     foreground = "#fff"
+    frame_color = "#f71616"
     timeout = 3

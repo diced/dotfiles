@@ -9,7 +9,13 @@ if [ $1 == "zipline" ]
 then
   # zipline
   URL=$(request "https://i.diced.me/api/upload" $ZIP_AUTH);
+  URL=$(echo -n $URL | jq -r '.url')
   echo -n $URL | xsel -ib
+elif [ $1 == "astral" ]
+then
+  # astral.cool
+  URL=$(request "https://api.astral.cool/files" "dicedtomato_9UME8WSFEX1BMBFITEV1CVQ56IJM71")
+  echo -n $URL | jq -r '.data.fileURL'  | xsel -ib
 elif [ $1 == "rimg" ]
 then
   # rimg testing

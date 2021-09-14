@@ -4,7 +4,7 @@ configuration {
   drun-display-format: "{name}";
   font: "Jetbrains Mono 12";
   show-icons: true;
-  width: 32px;
+  width: 32;
   hide-scrollbar: true;
   sidebar-mode: false;
   icon-theme: "Breeze Dark";
@@ -12,23 +12,18 @@ configuration {
 
 * {
   bg: #1b1e24;
-  bg-alt: #272b33;
+  bg-alt: #242629;
   fg: #FFFFFF;
   fg-alt: #424242;
   background-color: @bg;
   border-color: #3498db;
-  text-color: @fg;
-}
 
-element-text, element-icon {
-    background-color: inherit;
-    text-color:       inherit;
-}
-
-window {
-  transparency: "real";
-  text-color: @fg;
+  border: 0;
+  margin: 0;
   padding: 0;
+  spacing: 0;
+
+  text-color: @fg;
 }
 
 element {
