@@ -1,5 +1,4 @@
 format = """
-$username\
 $hostname\
 $directory\
 $vcsh\
@@ -37,13 +36,11 @@ style_user = "bold blue"
 
 [hostname]
 ssh_only = false
-format = "[$hostname]($style) in "
-style = "bold cyan"
+format = " [$hostname]($style) in "
+style = "bold blue"
 
 [character]
 success_symbol = "[❯](bold blue)"
-
-
 
 [aws]
 symbol = "  "

@@ -25,6 +25,8 @@ element {
   text-color: @fg;
   orientation: horizontal;
   padding: 6px;
+  border: 0 0 1 0;
+  border-color: #30302f;
 }
 
 element-icon {
