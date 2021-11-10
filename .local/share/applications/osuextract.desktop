@@ -4,3 +4,4 @@ Exec=/home/diced/scripts/osu.sh %u
 Type=Application
 Icon=lutris_osu
 Categories=Games;wine;lutris;
+MimeType=application/x-osu-beatmap-archive

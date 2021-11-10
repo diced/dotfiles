@@ -1,7 +1,12 @@
 font:
   normal:
-    family: "JetbrainsMono"
+    family: "JetbrainsMono Nerd Font"
   size: 8
+
+window:
+  padding:
+    x: 2
+    y: 2
 
 colors:
   primary:

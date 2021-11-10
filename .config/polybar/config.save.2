@@ -8,8 +8,8 @@ green = #06c26d
 
 [bar/bar]
 enable-ipc = true
-height = 24
-width = 100%
+height = 25
+#width = 100%
 bottom = false
 
 background = ${colors.background}
@@ -23,7 +23,7 @@ font-1=Siji:size=10;1
 
 modules-left = bspwm 
 modules-center = polywins
-modules-right = menu-apps eth battery pulseaudio cpu memory time
+modules-right = eth battery pulseaudio cpu memory time
 
 scroll-up = bspwm-wsnext
 scroll-down = bspwm-wsprev
@@ -79,6 +79,7 @@ label-urgent-foreground = ${colors.red}
 
 [module/cpu]
 type = internal/cpu
+
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.blue}

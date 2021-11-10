@@ -4,14 +4,18 @@
     format = "<b>%s</b>\n%b"
     sort = yes
     indicate_hidden = yes
-    alignment = left
-    bounce_freq = 1000
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    geometry = "350x5-10+40"
+    width = 350
+    height = 500
+    origin = top-right
+    offset = 10x35
+    scale = 0
+    notification_limit = 5
+    frame_width = 2
     shrink = no
-    transparency = 5
+    transparency = 0
     idle_threshold = 120
     monitor = 0
     ellipsize = end
@@ -24,13 +28,15 @@
     padding = 8
     horizontal_padding = 6
     separator_color = frame
-    frame_width = 2
     startup_notification = true
     browser = /usr/bin/firefox -new-tab
     icon_position = left
     max_icon_size = 32
-    icon_path = /usr/share/icons/Adwaita/48x48/actions:/usr/share/icons/Adwaita/48x48/apps:/usr/share/icons/Adwaita/48x48/categories:/usr/share/icons/Adwaita/48x48/devices:/usr/share/icons/Adwaita/48x48/emblems:/usr/share/icons/Adwaita/48x48/emotes:/usr/share/icons/Adwaita/48x48/legacy:/usr/share/icons/Adwaita/48x48/mimetypes:/usr/share/icons/Adwaita/48x48/places:/usr/share/icons/Adwaita/48x483/status:/usr/share/icons/Adwaita/16x16/ui:/usr/share/icons/hicolor/48x48/apps
+    icon_path = /usr/share/icons/breeze-dark/status/symbolic:/usr/share/icons/breeze-dark/status/symbolic:/usr/share/icons/breeze-dark/places/symbolic:/usr/share/icons/breeze-dark/apps/symbolic:/usr/share/icons/breeze-dark/applets/symbolic:/usr/share/icons/hicolor/48x48/apps:/usr/share/icons/breeze-dark/status/16:/usr/share/icons/breeze-dark/status/48:/usr/share/icons/breeze-dark/places/48:/usr/share/icons/breeze-dark/apps/48:/usr/share/icons/breeze-dark/applets/48:/usr/share/icons/hicolor/48x48/apps:/usr/share/icons/breeze-dark/actions/24
     mouse_left_click = do_action
+    progress_bar = true
+    progress_bar_frame_width = 2
+    progress_bar_max_width = 350
 
 [shortcuts]
     close_all = ctrl+shift+space
@@ -40,12 +46,14 @@
     background = "#14161b"
     foreground = "#fff"
     frame_color = "#3498db"
+    highlight = "#ffffff"
     timeout = 3
 
 [urgency_normal]
     background = "#14161b"
     foreground = "#fff"
     frame_color = "#3498db"
+    highlight = "#3498db"
     timeout = 3
 
 [urgency_critical]

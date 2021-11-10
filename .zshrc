@@ -24,7 +24,6 @@ export RIMG_AUTH=$(cat ~/.rimg_auth)
 
 # aliases
 alias config='/usr/bin/git --git-dir=/home/diced/.cfg/ --work-tree=/home/diced'
-alias yay='paru'
 alias ls='ls --color=auto'
 
 # bind

@@ -5,6 +5,7 @@ export QT_STYLE_OVERRIDE=kvantum-dark
 export ELECTRON_TRASH=gio
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 xgamma -gamma 1.09
+xrandr --output HDMI-1 --left-of eDP-1 &
 
 xsetroot -cursor_name left_ptr &
 picom --experimental-backends &
@@ -12,7 +13,7 @@ dunst &
 flameshot &
 # xscreensaver &
 ~/.fehbg &
-fc-cache -f &
+#fc-cache -f &
 ~/.config/polybar/launch.sh &
 
 exec bspwm

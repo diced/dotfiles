@@ -117,27 +117,18 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 XF86AudioLowerVolume
-	volume down
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 XF86AudioRaiseVolume
-	volume up
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 XF86AudioMute
-	volume mute
-XF86AudioPrev
-	playerctl previous
-XF86AudioNext
-	playerctl next
-XF86AudioPlay
-	playerctl play-pause
-XF86MonBrightnessDown
-	brightness down
-XF86MonBrightnessUp
-	brightness up
+  	pactl set-sink-mute   @DEFAULT_SINK@ toggle
+
 # enable cf warp or restart polybar
 super + {a,p}
         ~/{scripts/warp,.config/polybar/launch.sh}
 
 super + {v,d}
-	rofi -modi 'drun' -show 'drun' -theme /home/$USER/.config/rofi/material.rasi
+  	rofi -modi 'drun' -show 'drun' -theme /home/$USER/.config/rofi/material.rasi
 
 Print
 	fu gui

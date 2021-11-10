@@ -2,10 +2,8 @@ configuration {
   modi: "drun";
   display-drun: "search:";
   drun-display-format: "{name}";
-  font: "Jetbrains Mono 12";
+  font: "JetbrainsMono Nerd Font 12";
   show-icons: true;
-  width: 32px;
-  hide-scrollbar: true;
   sidebar-mode: false;
   icon-theme: "Breeze Dark";
 }
@@ -26,9 +24,9 @@ element-text, element-icon {
 }
 
 window {
-  transparency: "real";
   text-color: @fg;
   padding: 0;
+  width: 600px;
 }
 
 element {
@@ -39,7 +37,9 @@ element {
 }
 
 element-icon {
-  size: 72px;
+  size: 64px;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
 }
 
 element-text {
@@ -50,6 +50,7 @@ element-text {
 
 element selected {
   border-radius: 5;
+  border-color: #3498db;
   background-color: @bg-alt;
 }
 
@@ -67,8 +68,10 @@ inputbar {
 listview {
   padding: 12px;
   background-color: @bg;
-  columns: 3;
+  columns: 4;
   lines: 3;
+  dynamic: true;
+  layout: vertical;
 }
 
 mainbox {
