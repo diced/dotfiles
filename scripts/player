@@ -1,0 +1,14 @@
+meta=`playerctl metadata`
+playing=`playerctl metadata 2>&1 >/dev/null`
+
+if [ "$playing" == "No player could handle this command" ] ; then
+  exit 0
+else
+  album=`playerctl metadata --format "{{ album }}"`
+  title=`playerctl metadata --format "{{ title }}"`
+  if [ "$album" == "" ] ; then
+    echo -e "<b>$title</b>\n`playerctl metadata --format '{{ artist }}'`"
+  else
+    echo -e "<b>$title</b>\n`playerctl metadata --format '{{ album }} - {{ artist }}'`"
+  fi
+fi
