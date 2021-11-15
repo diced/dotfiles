@@ -1,6 +1,6 @@
 configuration {
   modi: "drun";
-  display-drun: "search:";
+  display-drun: "";
   drun-display-format: "{name}";
   font: "JetbrainsMono Nerd Font 12";
   show-icons: true;
@@ -75,7 +75,7 @@ mainbox {
 prompt {
   background-color: @bg;
   enabled: true;
-  font: "Jetbrains Mono 12";
-  padding: 12 0 0 12;
+  font: "Jetbrains Mono Nerd Font 12";
+  padding: 12 12 0 12;
   text-color: @fg;
 }

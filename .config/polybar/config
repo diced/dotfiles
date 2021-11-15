@@ -2,13 +2,15 @@
 background = #1b1e24
 hover = #272b33
 blue = #3498db
-white = #fff
+white = #ffffff
+used_white = #b8b8b8
+empty_white = #666666
 red = #f71616
 green = #06c26d
 
 [bar/bar]
 enable-ipc = true
-height = 24
+height = 28
 width = 100%
 bottom = false
 
@@ -18,12 +20,11 @@ foreground = ${colors.blue}
 line-size = 2
 padding = 0
 
-font-0=JetbrainsMono Nerd Font:size=10;1
-font-1=Siji:size=10;1
+font-0=JetbrainsMono Nerd Font:size=10.8;2.5
 
 modules-left = bspwm 
-modules-center = polywins
-modules-right = menu-apps eth battery pulseaudio cpu memory time
+modules-center = xwindow
+modules-right = eth battery pulseaudio cpu memory time
 
 scroll-up = bspwm-wsnext
 scroll-down = bspwm-wsprev
@@ -32,29 +33,21 @@ wm-restack = bspwm
 override-redirect = false
 tray-position = right
 
-; module ???
 
-[module/polywins]
-type = custom/script
-exec = ~/.config/polybar/polywins.sh 2>/dev/null
-format = <label>
-label = %output%
-label-padding = 1
-tail = true
-
+; modules
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:50:...%
-label-foreground = ${colors.white} 
-label-background = ${colors.background} 
-label-padding = 2
+label-foreground = ${colors.white}
+label-background = ${colors.hover}
+label-underline = ${colors.blue}
+label-padding = 1
 
-
-[module/bspwm] 
-type = internal/bspwm 
-format = <label-state> <label-mode> 
-format-foreground = ${colors.blue} 
-format-background = ${colors.background} 
+[module/bspwm]
+type = internal/bspwm
+format = <label-state> <label-mode>
+format-foreground = ${colors.blue}
+format-background = ${colors.background}
 index-sort = true
 enable-click = true
 reverse-scroll = false
@@ -65,14 +58,14 @@ label-focused-padding = 1
 label-focused-background = ${colors.hover}
 
 label-occupied = %index%
-label-occupied-foreground = #b8b8b8
+label-occupied-foreground = ${colors.used_white}
 label-occupied-padding = 1
 
 label-empty = %index%
-label-empty-foreground = #666
+label-empty-foreground = ${colors.empty_white}
 label-empty-padding = 1
 
-label-urgent = 
+label-urgent = %index%
 label-urgent-padding = 1
 label-urgent-foreground = ${colors.red}
 
@@ -80,23 +73,23 @@ label-urgent-foreground = ${colors.red}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 format-padding = 1
 format-foreground = ${colors.white}
 label = %percentage%%
 
+
 [module/memory]
-type = internal/memory
+type = custom/script
+exec = mem.sh
 
 interval = 2
 
 format-padding = 1
-format-prefix = " "
+format-prefix = "﬙ "
 format-prefix-foreground = ${colors.blue}
 format-foreground = ${colors.white}
-
-label = %mb_used% (%percentage_used%%)
 
 [module/wlan]
 type = internal/network
@@ -106,12 +99,12 @@ interval = 3.0
 format-disconnected-padding = 1
 format-connected-padding = 1
 
-format-connected-prefix = " "
+format-connected-prefix = "直 "
 format-connected-foreground = ${colors.green}
 label-connected = %ifname% %downspeed%
 label-connected-foreground = ${colors.green}
 
-format-disconnected-prefix = " "
+format-disconnected-prefix = "睊 "
 format-disconnected-foreground = ${colors.red}
 label-disconnected = disconnected
 label-disconnected-foreground = ${colors.red}
@@ -125,13 +118,13 @@ interval = 3.0
 format-disconnected-padding = 1
 format-connected-padding = 1
 
-format-connected-prefix = " "
+format-connected-prefix = " "
 format-connected-foreground = ${colors.green}
 
-label-connected = %ifname% %downspeed%
+label-connected = %downspeed%
 label-connected-foreground = ${colors.green}
 
-format-disconnected-prefix = " "
+format-disconnected-prefix = " "
 format-disconnected-foreground = ${colors.red}
 
 label-disconnected = disconnected
@@ -141,19 +134,19 @@ label-disconnected-foreground = ${colors.red}
 [module/time]
 type = internal/date
 interval = 1.0
-format-margin = 0
 
 time = %I:%M:%S %p
 time-alt = %Y-%m-%d%
 
-format-prefix = " "
+format-padding = 1
+format-prefix = " "
 format-prefix-foreground = ${colors.blue}
 
 format = <label>
-format-padding = 1
 
 label-foreground = ${colors.white}
 label = %time%
+
 
 [module/battery]
 type = internal/battery
@@ -178,22 +171,22 @@ label-charging = %percentage%%
 label-discharging = %percentage%%
 label-full = %percentage%%
 
-ramp-capacity-0 = "%{T2}"
-ramp-capacity-1 = "%{T2}"
-ramp-capacity-2 = "%{T2}"
-ramp-capacity-3 = "%{T2}"
-ramp-capacity-4 = "%{T2}"
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = ""
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 
-animation-discharging-0 = "%{T2}"
-animation-discharging-1 = "%{T2}"
-animation-discharging-2 = "%{T2}"
-animation-discharging-3 = "%{T2}"
+animation-discharging-0 = " "
+animation-discharging-1 = " "
+animation-discharging-2 = " "
+animation-discharging-3 = " "
 animation-discharging-framerate = 750
 
-animation-charging-0 = "%{T2}"
-animation-charging-1 = "%{T2}"
-animation-charging-2 = "%{T2}"
-animation-charging-3 = "%{T2}"
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
 animation-charging-framerate = 750
 
 [module/pulseaudio]
@@ -202,7 +195,7 @@ type = internal/pulseaudio
 click-middle = pavucontrol &
 format-volume-padding = 1
 format-volume = <label-volume>
-format-volume-prefix = " "
+format-volume-prefix = "墳 "
 format-volume-prefix-foreground = ${colors.blue}
 label-volume = %percentage%%
 
@@ -211,7 +204,7 @@ interval = 5
 format-volume-foreground = ${colors.white}
 format-volume-background = ${colors.background}
 
-label-muted =  muted
+label-muted = " 婢 muted"
 label-muted-foreground = ${colors.red}
 
 
