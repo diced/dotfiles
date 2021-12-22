@@ -1,0 +1,3 @@
+[submodule ".local/share/gnome-shell/extensions"]
+	path = .local/share/gnome-shell/extensions
+	url = git@github.com:diced/gnome-extensions
