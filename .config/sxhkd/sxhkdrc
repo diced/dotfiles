@@ -56,7 +56,7 @@ super + {_,shift + }{h,j,k,l}
 
 # focus the node for the given path jump
 # super + {p,b,comma,period}
-# 	bspc node -f @{parent,brother,first,second}
+#	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
@@ -118,11 +118,11 @@ super + {Left,Down,Up,Right}
 
 # multimedia/brightness
 XF86AudioLowerVolume
-	volume down
+	~/scripts/volume.sh down
 XF86AudioRaiseVolume
-	volume up
+	~/scripts/volume.sh up
 XF86AudioMute
-	volume mute
+	~/scripts/volume.sh mute
 XF86AudioPrev
 	playerctl previous
 XF86AudioNext
@@ -130,21 +130,24 @@ XF86AudioNext
 XF86AudioPlay
 	playerctl play-pause
 XF86MonBrightnessDown
-	brightness down
+	~/scripts/brightness.sh down
 XF86MonBrightnessUp
-	brightness up
+	~/scripts/brightness.sh up
 
 # restart polybar
 super + p
-        ~/.config/polybar/launch.sh
+	~/.config/polybar/launch.sh
 
 # rofi
 super + {d,v}
-	rofi -modi 'drun' -show 'drun' -theme $HOME/.config/rofi/theme.rasi
+	rofi -modi 'drun' -show 'drun' -theme ~/.config/rofi/theme.rasi
 
-# screenshot
+# screenshot/record
 Print
 	fu gui
 
 ctrl + Print
 	fu gui -n
+
+ctrl + alt + Print
+	~/scripts/record.sh

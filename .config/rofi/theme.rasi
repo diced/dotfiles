@@ -5,7 +5,7 @@ configuration {
   font: "JetbrainsMono Nerd Font 12";
   show-icons: true;
   sidebar-mode: false;
-  icon-theme: "Breeze Dark";
+  icon-theme: "Papirus Dark";
 }
 
 * {

@@ -32,7 +32,8 @@
     browser = /usr/bin/firefox -new-tab
     icon_position = left
     max_icon_size = 32
-    icon_path = /usr/share/icons/breeze-dark/status/symbolic:/usr/share/icons/breeze-dark/status/symbolic:/usr/share/icons/breeze-dark/places/symbolic:/usr/share/icons/breeze-dark/apps/symbolic:/usr/share/icons/breeze-dark/applets/symbolic:/usr/share/icons/hicolor/48x48/apps:/usr/share/icons/breeze-dark/status/16:/usr/share/icons/breeze-dark/status/48:/usr/share/icons/breeze-dark/places/48:/usr/share/icons/breeze-dark/apps/48:/usr/share/icons/breeze-dark/applets/48:/usr/share/icons/hicolor/48x48/apps:/usr/share/icons/breeze-dark/actions/24
+    icon_path = /usr/share/icons/Papirus-Dark/symbolic/status:/usr/share/icons/Papirus-Dark/22x22/actions:/usr/share/icons/Papirus-Dark/32x32/actions:/usr/share/icons/Papirus-Dark/32x32/apps:/usr/share/icons/Papirus-Dark/32x32/categories:/usr/share/icons/Papirus-Dark/32x32/devices:/usr/share/icons/Papirus-Dark/32x32/emblems:/usr/share/icons/Papirus-Dark/32x32/emotes:/usr/share/icons/Papirus-Dark/32x32/mimetypes:/usr/share/icons/Papirus-Dark/32x32/places:/usr/share/icons/Papirus-Dark/32x32/status
+#    icon_path = /usr/share/icons/breeze-dark/status/symbolic:/usr/share/icons/breeze-dark/status/symbolic:/usr/share/icons/breeze-dark/places/symbolic:/usr/share/icons/breeze-dark/apps/symbolic:/usr/share/icons/breeze-dark/applets/symbolic:/usr/share/icons/hicolor/48x48/apps:/usr/share/icons/breeze-dark/status/16:/usr/share/icons/breeze-dark/status/48:/usr/share/icons/breeze-dark/places/48:/usr/share/icons/breeze-dark/apps/48:/usr/share/icons/breeze-dark/applets/48:/usr/share/icons/hicolor/48x48/apps:/usr/share/icons/breeze-dark/actions/24
     mouse_left_click = do_action
     progress_bar = true
     progress_bar_frame_width = 2
