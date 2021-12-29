@@ -17,6 +17,5 @@ flameshot &
 ~/.fehbg &
 ~/.config/polybar/launch.sh &
 alacritty &
-kdeconnect-indicator &
 blueman-applet &
 exec bspwm 

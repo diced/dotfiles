@@ -10,7 +10,7 @@ VERIFYING='#3498db'
 i3lock \
 -i ~/.config/solid_bg.png \
 --bar-indicator \
---bar-pos x+w-1110:y+h-510 \
+--bar-pos x+w-1110:y+h-500 \
 --bar-direction 0 \
 --bar-max-height 10 \
 --bar-base-width 10 \
@@ -22,9 +22,11 @@ i3lock \
 --redraw-thread \
 \
 --clock \
---date-pos "1000000:10000" \
+--date-color ffffff \
+--date-str "%A %B %C" \
 --force-clock \
 --time-color ffffff \
+--time-str "%I:%M %p" \
 --ringver-color 3498db \
 --ringwrong-color f71616 \
 --status-pos x+5:y+h-16 \
@@ -34,7 +36,8 @@ i3lock \
 --wrong-color ffffffff \
 --modif-pos -50:-50 \
 \
---time-font="Jetbrains Mono Nerd Font" \
---verif-font="Jetbrains Mono Nerd Font" \
---wrong-font="Jetbrains Mono Nerd Font" \
+--time-font "Jetbrains Mono Nerd Font" \
+--date-font "Jetbrains Mono Nerd Font" \
+--verif-font "Jetbrains Mono Nerd Font" \
+--wrong-font "Jetbrains Mono Nerd Font" \
 --greeter-font="Jetbrains Mono Nerd Font"
