@@ -19,7 +19,6 @@
 **Editor:** [Visual Studio Code](https://code.visualstudio.com/) and some [Jetbrains IDE's](https://www.jetbrains.com/)
 
 ## Other things
----
 [sxhkd](https://github.com/baskerville/sxhkd) for keybinds
 
 [i3lock-color](https://github.com/Raymo111/i3lock-color) for lockscreen
