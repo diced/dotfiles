@@ -5,15 +5,14 @@
     sort = yes
     indicate_hidden = yes
     show_age_threshold = 60
-    word_wrap = yes
+    word_wrap = no
     ignore_newline = no
-    width = 350
+    width = 400
     height = 500
     origin = top-right
     offset = 10x35
-    scale = 0
     notification_limit = 5
-    frame_width = 2
+    frame_width = 1
     shrink = no
     transparency = 0
     idle_threshold = 120
@@ -21,27 +20,22 @@
     ellipsize = end
     follow = mouse
     sticky_history = no
+    stack_duplicates = false
     history_length = 20
     show_indicators = no
     line_height = 0
-    separator_height = 2
+    separator_height = 1
     padding = 8
-    horizontal_padding = 6
-    separator_color = frame
-    startup_notification = true
-    browser = /usr/bin/firefox -new-tab
+    horizontal_padding = 8
+    browser = xdg-open
+    dmenu = rofi -dmenu -theme ~/.config/rofi/theme.rasi
     icon_position = left
-    max_icon_size = 32
+    max_icon_size = 48
     icon_path = /usr/share/icons/Papirus-Dark/symbolic/status:/usr/share/icons/Papirus-Dark/22x22/actions:/usr/share/icons/Papirus-Dark/32x32/actions:/usr/share/icons/Papirus-Dark/32x32/apps:/usr/share/icons/Papirus-Dark/32x32/categories:/usr/share/icons/Papirus-Dark/32x32/devices:/usr/share/icons/Papirus-Dark/32x32/emblems:/usr/share/icons/Papirus-Dark/32x32/emotes:/usr/share/icons/Papirus-Dark/32x32/mimetypes:/usr/share/icons/Papirus-Dark/32x32/places:/usr/share/icons/Papirus-Dark/32x32/status
-#    icon_path = /usr/share/icons/breeze-dark/status/symbolic:/usr/share/icons/breeze-dark/status/symbolic:/usr/share/icons/breeze-dark/places/symbolic:/usr/share/icons/breeze-dark/apps/symbolic:/usr/share/icons/breeze-dark/applets/symbolic:/usr/share/icons/hicolor/48x48/apps:/usr/share/icons/breeze-dark/status/16:/usr/share/icons/breeze-dark/status/48:/usr/share/icons/breeze-dark/places/48:/usr/share/icons/breeze-dark/apps/48:/usr/share/icons/breeze-dark/applets/48:/usr/share/icons/hicolor/48x48/apps:/usr/share/icons/breeze-dark/actions/24
-    mouse_left_click = do_action
+    mouse_right_click = close_current,do_action
     progress_bar = true
-    progress_bar_frame_width = 2
-    progress_bar_max_width = 350
-
-[shortcuts]
-    close_all = ctrl+shift+space
-    context = ctrl+shift+minus
+    progress_bar_frame_width = 1
+    progress_bar_max_width = 450
 
 [urgency_low]
     background = "#14161b"

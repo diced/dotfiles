@@ -17,7 +17,7 @@ bspc rule -a Alacritty desktop='^1'
 bspc rule -a firefoxdeveloperedition desktop='^2'
 bspc rule -a discord desktop='^3'
 bspc rule -a "Code - Insiders" desktop='^4'
-bspc rule -a Brave-browser desktop='^4'
+bspc rule -a Brave-browser desktop='^2'
 bspc rule -a Steam desktop='^10'
 bspc rule -a MultiMC5 state=floating
 bspc rule -a zoom state=floating follow=on desktop='^8'

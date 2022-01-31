@@ -1,35 +1,29 @@
 font:
   normal:
-    family: "JetbrainsMono Nerd Font"
-  size: 12
+    family: "Jetbrains Mono"
+  size: 9
+
 colors:
   primary:
     background: '#16181c'
     foreground: '#ffffff'
 
   normal:
-    black:   '#282a36'
-    red:     '#ff5c57'
-    green:   '#3ce674'
-    yellow:  '#f3f99d'
-    blue:    '#3396d8'
-    magenta: '#ff6ac1'
-    cyan:    '#5ebeff'
-    white:   '#ffffff'
+    black:   '#16181c'
+    red:     '#ff5370'
+    green:   '#4fd6be'
+    yellow:  '#ffc777'
+    blue:    '#3e68d7'
+    magenta: '#fc7b7b'
+    cyan:    '#86e1fc'
+    white:   '#d0d0d0'
 
   bright:
-    black:   '#686868'
-    red:     '#ff4540'
-    green:   '#61ed8f'
-    yellow:  '#f3f99d'
-    blue:    '#5ebeff'
-    magenta: '#fc32a8'
-    cyan:    '#85ceff'
-    white:   '#ffffff'
-
-shell:
-  program: /bin/zsh
-
-window:
-  startup_mode: Maximized
-
+    black:   '#828bb8'
+    red:     '#ff98a4'
+    green:   '#c3e88d'
+    yellow:  '#ffc777'
+    blue:    '#82aaff'
+    magenta: '#ff966c'
+    cyan:    '#b4f9f8'
+    white:   '#5f8787'

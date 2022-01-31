@@ -40,4 +40,6 @@ i3lock \
 --date-font "Jetbrains Mono Nerd Font" \
 --verif-font "Jetbrains Mono Nerd Font" \
 --wrong-font "Jetbrains Mono Nerd Font" \
---greeter-font="Jetbrains Mono Nerd Font"
+--greeter-font="Jetbrains Mono Nerd Font";
+
+sudo systemctl restart bluetooth.service

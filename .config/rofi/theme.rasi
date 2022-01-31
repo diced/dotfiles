@@ -1,11 +1,10 @@
 configuration {
   modi: "drun";
   display-drun: "";
-  drun-display-format: "{name}";
   font: "JetbrainsMono Nerd Font 12";
   show-icons: true;
-  sidebar-mode: false;
   icon-theme: "Papirus Dark";
+  scroll-method: 1;
 }
 
 * {
@@ -26,7 +25,7 @@ element {
   orientation: horizontal;
   padding: 6px;
   border: 0 0 1 0;
-  border-color: #30302f;
+  border-color: #323842;
 }
 
 element-icon {
@@ -43,7 +42,6 @@ element-text {
 }
 
 element selected {
-  border-color: #3498db;
   background-color: @bg-alt;
 }
 

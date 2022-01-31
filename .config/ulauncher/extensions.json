@@ -5,5 +5,19 @@
         "updated_at": "2022-01-20T18:58:09.119082",
         "last_commit": "ee0903174c8b87cd1f7c3b6c1acef10702547507",
         "last_commit_time": "2021-08-12T06:39:56"
+    },
+    "com.github.episode6.ulauncher-system-management-direct": {
+        "id": "com.github.episode6.ulauncher-system-management-direct",
+        "url": "https://github.com/episode6/ulauncher-system-management-direct",
+        "updated_at": "2022-01-20T20:03:32.993929",
+        "last_commit": "c6c0febff9eae884e4a8bc97d057480436fb5c9b",
+        "last_commit_time": "2020-07-22T18:41:36"
+    },
+    "com.github.the-lay.ulauncher-spotify-api": {
+        "id": "com.github.the-lay.ulauncher-spotify-api",
+        "url": "https://github.com/the-lay/ulauncher-spotify-api",
+        "updated_at": "2022-01-21T12:20:44.235477",
+        "last_commit": "fada055fca1ed1787e3908c66f3e326f7babb886",
+        "last_commit_time": "2021-08-30T16:47:42"
     }
 }

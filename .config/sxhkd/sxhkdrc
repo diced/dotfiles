@@ -6,10 +6,6 @@
 super + Return
 	alacritty
 
-# program launcher
-super + @space
-	dmenu_run
-
 #
 # bspwm hotkeys
 #
@@ -51,7 +47,7 @@ super + ctrl + {m,x,y,z}
 #
 
 # focus the node in the given direction
-super + {_,shift + }{h,j,k,l}
+super + {_,shift + }{Left,Down,Up,Down}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
@@ -116,31 +112,21 @@ super + alt + shift + {Left,Down,Up,Right}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# multimedia/brightness
-XF86AudioLowerVolume
-	~/scripts/volume.sh down
-XF86AudioRaiseVolume
-	~/scripts/volume.sh up
-XF86AudioMute
-	~/scripts/volume.sh mute
+# multimedia
 XF86AudioPrev
 	playerctl previous
 XF86AudioNext
 	playerctl next
 XF86AudioPlay
 	playerctl play-pause
-XF86MonBrightnessDown
-	~/scripts/brightness.sh down
-XF86MonBrightnessUp
-	~/scripts/brightness.sh up
 
 # restart polybar
 super + p
 	~/.config/polybar/launch.sh
 
-# rofi
-super + {d,v}
-	rofi -modi 'drun' -show 'drun' -theme ~/.config/rofi/theme.rasi
+# ulauncher
+super + {@space,v,d}
+	ulauncher-toggle
 
 # screenshot/record
 Print

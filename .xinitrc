@@ -4,6 +4,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export ELECTRON_TRASH=gio
 export MESA_GL_VERSION_OVERRIDE=4.3
 export QT_STYLE_OVERRIDE=kvantum
+export BROWSER=brave
 
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 xset +fp /home/diced/.fonts
@@ -12,10 +13,16 @@ xrandr --dpi 96 &
 
 xsetroot -cursor_name left_ptr &
 picom --experimental-backends &
-dunst &
 flameshot &
-~/.fehbg &
+fehbg &
 ~/.config/polybar/launch.sh &
+xfce4-volumed-pulse &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+GDK_BACKEND=x11 ulauncher --hide-window --no-window-shadow &
+
 alacritty &
-blueman-applet &
+brave &
+
+sudo systemctl start docker &
+
 exec bspwm 
