@@ -1,9 +1,10 @@
+ohmyzsh/ohmyzsh
 romkatv/powerlevel10k
 
 ohmyzsh/ohmyzsh path:plugins/yarn
 ohmyzsh/ohmyzsh path:plugins/npm
 ohmyzsh/ohmyzsh path:plugins/history-substring-search
 
-zsh-users/zsh-syntax-highlighting 
+zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions

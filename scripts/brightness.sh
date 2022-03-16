@@ -2,10 +2,10 @@ function notif {
    brightness=`brightnessctl -m | cut -d, -f4 | tr -d %`
    echo $brightness
    if [ "$brightness" -lt "51" ]; then
-      dunstify -i display-brightness-low-symbolic "Brightness: " -h int:value:"$brightness" -r 68;
+      notify-call -i display-brightness-low-symbolic "Brightness: " -h int:value:"$brightness" -R 68;
    else
       if [ "$brightness" -lt "101" ]; then
-         dunstify -i display-brightness-high-symbolic "Brightness: " -h int:value:"$brightness" -r 68;
+         notify-call -i display-brightness-high-symbolic "Brightness: " -h int:value:"$brightness" -R 68;
       fi
    fi
 }

@@ -6,7 +6,7 @@
     "hotkey-show-app": null,
     "render-on-screen": "mouse-pointer-monitor",
     "show-indicator-icon": false,
-    "show-recent-apps": "0",
-    "terminal-command": "",
+    "show-recent-apps": "6",
+    "terminal-command": "alacritty",
     "theme-name": "Matcha-dark-azul"
 }

@@ -11,22 +11,22 @@ orange = #ff8757
 
 [bar/bar]
 enable-ipc = true
-height = 28
+height = 30
 width = 100%
 bottom = false
-
 background = ${colors.background}
 foreground = ${colors.blue}
 
 line-size = 2
 padding = 0
 
-font-0=Font Awesome 5 Free Solid:size=10;0
-font-1=Jetbrains Mono Nerd Font:size=10.8;1.5
+font-0=Calibri:size=13.6;2
+font-1=Twemoji:scale=5;2
+font-2=Font Awesome 6 Free Solid:size=12;2
+font-3=battery:size=12;2
 
-modules-left = bspwm
-modules-center = xwindow
-modules-right = eno pulseaudio cpu memory time
+modules-left = bspwm xwindow
+modules-right = battery eno pulseaudio cpu memory time
 
 scroll-up = bspwm-wsnext
 scroll-down = bspwm-wsprev
@@ -35,13 +35,11 @@ wm-restack = bspwm
 override-redirect = false
 tray-position = right
 
-
-
 # modules
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:50:...%
-label-foreground = ${colors.blue}
+label = %title:0:70:...%
+label-foreground = ${colors.white}
 label-padding = 1
 
 [module/bspwm]
@@ -53,51 +51,29 @@ index-sort = true
 enable-click = true
 reverse-scroll = false
 
-label-focused = 
-label-focused-font = 2
-label-focused-padding = 1
+label-focused = %index%
+label-focused-padding = 3
 label-focused-foreground = ${colors.blue}
 label-focused-underline = ${colors.blue}
 label-focused-background = ${colors.hover}
 
-label-occupied = 
-label-occupied-font = 2
-label-occupied-padding = 1
+label-occupied = %index%
+label-occupied-padding = 3
 label-occupied-foreground = #b8b8b8
 
-label-empty = 
-label-empty-font = 2
-label-empty-padding = 1
+label-empty = %index%
+label-empty-padding = 3
 label-empty-foreground = #41454b
 
-label-urgent = 
-label-urgent-font = 2
-label-urgent-padding = 1
+label-urgent = %index%
+label-urgent-padding = 3
 label-urgent-foreground = ${colors.red}
-
-; label-focused = %index%
-; label-focused-underline = ${colors.blue}
-; label-focused-padding = 1
-; label-focused-background = ${colors.hover}
-
-; label-occupied = %index%
-; label-occupied-foreground = ${colors.used_white}
-; label-occupied-padding = 1
-
-; label-empty = %index%
-; label-empty-foreground = ${colors.empty_white}
-; label-empty-padding = 1
-
-; label-urgent = %index%
-; label-urgent-padding = 1
-; label-urgent-foreground = ${colors.red}
-
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 format = <ramp-load> <label>
-format-padding = 1
+format-padding = 2
 format-foreground = ${colors.white}
 label = %percentage%%
 label-foreground = ${colors.white}
@@ -112,12 +88,12 @@ ramp-load-2-foreground = ${colors.red}
 
 [module/memory]
 type = custom/script
-exec = ~/scripts/mem.sh
+exec = /media/projects/cpp/real_mem
 
 interval = 2
 
-format-padding = 1
-format-prefix = " "
+format-padding = 2
+format-prefix = "  "
 format-prefix-foreground = ${colors.blue}
 format-foreground = ${colors.white}
 
@@ -126,13 +102,13 @@ type = internal/network
 interface = wlo1
 interval = 3.0
 
-format-connected-padding = 1
+format-connected-padding = 2
 format-connected-foreground = ${colors.green}
-label-connected = " %upspeed%  %downspeed%"
+label-connected = "  %downspeed%"
 label-connected-foreground = ${colors.green}
 
-format-disconnected-padding = 1
-format-disconnected-prefix = "睊 "
+format-disconnected-padding = 2
+format-disconnected-prefix = " "
 format-disconnected-foreground = ${colors.red}
 label-disconnected = disconnected
 label-disconnected-foreground = ${colors.red}
@@ -144,13 +120,13 @@ interface = eno1
 interval = 3.0
 
 
-format-connected-padding = 1
+format-connected-padding = 2
 format-connected-prefix = ""
 format-connected-foreground = ${colors.green}
-label-connected = " %downspeed%"
+label-connected = " %downspeed%"
 label-connected-foreground = ${colors.green}
 
-format-disconnected-padding = 1
+format-disconnected-padding = 2
 format-disconnected-prefix = " "
 format-disconnected-foreground = ${colors.red}
 label-disconnected = disconnected
@@ -161,17 +137,16 @@ type = internal/date
 interval = 1.0
 
 time = %I:%M %p
-time-alt = %I:%M:%S %p - %m/%d/%y
+time-alt = "%I:%M:%S %p   %{F#3498db}%{F-}  %{F#ffffff}%m/%d/%y"
 
-format-padding = 1
-format-prefix = " "
+format-padding = 2
+format-prefix = "  "
 format-prefix-foreground = ${colors.blue}
 
 format = <label>
 
 label-foreground = ${colors.white}
 label = %time%
-
 
 [module/battery]
 type = internal/battery
@@ -181,46 +156,46 @@ adapter = ADP1
 
 poll-interval = 5
 format-charging = <animation-charging> <label-charging>
-format-charging-padding = 1
+format-charging-padding = 2
 format-charging-foreground = ${colors.green}
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-padding = 1
+format-discharging-padding = 2
 format-discharging-foreground = ${colors.red}
 
 format-full = <ramp-capacity> <label-full>
-format-full-padding = 1
+format-full-padding = 2
 format-full-foreground = ${colors.green}
 
 label-charging = %percentage%%
 label-discharging = %percentage%%
 label-full = %percentage%%
 
-ramp-capacity-0 = ""
-ramp-capacity-1 = ""
-ramp-capacity-2 = ""
-ramp-capacity-3 = ""
-ramp-capacity-4 = ""
+ramp-capacity-0 = ""
+ramp-capacity-1 = ""
+ramp-capacity-2 = ""
+ramp-capacity-3 = ""
+ramp-capacity-4 = ""
 
-animation-discharging-0 = ""
-animation-discharging-1 = ""
-animation-discharging-2 = ""
-animation-discharging-3 = ""
-animation-discharging-framerate = 750
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
 
-animation-charging-0 = ""
-animation-charging-1 = ""
-animation-charging-2 = ""
-animation-charging-3 = ""
-animation-charging-framerate = 750
+animation-discharging-0 = ""
+animation-discharging-1 = ""
+animation-discharging-2 = ""
+animation-discharging-3 = ""
+animation-discharging-4 = ""
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
 click-middle = pavucontrol &
-format-volume-padding = 1
+format-volume-padding = 2
 format-volume = <label-volume>
-format-volume-prefix = " "
+format-volume-prefix = "  "
 format-volume-prefix-foreground = ${colors.blue}
 label-volume = %percentage%%
 
@@ -229,7 +204,8 @@ interval = 5
 format-volume-foreground = ${colors.white}
 format-volume-background = ${colors.background}
 
-label-muted = "  muted"
+label-muted = " muted"
+label-muted-padding = 2
 label-muted-foreground = ${colors.red}
 
 

@@ -112,7 +112,17 @@ super + alt + shift + {Left,Down,Up,Right}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# multimedia
+# Fn Keys
+#XF86MonBrightnessDown
+#	~/scripts/brightness.sh down
+#XF86MonBrightnessUp
+#	~/scripts/brightness.sh up
+XF86AudioLowerVolume
+	~/scripts/volume.sh down
+XF86AudioRaiseVolume
+	~/scripts/volume.sh up
+XF86AudioMute
+	~/scripts/volume.sh mute
 XF86AudioPrev
 	playerctl previous
 XF86AudioNext

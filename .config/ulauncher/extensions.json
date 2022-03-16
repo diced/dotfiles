@@ -1,11 +1,4 @@
 {
-    "com.github.tchar.ulauncher-albert-calculate-anything": {
-        "id": "com.github.tchar.ulauncher-albert-calculate-anything",
-        "url": "https://github.com/tchar/ulauncher-albert-calculate-anything",
-        "updated_at": "2022-01-20T18:58:09.119082",
-        "last_commit": "ee0903174c8b87cd1f7c3b6c1acef10702547507",
-        "last_commit_time": "2021-08-12T06:39:56"
-    },
     "com.github.episode6.ulauncher-system-management-direct": {
         "id": "com.github.episode6.ulauncher-system-management-direct",
         "url": "https://github.com/episode6/ulauncher-system-management-direct",
@@ -19,5 +12,12 @@
         "updated_at": "2022-01-21T12:20:44.235477",
         "last_commit": "fada055fca1ed1787e3908c66f3e326f7babb886",
         "last_commit_time": "2021-08-30T16:47:42"
+    },
+    "com.github.tchar.ulauncher-albert-calculate-anything": {
+        "id": "com.github.tchar.ulauncher-albert-calculate-anything",
+        "url": "https://github.com/tchar/ulauncher-albert-calculate-anything",
+        "updated_at": "2022-02-21T20:48:17.072723",
+        "last_commit": "ee0903174c8b87cd1f7c3b6c1acef10702547507",
+        "last_commit_time": "2021-08-12T06:39:56"
     }
 }
