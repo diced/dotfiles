@@ -5,12 +5,14 @@
 <details>
 <summary>dont read</summary>
 <br>
-✓ no anime 😃 (pls dont kill me)
-
+✓ no anime :smiley: (pls dont kill me)
+<br>
 ✓ minimalistic
-
+<br>
 ✓ usable
 </details>
+
+---
 
 **OS:** [Arch Linux](https://archlinux.org)
 
