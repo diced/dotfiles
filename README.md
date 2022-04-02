@@ -1,5 +1,17 @@
 # My dotfiles
 
+![](https://i.diced.tech/u/52SydF.png)
+
+<details>
+<summary>dont read</summary>
+<br>
+✓ no anime 😃 (pls dont kill me)
+
+✓ minimalistic
+
+✓ usable
+</details>
+
 **OS:** [Arch Linux](https://archlinux.org)
 
 **Shell:** [zsh](https://www.zsh.org/)
@@ -64,13 +76,3 @@
 [Jetbrains Mono Nerd font](https://www.nerdfonts.com/) as a monospace font
 
 [Ubuntu Font](https://design.ubuntu.com/font/) as a normal system-wide font
-
----
-
-![](https://i.diced.tech/u/52SydF.png)
-
-✓ no anime 😃 (pls dont kill me)
-
-✓ minimalistic
-
-✓ usable
