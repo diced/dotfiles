@@ -20,12 +20,12 @@ foreground = ${colors.blue}
 line-size = 2
 padding = 0
 
-font-0=Calibri:size=13.6;2
+font-0=Ubuntu:size=12;2
 font-1=Twemoji:scale=5;2
 font-2=Font Awesome 6 Free Solid:size=12;2
 font-3=battery:size=12;2
 
-modules-left = bspwm xwindow
+modules-left = bspwm
 modules-right = battery eno pulseaudio cpu memory time
 
 scroll-up = bspwm-wsnext
