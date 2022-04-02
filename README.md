@@ -14,7 +14,7 @@
 
 **Terminal:** [Alacritty](https://github.com/alacritty/alacritty)
 
-**Launcher:** [Rofi](https://github.com/davatorium/rofi/)
+**Launcher:** [Ulauncher](https://github.com/ulauncher/ulauncher)
 
 **Editor:** [Visual Studio Code](https://code.visualstudio.com/) and some [Jetbrains IDE's](https://www.jetbrains.com/)
 
@@ -55,7 +55,7 @@
 
 [Spotify](https://spotify.com) music
 
-[Firefox](https://www.mozilla.org/en-US/firefox/new) browser
+[Edge](https://www.microsoftedgeinsider.com/en-us/) browser
 
 [Nautilus/Gnome Files](https://gitlab.gnome.org/GNOME/nautilus) file viewer
 
@@ -67,9 +67,9 @@
 
 ---
 
-![](https://i.diced.cf/u/Aj8gHn.png)
+![](https://i.diced.tech/u/52SydF.png)
 
-✓ no anime 😃
+✓ no anime 😃 (pls dont kill me)
 
 ✓ minimalistic
 
