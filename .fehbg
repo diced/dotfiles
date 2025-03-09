@@ -1,2 +1,0 @@
-#!/bin/sh
-feh --no-fehbg --bg-tile '/home/diced/.config/solid_bg.png' 
