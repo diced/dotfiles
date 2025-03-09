@@ -1,0 +1,1 @@
+wallpapers from https://github.com/nixos/nixos-artwork
