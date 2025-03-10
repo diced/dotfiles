@@ -30,6 +30,6 @@ in {
       };
     };
 
-    systemd.services.hyprpaper.postStart = setWallpaperOnLogin;
+    systemd.user.services.hyprpaper.serviceConfig.ExecStartPost = "${setWallpaperOnLogin}";
   };
 }

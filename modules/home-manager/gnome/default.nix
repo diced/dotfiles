@@ -1,6 +1,12 @@
 { pkgs, lib, config, ... }:
 
-{
+let toggleTheme = pkgs.writeShellScript "toggle-theme" ''
+  if test "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-light'"; then
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+  else
+    gsettings set org.gnome.desktop.interface color-scheme prefer-light
+  fi'';
+in {
   options.cfg.gnome.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -10,6 +16,7 @@
     home.packages = with pkgs.gnomeExtensions; [
       tailscale-qs
       vitals
+      bluetooth-battery-meter
     ];
 
     dconf = {
@@ -20,6 +27,7 @@
           enabled-extensions = with pkgs.gnomeExtensions; [
             tailscale-qs.extensionUuid
             vitals.extensionUuid
+            bluetooth-battery-meter.extensionUuid
           ];
           favorite-apps = [
             "brave-browser.desktop"
@@ -49,13 +57,16 @@
         };
 
         "org/gnome/settings-daemon/plugins/power" = {
+          # disables auto brightness from light sensors
           ambient-enabled = false;
+
           power-saver-profile-on-low-battery = true;
+
+          # suspend after 15 minutes on ac+battery
           sleep-inactive-ac-type = "suspend";
           sleep-inactive-ac-timeout = 900;
           sleep-inactive-battery-type = "suspend";
           sleep-inactive-battery-timeout = 900;
-
         };
 
         "org/gnome/desktop/session" = {
@@ -67,6 +78,7 @@
           search = [ "<Super>space" ];
           custom-keybindings = [
             "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+            "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
           ];
         };
 
@@ -74,6 +86,12 @@
           binding = "<Super>Return";
           command = "ghostty";
           name = "Open Terminal";
+        };
+
+        "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+          binding = "<Super>t";
+          command = "${toggleTheme}";
+          name = "Toggle Theme";
         };
 
         "org/gnome/shell/extensions/vitals" = {
