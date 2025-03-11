@@ -123,13 +123,16 @@
     # run any sort of binary
     steam-run
 
-    # video player
+    # video players
     mpv
+    jellyfin-media-player
 
     powertop
 
     # printer
     epson-escpr2
+
+
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
