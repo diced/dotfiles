@@ -1,12 +1,19 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
-let toggleTheme = pkgs.writeShellScript "toggle-theme" ''
-  if test "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-light'"; then
-    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-  else
-    gsettings set org.gnome.desktop.interface color-scheme prefer-light
-  fi'';
-in {
+let
+  toggleTheme = pkgs.writeShellScript "toggle-theme" ''
+    if test "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-light'"; then
+      gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+    else
+      gsettings set org.gnome.desktop.interface color-scheme prefer-light
+    fi'';
+in
+{
   options.cfg.gnome.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

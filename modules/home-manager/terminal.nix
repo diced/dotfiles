@@ -32,20 +32,23 @@
 
       autosuggestion = {
         enable = true;
-        strategy = [ "history" "completion" ];
+        strategy = [
+          "history"
+          "completion"
+        ];
       };
 
       historySubstringSearch.enable = true;
       syntaxHighlighting.enable = true;
 
       initExtra = ''
-      bindkey "^[[1;5C" forward-word
-      bindkey "^[[1;5D" backward-word
-      bindkey "^[[H" beginning-of-line
-      bindkey "^[[F" end-of-line
-      bindkey "[[3~" delete-char
-      bindkey "^H" backward-kill-word
-      bindkey "^[[3;5~" kill-word
+        bindkey "^[[1;5C" forward-word
+        bindkey "^[[1;5D" backward-word
+        bindkey "^[[H" beginning-of-line
+        bindkey "^[[F" end-of-line
+        bindkey "[[3~" delete-char
+        bindkey "^H" backward-kill-word
+        bindkey "^[[3;5~" kill-word
       '';
     };
 

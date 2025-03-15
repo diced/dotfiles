@@ -10,38 +10,49 @@
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
   };
 
-  outputs = inputs@{ self, hyprswitch, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager }: {
-    nixosConfigurations = {
-      nixos-surface = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit self;
-        };
+  outputs =
+    inputs@{
+      self,
+      hyprswitch,
+      nixpkgs,
+      nixpkgs-unstable,
+      nixos-hardware,
+      home-manager,
+    }:
+    {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
 
-        modules = [
-          home-manager.nixosModules.home-manager
-          nixos-hardware.nixosModules.microsoft-surface-pro-intel
-          ./modules/nixos-surface
+      nixosConfigurations = {
+        nixos-surface = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit self;
+          };
 
-          {
-            home-manager = {
-              users.diced = {
-                imports = [./modules/home-manager];
+          modules = [
+            home-manager.nixosModules.home-manager
+            nixos-hardware.nixosModules.microsoft-surface-pro-intel
+            ./modules/nixos-surface
 
-                # options for home manager, per host
-                cfg = {
-                  enable = true;
-                  hyprland.enable = true;
-                  ghostty = true;
+            {
+              home-manager = {
+                users.diced = {
+                  imports = [ ./modules/home-manager ];
+
+                  # options for home manager, per host
+                  cfg = {
+                    enable = true;
+                    hyprland.enable = true;
+                    ghostty = true;
+                  };
                 };
+                useUserPackages = true;
+                useGlobalPkgs = true;
+                extraSpecialArgs = { inherit self; };
               };
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              extraSpecialArgs = { inherit self; };
-            };
-          }
-        ];
+            }
+          ];
+        };
       };
     };
-  };
 }

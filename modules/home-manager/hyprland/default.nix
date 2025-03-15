@@ -1,13 +1,21 @@
-{ self, pkgs, lib, config, ... }:
+{
+  self,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
-let toggleTheme = pkgs.writeShellScript "toggle-theme" ''
-  if test "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-light'"; then
-    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-    hyprctl hyprpaper wallpaper ",${../../../wallpapers/dark.png}"
-  else
-    gsettings set org.gnome.desktop.interface color-scheme prefer-light
-    hyprctl hyprpaper wallpaper ",${../../../wallpapers/light.png}"
-  fi''; in 
+let
+  toggleTheme = pkgs.writeShellScript "toggle-theme" ''
+    if test "$(gsettings get org.gnome.desktop.interface color-scheme)" = "'prefer-light'"; then
+      gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+      hyprctl hyprpaper wallpaper ",${../../../wallpapers/dark.png}"
+    else
+      gsettings set org.gnome.desktop.interface color-scheme prefer-light
+      hyprctl hyprpaper wallpaper ",${../../../wallpapers/light.png}"
+    fi'';
+in
 {
   imports = [
     ./waybar
@@ -236,13 +244,13 @@ let toggleTheme = pkgs.writeShellScript "toggle-theme" ''
           "float, initialTitle:(Add Folder to Workspace)"
           "float, initialTitle:(Open Files)"
           "float, initialTitle:(wants to save)"
-          
+
           "size 70% 60%, initialTitle:(Open Files)"
         ];
       };
     };
 
-    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
     home.sessionVariables.NIXOS_OZONE_WL = "1";
   };

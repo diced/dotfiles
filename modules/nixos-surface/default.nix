@@ -5,17 +5,19 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware.nix
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware.nix
 
-      # allow the use of unstable.[package] in the configuration
-      ./unstable.nix
-    ];
+    # allow the use of unstable.[package] in the configuration
+    ./unstable.nix
+  ];
 
   nix = {
-    settings.experimental-features = ["nix-command" "flakes"];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -53,7 +55,7 @@
   services = {
     printing.enable = true;
     thermald.enable = true;
-    
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -99,7 +101,10 @@
     users.diced = {
       isNormalUser = true;
       description = "diced";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
     };
   };
 
@@ -131,27 +136,28 @@
 
     # printer
     epson-escpr2
-
-
   ];
 
-  environment.gnome.excludePackages = (with pkgs; [
-    atomix
-    cheese
-    epiphany
-    evince
-    geary
-    gedit
-    gnome-characters
-    gnome-music
-    gnome-photos
-    gnome-terminal
-    gnome-tour
-    hitori
-    iagno
-    tali
-    totem
-  ]);
+  environment.gnome.excludePackages = (
+    with pkgs;
+    [
+      atomix
+      cheese
+      epiphany
+      evince
+      geary
+      gedit
+      gnome-characters
+      gnome-music
+      gnome-photos
+      gnome-terminal
+      gnome-tour
+      hitori
+      iagno
+      tali
+      totem
+    ]
+  );
 
   fonts = {
     enableDefaultPackages = true;

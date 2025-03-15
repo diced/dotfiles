@@ -14,7 +14,7 @@
       settings = {
         positionX = "center";
         positionY = "top";
-        
+
         control-center-margin-top = 12;
         control-center-margin-bottom = 12;
         control-center-margin-left = 12;
@@ -91,27 +91,54 @@
               label = "";
               position = "right";
               actions = [
-                { label = "   Reboot"; command = "systemctl reboot"; }
-                { label = "   Lock"; command = "hyprlock"; }
-                { label = "   Logout"; command = "wlogout"; }
-                { label = "   Shut down"; command = "systemctl poweroff"; }
+                {
+                  label = "   Reboot";
+                  command = "systemctl reboot";
+                }
+                {
+                  label = "   Lock";
+                  command = "hyprlock";
+                }
+                {
+                  label = "   Logout";
+                  command = "wlogout";
+                }
+                {
+                  label = "   Shut down";
+                  command = "systemctl poweroff";
+                }
               ];
             };
             "menu#powermode-buttons" = {
               label = "";
               position = "right";
               actions = [
-                { label = "Performance"; command = "powerprofilesctl set performance"; }
-                { label = "Balanced"; command = "powerprofilesctl set balanced"; }
+                {
+                  label = "Performance";
+                  command = "powerprofilesctl set performance";
+                }
+                {
+                  label = "Balanced";
+                  command = "powerprofilesctl set balanced";
+                }
               ];
             };
             "menu#screenshot-buttons" = {
               label = "";
               position = "left";
               actions = [
-                { label = "   Entire screen"; command = "swaync-client -cp && sleep 1 && hyprshot -m output"; }
-                { label = "   Select a region"; command = "swaync-client -cp && sleep 1 && hyprshot -m region"; }
-                { label = "   Open screenshot folder"; command = "xdg-open ~/Pictures"; }
+                {
+                  label = "   Entire screen";
+                  command = "swaync-client -cp && sleep 1 && hyprshot -m output";
+                }
+                {
+                  label = "   Select a region";
+                  command = "swaync-client -cp && sleep 1 && hyprshot -m region";
+                }
+                {
+                  label = "   Open screenshot folder";
+                  command = "xdg-open ~/Pictures";
+                }
               ];
             };
           };

@@ -1,6 +1,9 @@
 { lib, config, ... }:
 
-let timeout = 300; in {
+let
+  timeout = 300;
+in
+{
   options.cfg.hyprland.hypridle = lib.mkOption {
     type = lib.types.bool;
     default = config.cfg.hyprland.enable;
