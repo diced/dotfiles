@@ -26,12 +26,12 @@
 **Shell:** [zsh](https://www.zsh.org/) ([config](./modules/home-manager/terminal.nix))
 
 - [Starship](https://starship.rs/) ([config](./modules/home-manager/starship/starship.toml))
-- [eza](/eza-community/eza)
-- [zoxide](/ajeetdsouza/zoxide)
-- [fastfetch](/fastfetch-cli/fastfetch)
-- [zsh-syntax-highlighting](/zsh-users/zsh-syntax-highlighting)
-- [zsh-autosuggestions](/zsh-users/zsh-autosuggestions)
-- [zsh-history-substring-search](/zsh-users/zsh-history-substring-search)
+- [eza](https://github.com/eza-community/eza)
+- [zoxide](https://github.com/ajeetdsouza/zoxide)
+- [fastfetch](https://github.com/fastfetch-cli/fastfetch)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
 
 ## Gnome
 
@@ -39,29 +39,29 @@
 
 [dconf settings](./modules/home-manager/gnome/default.nix)
 
-- [Tailscale QS](/joaophi/tailscale-gnome-qs)
-- [Bluetooth Battery Meter](/maniacx/Bluetooth-Battery-Meter)
-- [Vitals](/corecoding/Vitals)
+- [Tailscale QS](https://github.com/joaophi/tailscale-gnome-qs)
+- [Bluetooth Battery Meter](https://github.com/maniacx/Bluetooth-Battery-Meter)
+- [Vitals](https://github.com/corecoding/Vitals)
 
 ## Hyprland
 
 ![hyprland ss](./images/hyprland.png)
 
-[Hyprland](/hyprwm/hyprland) ([config](./modules/home-manager/hyprland/default.nix))
+[Hyprland](https://github.com/hyprwm/hyprland) ([config](./modules/home-manager/hyprland/default.nix))
 
-[Waybar](/alexays/waybar) ([config](./modules/home-manager/hyprland/waybar/default.nix))
+[Waybar](https://github.com/alexays/waybar) ([config](./modules/home-manager/hyprland/waybar/default.nix))
 
-[SwayNotificationManager](/ErikReider/SwayNotificationCenter) ([config](./modules/home-manager/hyprland/swaync/default.nix))
+[SwayNotificationManager](https://github.com/ErikReider/SwayNotificationCenter) ([config](./modules/home-manager/hyprland/swaync/default.nix))
 
-[wlogout](/ArtsyMacaw/wlogout) ([config](./modules/home-manager/hyprland/wlogout/default.nix))
+[wlogout](https://github.com/ArtsyMacaw/wlogout) ([config](./modules/home-manager/hyprland/wlogout/default.nix))
 
-[hyprlock](/hyprwm/hyprlock) ([config](./modules/home-manager/hyprland/hyprlock.nix))
+[hyprlock](https://github.com/hyprwm/hyprlock) ([config](./modules/home-manager/hyprland/hyprlock.nix))
 
-[hypridle](/hyprwm/hypridle) ([config](./modules/home-manager/hyprland/hypridle.nix))
+[hypridle](https://github.com/hyprwm/hypridle) ([config](./modules/home-manager/hyprland/hypridle.nix))
 
-[hyprpaper](/hyprwm/hyprpaper) ([config](./modules/home-manager/hyprland/hyprpaper.nix))
+[hyprpaper](https://github.com/hyprwm/hyprpaper) ([config](./modules/home-manager/hyprland/hyprpaper.nix))
 
-[hyprswitch](/H3rmt/hyprswitch) ([style](./modules/home-manager/hyprland/hyprswitch.css))
+[hyprswitch](https://github.com/H3rmt/hyprswitch) ([style](./modules/home-manager/hyprland/hyprswitch.css))
 
 ## Editor
 
@@ -122,4 +122,4 @@ example: [flake.nix](./flake.nix)
 
 ## Disclaimer
 
-A bunch of these configs (especially hyprland) are taken from various different configs + my own styling. This set of dots are super specific to me, so they probably wont work well for you!
+A bunch of these configs (especially hyprland) are taken from various different configs + my own styling changes. Also, this set of dots are super specific to me, so they probably wont work well for you!
