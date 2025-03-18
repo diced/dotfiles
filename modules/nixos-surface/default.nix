@@ -118,6 +118,7 @@
     libwacom-surface
     rnote
     tinymist
+    ticktick
 
     nil
 
