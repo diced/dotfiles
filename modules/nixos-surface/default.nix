@@ -181,6 +181,23 @@
       enable = true;
       xwayland.enable = true;
     };
+
+    # sets gdm settings
+    dconf.profiles.gdm.databases = [
+      {
+        settings = {
+          "org/gnome/desktop/interface" = {
+            clock-format = "12h";
+            clock-show-weekday = true;
+            cursor-theme = "Adwaita";
+            enable-animations = true;
+            icon-theme = "Adwaita";
+            monospace-font-name = "JetBrainsMono Nerd Font Mono 12";
+            show-battery-percentage = true;
+          };
+        };
+      }
+    ];
   };
 
   # This value determines the NixOS release from which the default
