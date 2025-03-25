@@ -2,7 +2,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hw-6_12_18.url = "github:NixOS/nixos-hardware/e1f12151258b12c567f456d8248e4694e9390613";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,6 +20,7 @@
       nixpkgs,
       nixpkgs-unstable,
       nixos-hardware,
+      nixos-hw-6_12_18,
       home-manager,
     }:
     {
@@ -31,7 +35,7 @@
 
           modules = [
             home-manager.nixosModules.home-manager
-            nixos-hardware.nixosModules.microsoft-surface-pro-intel
+            nixos-hw-6_12_18.nixosModules.microsoft-surface-pro-intel
             ./modules/nixos-surface
 
             {
