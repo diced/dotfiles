@@ -12,7 +12,7 @@
         "${../../../../wallpapers/nix-dark.png}"
       ];
 
-      wallpaper = [ ", ${../../../../wallpapers/dark.png}" ];
+      wallpaper = [ ", ${../../../../wallpapers/nix-dark.png}" ];
     };
   };
 }
