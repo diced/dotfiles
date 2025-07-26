@@ -72,6 +72,8 @@
     shell = pkgs.zsh;
   };
 
+  programs.zsh.enable = true;
+
   services.openssh.enable = true;
 
   fonts.packages = with pkgs; [
