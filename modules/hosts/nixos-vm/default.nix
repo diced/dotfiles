@@ -84,6 +84,8 @@
 
     # qemu
     spice-vdagentd.enable = true;
+    spice-webdavd.enable = true;
+    
   };
 
   hardware.enableRedistributableFirmware = lib.mkDefault true;
