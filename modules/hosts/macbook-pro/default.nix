@@ -28,6 +28,9 @@
       };
       options = "--delete-older-than 30d";
     };
+
+    # disable nix channels
+    channel.enable = false;
   };
 
   users.users.diced = {
@@ -43,6 +46,8 @@
     stateVersion = 6;
 
     primaryUser = "diced";
+
+    # macos settings
     defaults = {
       NSGlobalDomain = {
         AppleShowAllFiles = true;

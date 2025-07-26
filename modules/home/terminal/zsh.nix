@@ -1,22 +1,13 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./starship
-  ];
-
   home.packages = with pkgs; [
     zsh
-    eza
-    zoxide
     fastfetch
-    fzf
     tealdeer
   ];
 
   home.shellAliases = {
-    "ls" = "eza";
-
     "p" = "pnpm";
     "pa" = "pnpm add";
     "pad" = "pnpm add -D";
@@ -26,6 +17,31 @@
   };
 
   programs = {
+    eza = {
+      enable = true;
+      enableZshIntegration = true;
+      git = true;
+      icons = "auto";
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    fzf = {
+      # ctrl + r to search history
+      # ctrl + t to search cwd
+
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    nix-index = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     zsh = {
       enable = true;
       history = {
@@ -55,12 +71,26 @@
         bindkey "[[3~" delete-char
         bindkey "^H" backward-kill-word
         bindkey "^[[3;5~" kill-word
-      '';
-    };
 
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
+        eval "$(fnm env --use-on-cd --shell zsh)"
+
+        nix-run() {
+          NIXPKGS_ALLOW_UNFREE=1 nix shell --impure "nixpkgs#$1" \
+            --command sh -c "which ''${1#*.} &>/dev/null && exec ''${1#*.} ''${*:2}; exec ''${*:2}"
+        }
+        nix-shell() {(
+          ARGS=()
+          for i in "$@"; do
+            if [[ -n $OPTION || $i[1] = - ]]; then
+              ARGS+=$i OPTION=1
+              continue
+            fi
+            ARGS+="nixpkgs#$i"
+          done
+          IN_NIX_SHELL=impure NIXPKGS_ALLOW_UNFREE=1 nix shell --impure "''${ARGS[@]}"
+        )}
+        where() { readlink -f "$(which "$@")"; }
+      '';
     };
   };
 }

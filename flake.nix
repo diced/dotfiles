@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +31,7 @@
       nixpkgs,
       nixpkgs-unstable,
       nixpkgs-master,
+      nix-index-database,
       ...
     }@inputs:
     let
@@ -42,8 +48,8 @@
           modules = [
             ./modules/hosts/${hostname}
             home-manager.darwinModules.home-manager
-
             nix-homebrew.darwinModules.nix-homebrew
+
             {
               nix-homebrew = {
                 enable = true;
@@ -62,7 +68,6 @@
           };
           modules = [
             ./modules/hosts/${hostname}
-            home-manager.nixosModules.home-manager
           ];
         };
 
@@ -77,6 +82,7 @@
           };
           modules = [
             ./home/${hostname}
+            nix-index-database.homeModules.nix-index
           ];
         };
     in
