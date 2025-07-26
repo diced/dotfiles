@@ -7,7 +7,7 @@
     # broken as of 1.1.3, installed using brew for now
     # "${homeModules}/ghostty.nix"
 
-    "${homeModules}/vm/hyprland"
+    "${homeModules}/wm/hyprland"
 
     "${homeModules}/git.nix"
   ];
