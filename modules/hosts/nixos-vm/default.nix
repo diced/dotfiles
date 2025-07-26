@@ -82,11 +82,10 @@
 
   services = {
     xserver.displayManager.gdm.enable = true;
-  
-    # qemu
-    services.spice-vdagentd.enable = true;
-  };
 
+    # qemu
+    spice-vdagentd.enable = true;
+  };
 
   # make LIBGL use software rendering
   environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
