@@ -33,7 +33,7 @@
 
     settings = {
       bind = [
-        "$mod, Return, exec, ghostty"
+        "$mod, Return, exec, kitty"
         "$mod, W, killactive,"
         "$mod, E, exec, wlogout"
         "$mod, L, exec, hyprlock"
