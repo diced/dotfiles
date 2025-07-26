@@ -1,6 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -18,6 +19,7 @@
       nix-homebrew,
       home-manager,
       nixpkgs,
+      nixpkgs-unstable,
       ...
     }@inputs:
     let
@@ -46,6 +48,15 @@
           ];
         };
 
+      mkNixosConfiguration =
+        hostname: username:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs hostname;
+          };
+          modules = [ ./modules/hosts/${hostname} ];
+        };
+
       # Function for Home Manager configuration
       mkHomeConfiguration =
         system: username: hostname:
@@ -62,6 +73,8 @@
     in
     {
       darwinConfigurations."macbook-pro" = mkDarwinConfiguration "macbook-pro" "diced";
+
+      nixosConfigurations."nixos-vm" = mkNixosConfiguration "nixos-vm" "diced";
 
       homeConfigurations."macbook-pro" = mkHomeConfiguration "aarch64-darwin" "diced" "macbook-pro";
     };

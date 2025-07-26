@@ -45,5 +45,6 @@
     # util
     macmon
     htop
+    qemu-utils
   ];
 }
