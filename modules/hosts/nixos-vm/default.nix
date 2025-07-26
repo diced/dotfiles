@@ -74,7 +74,15 @@
 
   services.openssh.enable = true;
 
-  environment.systemPackages = with pkgs; [];
+  fonts.packages = with pkgs; [
+    noto-fonts
+    jetbrains-mono
+    nerd-fonts.jetbrains-mono
+    cantarell-fonts
+  ];
+
+  environment.systemPackages = with pkgs; [
+  ];
 
   # enable hyprland in session manager
   programs.hyprland.enable = true;
