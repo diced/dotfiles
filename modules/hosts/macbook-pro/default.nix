@@ -47,8 +47,13 @@
       NSGlobalDomain = {
         AppleShowAllFiles = true;
         AppleShowAllExtensions = true;
-        KeyRepeat = 1;
+        KeyRepeat = 2;
         InitialKeyRepeat = 15;
+      };
+
+      finder = {
+        AppleShowAllFiles = true;
+        ShowPathbar = true;
       };
 
       dock = {
@@ -57,6 +62,8 @@
         autohide-time-modifier = 0.4;
 
         show-recents = true;
+
+        tilesize = 50;
 
         persistent-apps = [
           { app = "/System/Applications/Launchpad.app"; }

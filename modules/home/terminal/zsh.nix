@@ -21,7 +21,7 @@
     "pa" = "pnpm add";
     "pad" = "pnpm add -D";
     "pd" = "pnpm dev";
-    "ps" = "pnpm start";
+    "pns" = "pnpm start";
     "pb" = "pnpm build";
   };
 
@@ -47,7 +47,7 @@
       historySubstringSearch.enable = true;
       syntaxHighlighting.enable = true;
 
-      initExtra = ''
+      initContent = ''
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
         bindkey "^[[H" beginning-of-line
