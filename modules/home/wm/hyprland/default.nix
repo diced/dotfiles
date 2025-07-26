@@ -12,6 +12,8 @@
   ];
 
   home.packages = with pkgs; [
+    font-awesome
+
     # screen capture
     grim
     slurp
@@ -31,7 +33,7 @@
 
     settings = {
       bind = [
-        "$mod, Return, exec, alacritty"
+        "$mod, Return, exec, ghostty"
         "$mod, W, killactive,"
         "$mod, E, exec, wlogout"
         "$mod, L, exec, hyprlock"

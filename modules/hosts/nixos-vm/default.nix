@@ -69,15 +69,14 @@
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs.zsh;
   };
 
   services.openssh.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    alacritty
-    kitty
-  ];
+  environment.systemPackages = with pkgs; [];
 
+  # enable hyprland in session manager
   programs.hyprland.enable = true;
 
   services = {
@@ -87,7 +86,7 @@
     spice-vdagentd.enable = true;
   };
 
-  # make LIBGL use software rendering
+  # make libgl apps use software rendering
   environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
 
   system.stateVersion = "25.05";
