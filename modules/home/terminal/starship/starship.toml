@@ -1,0 +1,72 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$hostname\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$nodejs\
+$python\
+$rust\
+$golang\
+$env_var\
+$custom\
+$cmd_duration\
+$line_break\
+$status\
+$shell\
+$character"""
+
+add_newline = false
+
+[username]
+show_always = true
+format = " [$user]($style)@"
+style_user = "bold blue"
+
+[hostname]
+ssh_only = true
+format = " [$hostname]($style) in "
+style = "bold blue"
+
+[character]
+success_symbol = "[❯](bold blue)"
+
+[directory]
+read_only = " "
+truncate_to_repo = true
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+detect_extensions = ["java", "class", "jar", "cljs", "cljc"]
+
+[nix_shell]
+symbol = " "
+
+[package]
+symbol = "󰏗 "
+display_private = true
+
+[python]
+symbol = " "
+
+[rust]
+symbol = " "

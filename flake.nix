@@ -1,62 +1,68 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixos-hw-6_12_18.url = "github:NixOS/nixos-hardware/e1f12151258b12c567f456d8248e4694e9390613";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
-    inputs@{
-      self,
-      hyprswitch,
-      nixpkgs,
-      nixpkgs-unstable,
-      nixos-hardware,
-      nixos-hw-6_12_18,
-      home-manager,
-    }:
     {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      self,
+      nix-darwin,
+      nix-homebrew,
+      home-manager,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
 
-      nixosConfigurations = {
-        nixos-surface = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+      # Function for nix-darwin system configuration
+      mkDarwinConfiguration =
+        hostname: username:
+        nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
           specialArgs = {
-            inherit self;
+            inherit inputs outputs hostname;
           };
-
           modules = [
-            home-manager.nixosModules.home-manager
-            nixos-hw-6_12_18.nixosModules.microsoft-surface-pro-intel
-            ./modules/nixos-surface
+            ./modules/hosts/${hostname}
+            home-manager.darwinModules.home-manager
 
+            nix-homebrew.darwinModules.nix-homebrew
             {
-              home-manager = {
-                users.diced = {
-                  imports = [ ./modules/home-manager ];
-
-                  # options for home manager, per host
-                  cfg = {
-                    enable = true;
-                    hyprland.enable = true;
-                    ghostty = true;
-                  };
-                };
-                useUserPackages = true;
-                useGlobalPkgs = true;
-                extraSpecialArgs = { inherit self; };
+              nix-homebrew = {
+                enable = true;
+                enableRosetta = true;
+                user = "diced";
               };
             }
           ];
         };
-      };
+
+      # Function for Home Manager configuration
+      mkHomeConfiguration =
+        system: username: hostname:
+        home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { inherit system; };
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            homeModules = "${self}/modules/home";
+          };
+          modules = [
+            ./home/${hostname}
+          ];
+        };
+    in
+    {
+      darwinConfigurations."macbook-pro" = mkDarwinConfiguration "macbook-pro" "diced";
+
+      homeConfigurations."macbook-pro" = mkHomeConfiguration "aarch64-darwin" "diced" "macbook-pro";
     };
 }
