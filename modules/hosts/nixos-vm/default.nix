@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./hw.nix
+    ./packages.nix
   ];
 
   nix = {
@@ -73,18 +74,7 @@
   };
 
   programs.zsh.enable = true;
-
   services.openssh.enable = true;
-
-  fonts.packages = with pkgs; [
-    noto-fonts
-    jetbrains-mono
-    nerd-fonts.jetbrains-mono
-    cantarell-fonts
-  ];
-
-  environment.systemPackages = with pkgs; [
-  ];
 
   # enable hyprland in session manager
   programs.hyprland.enable = true;
@@ -95,6 +85,8 @@
     # qemu
     spice-vdagentd.enable = true;
   };
+
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
 
   # make libgl apps use software rendering
   environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
