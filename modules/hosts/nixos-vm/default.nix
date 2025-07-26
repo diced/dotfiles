@@ -78,8 +78,8 @@
   ];
 
   services = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    xserver.displayManager.gdm.enable = true;
+    xserver.desktopManager.gnome.enable = true;
   };
 
   system.stateVersion = "25.05";
