@@ -76,9 +76,9 @@
     in
     {
       darwinConfigurations."macbook-pro" = mkDarwinConfiguration "macbook-pro" "diced";
-
       nixosConfigurations."nixos-vm" = mkNixosConfiguration "nixos-vm" "diced";
 
       homeConfigurations."macbook-pro" = mkHomeConfiguration "aarch64-darwin" "diced" "macbook-pro";
+      homeConfigurations."nixos-vm" = mkHomeConfiguration "aarch64-linux" "diced" "nixos-vm";
     };
 }
