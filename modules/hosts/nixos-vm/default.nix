@@ -75,12 +75,21 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
+    kitty
   ];
+
+  programs.hyprland.enable = true;
 
   services = {
     xserver.displayManager.gdm.enable = true;
-    xserver.desktopManager.gnome.enable = true;
+  
+    # qemu
+    services.spice-vdagentd.enable = true;
   };
+
+
+  # make LIBGL use software rendering
+  environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
 
   system.stateVersion = "25.05";
 }
