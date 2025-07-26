@@ -31,7 +31,7 @@
 
     settings = {
       bind = [
-        "$mod, Return, exec, ghostty"
+        "$mod, Return, exec, alacritty"
         "$mod, W, killactive,"
         "$mod, E, exec, wlogout"
         "$mod, L, exec, hyprlock"
@@ -105,7 +105,7 @@
         "waybar"
         "swaync"
         "steam-run dlauncher"
-        "hyprswitch init --custom-css ${./hyprswitch.css}"
+        # "hyprswitch init --custom-css ${./hyprswitch.css}"
         "gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3"
       ];
 

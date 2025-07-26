@@ -4,8 +4,7 @@
   imports = [
     "${homeModules}/common"
 
-    # broken as of 1.1.3, installed using brew for now
-    # "${homeModules}/ghostty.nix"
+    "${homeModules}/ghostty.nix"
 
     "${homeModules}/wm/hyprland"
 
