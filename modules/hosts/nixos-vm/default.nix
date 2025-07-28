@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, user, ... }:
 {
   imports = [
     ./hw.nix
@@ -10,7 +10,7 @@
       experimental-features = "nix-command flakes";
       trusted-users = [
         "@admin"
-        "diced"
+        user
       ];
     };
 
@@ -63,9 +63,9 @@
     pulse.enable = true;
   };
 
-  users.users.diced = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "diced";
+    description = user;
     extraGroups = [
       "networkmanager"
       "wheel"

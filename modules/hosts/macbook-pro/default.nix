@@ -1,4 +1,4 @@
-{ ... }:
+{ user, ... }:
 
 {
   imports = [
@@ -17,7 +17,7 @@
       experimental-features = "nix-command flakes";
       trusted-users = [
         "@admin"
-        "diced"
+        user
       ];
     };
 
@@ -35,9 +35,9 @@
     channel.enable = false;
   };
 
-  users.users.diced = {
-    name = "diced";
-    home = "/Users/diced";
+  users.users.${user} = {
+    name = user;
+    home = "/Users/${user}";
   };
 
   # use touchid for sudo
@@ -47,7 +47,7 @@
     # set for backwards compat
     stateVersion = 6;
 
-    primaryUser = "diced";
+    primaryUser = user;
 
     # macos settings
     defaults = {
@@ -89,8 +89,8 @@
         ];
 
         persistent-others = [
-          "file:///Users/diced/Downloads"
-          "file:///Users/diced/Pictures/Screenshots"
+          "file:///Users/${user}/Downloads"
+          "file:///Users/${user}/Pictures/Screenshots"
         ];
       };
     };

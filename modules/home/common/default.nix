@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
   imports = [
@@ -6,8 +6,8 @@
   ];
 
   home = {
-    username = "diced";
-    homeDirectory = if pkgs.stdenv.isDarwin then "/Users/diced" else "/home/diced";
+    username = user;
+    homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${user}" else "/home/${user}";
   };
 
   news.display = "silent";

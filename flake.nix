@@ -36,17 +36,22 @@
     }@inputs:
     let
       inherit (self) outputs;
+      user = "diced";
 
-      # Function for nix-darwin system configuration
-      mkDarwinConfiguration =
-        hostname: username:
+      mkDarwinSystem =
+        host:
         nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           specialArgs = {
-            inherit inputs outputs hostname;
+            inherit
+              inputs
+              outputs
+              host
+              user
+              ;
           };
           modules = [
-            ./modules/hosts/${hostname}
+            ./modules/hosts/${host}
             home-manager.darwinModules.home-manager
             nix-homebrew.darwinModules.nix-homebrew
 
@@ -54,43 +59,55 @@
               nix-homebrew = {
                 enable = true;
                 enableRosetta = true;
-                user = "diced";
+                user = user;
               };
             }
           ];
         };
 
-      mkNixosConfiguration =
-        hostname: username:
+      mkNixosSystem =
+        host:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs outputs hostname;
+            inherit
+              inputs
+              outputs
+              host
+              user
+              ;
           };
           modules = [
-            ./modules/hosts/${hostname}
+            ./modules/hosts/${host}
+            home-manager.nixosModules.home-manager
           ];
         };
 
-      # Function for Home Manager configuration
-      mkHomeConfiguration =
-        system: username: hostname:
+      mkHome =
+        system: host:
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs { inherit system; };
           extraSpecialArgs = {
-            inherit inputs outputs;
+            inherit
+              inputs
+              outputs
+              host
+              user
+              ;
             homeModules = "${self}/modules/home";
           };
           modules = [
-            ./home/${hostname}
+            ./home/${host}
             nix-index-database.homeModules.nix-index
           ];
         };
     in
     {
-      darwinConfigurations."macbook-pro" = mkDarwinConfiguration "macbook-pro" "diced";
-      nixosConfigurations."nixos-vm" = mkNixosConfiguration "nixos-vm" "diced";
+      darwinConfigurations."macbook-pro" = mkDarwinSystem "macbook-pro";
+      nixosConfigurations."nixos-vm" = mkNixosSystem "nixos-vm";
 
-      homeConfigurations."macbook-pro" = mkHomeConfiguration "aarch64-darwin" "diced" "macbook-pro";
-      homeConfigurations."nixos-vm" = mkHomeConfiguration "aarch64-linux" "diced" "nixos-vm";
+      homeConfigurations = {
+        "macbook-pro" = mkHome "aarch64-darwin" "macbook-pro";
+        "nixos-vm" = mkHome "aarch64-linux" "nixos-vm";
+      };
     };
 }
