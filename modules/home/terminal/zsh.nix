@@ -72,8 +72,10 @@
         bindkey "^H" backward-kill-word
         bindkey "^[[3;5~" kill-word
 
-        eval "$(fnm env --use-on-cd --shell zsh)"
 
+        nix-develop() {
+          nix develop --command zsh
+        }
         nix-run() {
           NIXPKGS_ALLOW_UNFREE=1 nix shell --impure "nixpkgs#$1" \
             --command sh -c "which ''${1#*.} &>/dev/null && exec ''${1#*.} ''${*:2}; exec ''${*:2}"

@@ -4,10 +4,8 @@
   imports = [
     "${homeModules}/common"
 
-    "${homeModules}/ghostty.nix"
-
     "${homeModules}/wm/hyprland"
-
+    "${homeModules}/ghostty.nix"
     "${homeModules}/git.nix"
   ];
 

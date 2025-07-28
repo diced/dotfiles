@@ -26,17 +26,20 @@
     dive
 
     # video
-    go-10mb-video
+    go-10mb-video # from overlay
     yt-dlp
     wget
     ffmpeg
 
     # dev
-    fnm
     gh
     hyperfine
+    nodejs_24
+    corepack_24
+    go
 
     gnupg
+    git
 
     # manipulation
     imagemagick

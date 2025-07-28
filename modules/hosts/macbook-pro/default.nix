@@ -7,8 +7,10 @@
     ../../overlays/packages.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs = {
+    config.allowUnfree = true;
+    hostPlatform = "aarch64-darwin";
+  };
 
   nix = {
     settings = {
