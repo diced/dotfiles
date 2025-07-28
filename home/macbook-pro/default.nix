@@ -8,6 +8,7 @@
     # "${homeModules}/ghostty.nix"
     "${homeModules}/git.nix"
     "${homeModules}/switch.nix"
+    "${homeModules}/nix-index.nix"
   ];
 
   programs.home-manager.enable = true;

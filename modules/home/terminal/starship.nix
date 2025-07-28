@@ -30,7 +30,8 @@
       };
 
       character = {
-        success_symbol = "[❯](bold blue)";
+        # ❯
+        success_symbol = "[>](bold blue)";
       };
 
       directory = {
@@ -42,7 +43,7 @@
       git_branch.symbol = " ";
       hg_branch.symbol = " ";
       golang.symbol = " ";
-      nix_shell.symbol = " ";
+      nix_shell.symbol = " ";
       python.symbol = " ";
       rust.symbol = " ";
 
