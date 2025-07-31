@@ -1,16 +1,8 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ../zoxide.nix
-    ../fzf.nix
-    ../eza.nix
-  ];
-
   home.packages = with pkgs; [
     zsh
-    fastfetch
-    tealdeer
   ];
 
   home.shellAliases = {
@@ -20,7 +12,8 @@
     "pd" = "pnpm dev";
     "pns" = "pnpm start";
     "pb" = "pnpm build";
-    "cd" = "z";
+
+    "nd" = "nix-develop";
   };
 
   programs.zsh = {

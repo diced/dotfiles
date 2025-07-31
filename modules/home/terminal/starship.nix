@@ -32,6 +32,7 @@
       character = {
         # ❯
         success_symbol = "[>](bold blue)";
+        error_symbol = "[>](bold red)";
       };
 
       directory = {
@@ -43,9 +44,13 @@
       git_branch.symbol = " ";
       hg_branch.symbol = " ";
       golang.symbol = " ";
-      nix_shell.symbol = " ";
       python.symbol = " ";
       rust.symbol = " ";
+
+      nix_shell = {
+        format = "in [$symbol$state( \\($name\\))]($style) ";
+        symbol = " ";
+      };
 
       java = {
         symbol = " ";

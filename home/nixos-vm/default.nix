@@ -4,9 +4,9 @@
   imports = [
     "${homeModules}/common"
 
-    "${homeModules}/wm/hyprland"
-    "${homeModules}/ghostty.nix"
-    "${homeModules}/git.nix"
+    "${homeModules}/desktops/hyprland"
+    "${homeModules}/programs/ghostty.nix"
+    "${homeModules}/programs/git.nix"
   ];
 
   programs.home-manager.enable = true;

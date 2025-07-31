@@ -25,25 +25,27 @@ fi
 source "$CONFIG_FILE"
 
 # variables needed in config.sh:
-# FLAKE_DIR, path to flake dir ("$HOME/nix")
+# FLAKE_DIR, path to flake dir ("$HOME/nix") (no longer needed for nh)
 # CONFIG_NAME, name of the configuration ("macbook-pro")
 
-FLAKE="$FLAKE_DIR#$CONFIG_NAME"
+# FLAKE="$FLAKE_DIR#$CONFIG_NAME"
 
 switch_home() {
-  
-    echo "Running home-manager..."
-    home-manager switch --flake "$FLAKE"
+  echo "Running home-manager..."
+  # home-manager switch --flake "$FLAKE"
+  nh home switch -c "$CONFIG_NAME"
 }
 
 case "$TARGET" in
   nixos|n)
     echo "Running nixos-rebuild..."
-    sudo nixos-rebuild switch --flake "$FLAKE"
+    # sudo nixos-rebuild switch --flake "$FLAKE"
+    nh os switch -H "$CONFIG_NAME"
     ;;
   darwin|d)
     echo "Running darwin-rebuild..."
-    sudo darwin-rebuild switch --flake "$FLAKE"
+    # sudo darwin-rebuild switch --flake "$FLAKE"
+    nh darwin switch -H "$CONFIG_NAME"
     ;;
   home|h)
     switch_home

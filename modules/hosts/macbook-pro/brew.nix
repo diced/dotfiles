@@ -7,6 +7,7 @@
       cleanup = "uninstall";
     };
 
+    # only gui apps since installing them via nix is hit or miss with updates in-app
     casks = [
       # browser
       "brave-browser"

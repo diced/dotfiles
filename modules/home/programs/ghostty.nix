@@ -19,6 +19,13 @@
 
     themes = {
       dark = {
+        background = "#161616";
+        foreground = "#ffffff";
+        cursor-color = "#acb1ab";
+        cursor-text = "#ffffff";
+        selection-background = "#FFFFFF";
+        selection-foreground = "#101010";
+
         palette = [
           "0=#232627"
           "1=#C0392B"
@@ -37,16 +44,15 @@
           "14=#0DC9B8"
           "15=#FFFFFF"
         ];
-
-        background = "#101010";
-        foreground = "#ffffff";
-        cursor-color = "#acb1ab";
-        cursor-text = "#ffffff";
-        selection-background = "#FFFFFF";
-        selection-foreground = "#101010";
       };
 
       light = {
+        background = "#fcffff";
+        foreground = "#232323";
+        cursor-color = "#0055bb";
+        selection-background = "#d4eaf3";
+        selection-foreground = "#232323";
+
         palette = [
           "0=#eaefef"
           "1=#c42d2f"
@@ -65,12 +71,6 @@
           "14=#007a85"
           "15=#66657f"
         ];
-
-        background = "#fcffff";
-        foreground = "#232323";
-        cursor-color = "#0055bb";
-        selection-background = "#d4eaf3";
-        selection-foreground = "#232323";
       };
     };
   };

@@ -3,10 +3,13 @@
 {
   imports = [
     ../terminal
-    ../direnv.nix
-    ../eza.nix
-    ../fzf.nix
-    ../zoxide.nix
+    ../programs/direnv.nix
+    ../programs/eza.nix
+    ../programs/fzf.nix
+    ../programs/zoxide.nix
+    ../programs/tealdeer.nix
+    ../programs/fastfetch.nix
+    ../programs/rg.nix
   ];
 
   home = {

@@ -5,10 +5,12 @@
     "${homeModules}/common"
 
     # broken as of 1.1.3, installed using brew for now
-    # "${homeModules}/ghostty.nix"
-    "${homeModules}/git.nix"
-    "${homeModules}/switch.nix"
-    "${homeModules}/nix-index.nix"
+    # "${homeModules}/programs/ghostty.nix"
+    "${homeModules}/programs/ghostty-brew.nix"
+    "${homeModules}/programs/git.nix"
+    "${homeModules}/utils/switch.nix"
+    "${homeModules}/programs/nix-index.nix"
+    "${homeModules}/programs/nh.nix"
   ];
 
   programs.home-manager.enable = true;

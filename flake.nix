@@ -2,7 +2,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -30,7 +29,6 @@
       home-manager,
       nixpkgs,
       nixpkgs-unstable,
-      nixpkgs-master,
       nix-index-database,
       ...
     }@inputs:
