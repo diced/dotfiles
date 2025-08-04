@@ -7,6 +7,15 @@
       cleanup = "uninstall";
     };
 
+    masApps = {
+      "Microsoft Excel" = 462058435;
+      "Microsoft Outlook" = 985367838;
+      "Microsoft PowerPoint" = 462062816;
+      "Microsoft Word" = 462054704;
+
+      "Xcode" = 497799835;
+    };
+
     # only gui apps since installing them via nix is hit or miss with updates in-app
     casks = [
       # browser

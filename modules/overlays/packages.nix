@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   nixpkgs.overlays = [
     (final: prev: {
@@ -27,6 +27,36 @@
           maintainers = [ ];
           platforms = platforms.all;
           mainProgram = "10mb.video";
+        };
+      };
+    })
+
+    (self: prev: {
+      fladder-nightly = prev.stdenv.mkDerivation {
+        pname = "fladder-nightly";
+        version = "nightly-231";
+
+        src = prev.fetchurl {
+          url = "https://github.com/DonutWare/Fladder/releases/download/nightly/Fladder-macOS-0.7.0-nightly.dmg";
+          sha256 = "sha256-5q+OeyN5/jgisUjFhyCYZSFebf8mvh1jOht7vD3wD3M=";
+        };
+
+        nativeBuildInputs = [ prev.undmg ];
+
+        unpackPhase = ''
+          undmg $src
+        '';
+
+        installPhase = ''
+          mkdir -p $out/Applications
+          cp -r Fladder.app $out/Applications/
+        '';
+
+        meta = with prev.lib; {
+          description = "Fladder (Jellyfin client) from nightly .dmg release";
+          homepage = "https://github.com/DonutWare/Fladder";
+          license = licenses.gpl3;
+          platforms = platforms.darwin;
         };
       };
     })

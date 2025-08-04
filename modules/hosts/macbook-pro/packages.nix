@@ -30,6 +30,8 @@
     yt-dlp
     wget
     ffmpeg
+    mpv
+    fladder-nightly
 
     # dev
     gh
