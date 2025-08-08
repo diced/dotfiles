@@ -85,7 +85,7 @@
           { app = "/Applications/Obsidian.app"; }
           { app = "/Applications/Prism Launcher.app"; }
           { app = "/Applications/Steam.app"; }
-          { app = "${pkgs.fladder-nightly}/Applications/Fladder.app"; }
+          { app = "${pkgs.fladder}/Applications/Fladder.app"; }
         ];
 
         persistent-others = [

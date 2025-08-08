@@ -31,7 +31,7 @@
     wget
     ffmpeg
     mpv
-    fladder-nightly
+    fladder
 
     # dev
     gh
