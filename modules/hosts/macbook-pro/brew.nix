@@ -45,7 +45,7 @@
       # media
       "spotify"
       "jellyfin-media-player"
-      "stolendata-mpv"
+      "iina"
 
       # torrent
       "transmission"

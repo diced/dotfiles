@@ -29,9 +29,9 @@
     go-10mb-video # from overlay
     yt-dlp
     wget
-    ffmpeg
     mpv
-    fladder
+    ffmpeg
+    fladder # from overlay
 
     # dev
     gh
