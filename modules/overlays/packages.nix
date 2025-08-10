@@ -33,12 +33,12 @@
 
     (self: prev: {
       fladder = prev.stdenv.mkDerivation {
-        pname = "fladder-nightly";
-        version = "nightly-232";
+        pname = "fladder";
+        version = "0.7.5-nightly-241";
 
         src = prev.fetchurl {
-          url = "https://github.com/DonutWare/Fladder/releases/download/nightly/Fladder-macOS-0.7.0-nightly.dmg";
-          sha256 = "sha256-YLrFC6igDPXqlwelHcCIZ2GxutuUnzRH8564Yj9e+HQ=";
+          url = "https://github.com/DonutWare/Fladder/releases/download/nightly/Fladder-macOS-0.7.5-nightly.dmg";
+          sha256 = "sha256-tkc1nmbxO0r6iA8nne2tdFu2xRXIo0QCRpIT854o8W8=";
         };
 
         nativeBuildInputs = [ prev.undmg ];
