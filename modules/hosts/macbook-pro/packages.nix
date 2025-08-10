@@ -48,5 +48,6 @@
     macmon
     htop
     qemu-utils
+    rsync
   ];
 }
