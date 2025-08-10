@@ -10,6 +10,7 @@
     ../programs/tealdeer.nix
     ../programs/fastfetch.nix
     ../programs/rg.nix
+    ../programs/gpg.nix
   ];
 
   home = {

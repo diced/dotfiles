@@ -29,7 +29,6 @@
     go-10mb-video # from overlay
     yt-dlp
     wget
-    mpv
     ffmpeg
     fladder # from overlay
 
@@ -39,8 +38,6 @@
     nodejs_24
     corepack_24
     go
-
-    gnupg
     git
 
     # manipulation
