@@ -1,4 +1,6 @@
-{homeModules, ...}: {
+{ homeModules, customNeovim, ... }:
+
+{
   imports = [
     "${homeModules}/common"
 
@@ -6,11 +8,15 @@
     # "${homeModules}/programs/ghostty.nix"
     "${homeModules}/programs/brew/ghostty.nix"
     "${homeModules}/programs/brew/mpv.nix"
-  
+
     "${homeModules}/programs/git.nix"
     "${homeModules}/utils/switch.nix"
     "${homeModules}/programs/nix-index.nix"
     "${homeModules}/programs/nh.nix"
+  ];
+
+  home.packages = [
+    customNeovim.neovim
   ];
 
   programs.home-manager.enable = true;

@@ -60,21 +60,7 @@
       nix-develop() {
         nix develop --command zsh
       }
-      nix-run() {
-        NIXPKGS_ALLOW_UNFREE=1 nix shell --impure "nixpkgs#$1" \
-          --command sh -c "which ''${1#*.} &>/dev/null && exec ''${1#*.} ''${*:2}; exec ''${*:2}"
-      }
-      nix-shell() {(
-        ARGS=()
-        for i in "$@"; do
-          if [[ -n $OPTION || $i[1] = - ]]; then
-            ARGS+=$i OPTION=1
-            continue
-          fi
-          ARGS+="nixpkgs#$i"
-        done
-        IN_NIX_SHELL=impure NIXPKGS_ALLOW_UNFREE=1 nix shell --impure "''${ARGS[@]}"
-      )}
+
       where() { readlink -f "$(which "$@")"; }
     '';
   };
