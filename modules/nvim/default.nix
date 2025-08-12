@@ -33,8 +33,14 @@
       neo-tree.enable = true;
     };
 
+    telescope.enable = true;
+
     visuals = {
       rainbow-delimiters.enable = true;
+      fidget-nvim.enable = true;
+      indent-blankline.enable = true;
+      nvim-web-devicons.enable = true;
+      nvim-scrollbar.enable = true;
     };
 
     ui = {
@@ -46,12 +52,24 @@
       };
 
       noice.enable = true;
+      illuminate.enable = true;
+    };
+
+    statusline = {
+      lualine = {
+        enable = true;
+      };
+    };
+
+    tabline = {
+      nvimBufferline.enable = true;
     };
 
     treesitter = {
       enable = true;
       context.enable = true;
       autotagHtml = true;
+      fold = true;
 
       grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
         typescript
@@ -60,7 +78,18 @@
 
     lsp = {
       enable = true;
+      inlayHints.enable = true;
+      formatOnSave = true;
+      trouble.enable = true;
+      otter-nvim.enable = true;
     };
+
+    autocomplete = {
+      blink-cmp.enable = true;
+    };
+
+    comments.comment-nvim.enable = true;
+    autopairs.nvim-autopairs.enable = true;
 
     languages = {
       enableFormat = true;
@@ -74,7 +103,7 @@
 
       ts = {
         enable = true;
-        format.enable = false;
+        format.enable = true;
       };
 
       css.enable = true;
