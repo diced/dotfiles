@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  vim.git = {
+    enable = true;
+  };
+}

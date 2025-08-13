@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  vim.clipboard.enable = true;
+}
