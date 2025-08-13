@@ -117,7 +117,8 @@
         };
     in
     {
-      packages."aarch64-darwin".customNeovim = customNeovim.neovim;
+      packages."aarch64-darwin".neovim = customNeovim.neovim;
+      packages."x86_64-linux".neovim = customNeovim.neovim;
 
       darwinConfigurations."macbook-pro" = mkDarwinSystem "macbook-pro";
       nixosConfigurations."nixos-vm" = mkNixosSystem "nixos-vm";
