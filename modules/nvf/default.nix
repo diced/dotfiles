@@ -16,10 +16,14 @@
       logFile = "/tmp/nvim.log";
     };
 
-    luaConfigRC.tabs = ''
-      vim.opt.tabstop = 2
-      vim.opt.shiftwidth = 2
-      vim.opt.expandtab = true
-    '';
+    options = {
+      tabstop = 2;
+      shiftwidth = 2;
+      expandtab = true;
+
+      cursorline = true;
+
+      guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25,r-cr:hor20,o:hor50";
+    };
   };
 }

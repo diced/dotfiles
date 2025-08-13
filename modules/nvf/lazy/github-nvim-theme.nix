@@ -15,25 +15,27 @@
 
     lazy = false;
     priority = 1000;
- 
-    after = ''
-      require('github-theme').setup({
-        specs = {
-          github_dark_default = {
-            bg0 = "#111111",
-            bg1 = "#161616",
-          },
-        },
-        groups = {
-          all = {
-            BlinkCmpMenu = { bg = '#1f1f1f' },
-          },
-        },
-      })
-      require('github-theme').compile()
 
+    after = ''
+      require('github-theme').compile()
       vim.cmd('colorscheme github_dark_default')
+
+      vim.api.nvim_set_hl(0, "Cursor", { fg = "NONE", bg = "#1f6feb" })
     '';
+
+    setupModule = "github-theme";
+    setupOpts = {
+      specs.github_dark_default = {
+        bg0 = "#111111";
+        bg1 = "#161616";
+      };
+      groups.all = {
+        # blink intellisense window background
+        BlinkCmpMenu.bg = "#1f1f1f";
+
+        CursorLine.bg = "#1f1f1f";
+      };
+    };
   };
 }
 

@@ -19,5 +19,6 @@
     ./utility.nix
     ./visuals.nix
     ./binds.nix
+    ./mini.nix
   ];
 }
