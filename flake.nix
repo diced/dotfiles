@@ -50,7 +50,7 @@
           };
 
           modules = [
-            ./modules/nvim
+            ./modules/nvf
           ];
         };
 

@@ -16,6 +16,8 @@
     ./terminal.nix
     ./treesitter.nix
     ./ui.nix
+    ./utility.nix
     ./visuals.nix
+    ./binds.nix
   ];
 }
