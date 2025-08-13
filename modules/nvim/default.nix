@@ -70,10 +70,6 @@
       context.enable = true;
       autotagHtml = true;
       fold = true;
-
-      grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-        typescript
-      ];
     };
 
     lsp = {
