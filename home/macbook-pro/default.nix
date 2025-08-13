@@ -1,4 +1,4 @@
-{ homeModules, customNeovim, ... }:
+{ homeModules, mkNeovim, ... }:
 
 {
   imports = [
@@ -16,7 +16,7 @@
   ];
 
   home.packages = [
-    customNeovim.neovim
+    (mkNeovim "aarch64-darwin").neovim
   ];
 
   programs.home-manager.enable = true;

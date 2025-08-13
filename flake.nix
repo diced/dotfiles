@@ -41,16 +41,18 @@
     let
       inherit (self) outputs;
       user = "diced";
+      
+      mkNeovim =
+        system:
+        nvf.lib.neovimConfiguration {
+          pkgs = import nixpkgs-unstable {
+            inherit system;
+          };
 
-      customNeovim = nvf.lib.neovimConfiguration {
-        pkgs = import nixpkgs-unstable {
-          system = "aarch64-darwin";
+          modules = [
+            ./modules/nvim
+          ];
         };
-
-        modules = [
-          ./modules/nvim
-        ];
-      };
 
       mkDarwinSystem =
         host:
@@ -88,6 +90,7 @@
               outputs
               host
               user
+              mkNeovim
               ;
           };
           modules = [
@@ -106,19 +109,24 @@
               outputs
               host
               user
-              customNeovim
+              mkNeovim
               ;
             homeModules = "${self}/modules/home";
           };
           modules = [
             ./home/${host}
             nix-index-database.homeModules.nix-index
+            {
+              home.packages = [
+                (mkNeovim "${system}").neovim
+              ];
+            }
           ];
         };
     in
     {
-      packages."aarch64-darwin".neovim = customNeovim.neovim;
-      packages."x86_64-linux".neovim = customNeovim.neovim;
+      packages."aarch64-darwin".neovim = (mkNeovim "aarch64-darwin").neovim;
+      packages."x86_64-linux".neovim = (mkNeovim "x86_64-linux").neovim;
 
       darwinConfigurations."macbook-pro" = mkDarwinSystem "macbook-pro";
       nixosConfigurations."nixos-vm" = mkNixosSystem "nixos-vm";
