@@ -10,12 +10,12 @@
       };
 
       formatters_by_ft = {
-        javascript = ["prettier"];
-        typescript = ["prettier"];
-        typescriptreact = ["prettier"];
-        astro = ["prettier"];
-        markdown = ["prettier"];
-        mdx = ["prettier"];
+        javascript = [ "prettier" ];
+        typescript = [ "prettier" ];
+        typescriptreact = [ "prettier" ];
+        astro = [ "prettier" ];
+        markdown = [ "prettier" ];
+        mdx = [ "prettier" ];
       };
     };
   };

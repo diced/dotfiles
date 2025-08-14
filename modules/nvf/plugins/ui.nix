@@ -6,7 +6,7 @@
     colorizer = {
       enable = true;
       setupOpts.filetypes = {
-        "*" = {};
+        "*" = { };
       };
     };
 
@@ -15,5 +15,5 @@
 
     # highlights all references of a var
     illuminate.enable = true;
-  }; 
+  };
 }

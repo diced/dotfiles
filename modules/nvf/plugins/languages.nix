@@ -8,7 +8,7 @@
 
     nix = {
       enable = true;
-      format.package = pkgs.nixfmt-rfc-style;
+      format.type = "nixfmt";
     };
 
     ts = {
@@ -39,5 +39,6 @@
     tailwind.enable = true;
     sql.enable = true;
     java.enable = true;
+    yaml.enable = true;
   };
 }

@@ -18,4 +18,3 @@
     event = [ "BufEnter *.mdx" ];
   };
 }
-

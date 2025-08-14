@@ -78,7 +78,7 @@
           { app = "/System/Applications/Utilities/Activity Monitor.app"; }
           { app = "/Applications/Brave Browser.app"; }
           { app = "/Applications/Spotify.app"; }
-	        { app = "/Applications/Microsoft Outlook.app"; }
+          { app = "/Applications/Microsoft Outlook.app"; }
           { app = "/Applications/Discord.app"; }
           { app = "/Applications/Ghostty.app"; }
           { app = "/Applications/Visual Studio Code.app"; }

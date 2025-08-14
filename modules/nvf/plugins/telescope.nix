@@ -17,8 +17,17 @@
 
       pickers = {
         find_files = {
-          find_command = [ "${pkgs.fd}/bin/fd" "--type" "f" "--hidden" "--exclude" ".git" "--exclude" "node_modules" ];
-        }; 
+          find_command = [
+            "${pkgs.fd}/bin/fd"
+            "--type"
+            "f"
+            "--hidden"
+            "--exclude"
+            ".git"
+            "--exclude"
+            "node_modules"
+          ];
+        };
       };
     };
   };

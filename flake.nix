@@ -41,7 +41,16 @@
     let
       inherit (self) outputs;
       user = "diced";
-      
+
+      mkSystemPackages =
+        systems: f:
+        builtins.listToAttrs (
+          map (system: {
+            name = system;
+            value = f system;
+          }) systems
+        );
+
       mkNeovim =
         system:
         nvf.lib.neovimConfiguration {
@@ -73,9 +82,10 @@
 
             {
               nix-homebrew = {
+                inherit user;
+
                 enable = true;
                 enableRosetta = true;
-                user = user;
               };
             }
           ];
@@ -110,23 +120,24 @@
               host
               user
               mkNeovim
+              system
               ;
             homeModules = "${self}/modules/home";
           };
           modules = [
             ./home/${host}
             nix-index-database.homeModules.nix-index
-            {
-              home.packages = [
-                (mkNeovim "${system}").neovim
-              ];
-            }
           ];
         };
     in
     {
-      packages."aarch64-darwin".neovim = (mkNeovim "aarch64-darwin").neovim;
-      packages."x86_64-linux".neovim = (mkNeovim "x86_64-linux").neovim;
+      formatter = mkSystemPackages [ "x86_64-linux" "aarch64-darwin" ] (
+        system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style
+      );
+
+      packages = mkSystemPackages [ "x86_64-linux" "aarch64-darwin" ] (system: {
+        neovim = (mkNeovim system).neovim;
+      });
 
       darwinConfigurations."macbook-pro" = mkDarwinSystem "macbook-pro";
       nixosConfigurations."nixos-vm" = mkNixosSystem "nixos-vm";

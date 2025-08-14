@@ -3,7 +3,7 @@
 {
   vim.assistant.copilot = {
     enable = true;
-    
+
     setupOpts = {
       suggestion = {
         enabled = true;
@@ -12,5 +12,5 @@
     };
 
     # this a :
-};
+  };
 }
