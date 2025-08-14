@@ -4,7 +4,7 @@
   imports = [
     ./auto-save.nix
     ./github-nvim-theme.nix
-    ./persisted.nix
+    ./auto-session.nix
     ./incline.nix
   ];
 }

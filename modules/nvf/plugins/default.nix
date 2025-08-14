@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./assistant.nix
     ./autocomplete.nix
     ./autopairs.nix
     ./clipboard.nix

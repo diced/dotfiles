@@ -45,6 +45,9 @@
         };
         TelescopeNormal.bg = "#1f1f1f";
         TelescopeSelection.bg = "#111111";
+
+        # copilot.lua colors
+        CopilotSuggestion.fg = "#474a4f";
       };
     };
   };
