@@ -34,6 +34,8 @@
         BlinkCmpMenu.bg = "#1f1f1f";
 
         CursorLine.bg = "#1f1f1f";
+
+        TreesitterContextSeparator.fg = "#303237";
       };
     };
   };
