@@ -10,7 +10,5 @@
         auto_trigger = true;
       };
     };
-
-    # this a :
   };
 }
