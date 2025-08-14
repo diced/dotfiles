@@ -6,5 +6,6 @@
     ./github-nvim-theme.nix
     ./auto-session.nix
     ./incline.nix
+    ./mdx.nix
   ];
 }

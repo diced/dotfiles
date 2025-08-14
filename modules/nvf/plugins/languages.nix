@@ -26,8 +26,12 @@
       format.enable = false;
     };
 
+    markdown = {
+      enable = true;
+      format.enable = false;
+    };
+
     go.enable = true;
-    markdown.enable = true;
     html.enable = true;
     lua.enable = true;
     python.enable = true;
