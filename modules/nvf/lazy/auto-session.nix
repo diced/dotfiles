@@ -13,6 +13,25 @@
       post_restore_cmds = [
         "Neotree filesystem show"
       ];
+
+      suppressed_dirs = [
+        "~/"
+        "~/Downloads"
+      ];
+
+      allowed_dirs = [
+        "~/Projects"
+        "~/git"
+      ];
     };
+
+    keys = [
+      {
+        mode = "n";
+        key = "<leader>wr";
+        action = ":SessionSearch<CR>";
+        desc = "Session search";
+      }
+    ];
   };
 }

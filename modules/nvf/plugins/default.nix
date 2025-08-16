@@ -21,5 +21,6 @@
     ./visuals.nix
     ./binds.nix
     ./mini.nix
+    ./dashboard.nix
   ];
 }
