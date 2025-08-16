@@ -133,7 +133,7 @@
           ''
             {
               "branch",
-              icon = ' •',
+              icon = ' ',
             }
           ''
         ];
@@ -158,9 +158,9 @@
               "fileformat",
               color = {fg='black'},
               symbols = {
-                unix = 'lf',
-                dos = 'crlf',
-                mac = 'lf',
+                unix = 'LF',
+                dos = 'CRLF',
+                mac = 'LF',
               }
             }
           ''

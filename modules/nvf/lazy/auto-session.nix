@@ -20,18 +20,24 @@
       ];
 
       allowed_dirs = [
-        "~/Projects"
-        "~/git"
+        "~/Projects/*"
+        "~/git/*"
       ];
-    };
 
-    keys = [
-      {
-        mode = "n";
-        key = "<leader>wr";
-        action = ":SessionSearch<CR>";
-        desc = "Session search";
-      }
-    ];
+      cwd_change_handling = true;
+      pre_cwd_changed_cmds = [
+        "tabdo Neotree close"
+      ];
+
+      post_cwd_changed_cmds = [
+        "Neotree filesystem show"
+      ];
+
+      session_lens = {
+        load_on_setup = true;
+      };
+    };
   };
+
+  vim.options.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions";
 }
