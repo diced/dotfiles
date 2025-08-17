@@ -7,7 +7,6 @@
     ./autopairs.nix
     ./clipboard.nix
     ./comments.nix
-    ./filetree.nix
     ./formatter.nix
     ./git.nix
     ./languages.nix
@@ -22,5 +21,6 @@
     ./binds.nix
     ./mini.nix
     ./dashboard.nix
+    ./keymaps.nix
   ];
 }

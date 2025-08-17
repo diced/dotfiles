@@ -4,40 +4,38 @@
   vim.lazy.plugins."${pkgs.vimPlugins.auto-session.pname}" = {
     package = pkgs.vimPlugins.auto-session;
     setupModule = "auto-session";
+    lazy = false;
 
     setupOpts = {
-      pre_save_cmds = [
-        "Neotree close"
-      ];
-
-      post_restore_cmds = [
-        "Neotree filesystem show"
-      ];
-
       suppressed_dirs = [
-        "~/"
+        "~"
         "~/Downloads"
       ];
-
-      allowed_dirs = [
-        "~/Projects/*"
-        "~/git/*"
-      ];
-
-      cwd_change_handling = true;
-      pre_cwd_changed_cmds = [
-        "tabdo Neotree close"
-      ];
-
-      post_cwd_changed_cmds = [
-        "Neotree filesystem show"
-      ];
-
-      session_lens = {
-        load_on_setup = true;
-      };
     };
-  };
 
-  vim.options.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions";
+    before = ''
+      local arg = vim.fn.expand(vim.fn.argv(0))
+      if arg ~= "" and vim.fn.isdirectory(arg) == 1 then
+        pcall(vim.api.nvim_set_current_dir, arg)
+      elseif vim.fn.bufname("%") ~= "" then
+        local dir = vim.fn.expand("%:p:h")
+        if dir ~= "" and vim.fn.isdirectory(dir) == 1 then
+          pcall(vim.api.nvim_set_current_dir, dir)
+        end
+      end
+    '';
+
+    after = ''
+      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+    '';
+
+    keys = [
+      {
+        mode = "n";
+        key = "<leader>ss";
+        action = ":SessionSearch<CR>";
+        desc = "Session search";
+      }
+    ];
+  };
 }

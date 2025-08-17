@@ -35,6 +35,8 @@
 
         CursorLine.bg = "#1f1f1f";
 
+        FloatBorder.fg = "#303237";
+
         # treesitter
         TreesitterContextSeparator.fg = "#303237";
 
