@@ -10,6 +10,7 @@
       dockerfile
       prisma
       jsonc
+      json
     ];
 
     context = {
