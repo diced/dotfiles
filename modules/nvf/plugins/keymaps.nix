@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   vim.keymaps = [
@@ -30,5 +30,16 @@
       action = ''"+y'';
       desc = "Yank to system clipboard";
     }
+
+    # snacks lazygit
+    {
+      mode = "n";
+      key = "<leader>gg";
+      lua = true;
+      action = "function() Snacks.lazygit() end";
+      desc = "Open lazygit";
+    }
   ];
+
+  vim.extraPackages = with pkgs; [ lazygit ];
 }

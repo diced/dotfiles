@@ -13,7 +13,6 @@
     ./lsp.nix
     ./statusline.nix
     ./telescope.nix
-    ./terminal.nix
     ./treesitter.nix
     ./ui.nix
     ./utility.nix
