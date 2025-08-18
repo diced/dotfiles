@@ -15,11 +15,12 @@
     ./telescope.nix
     ./treesitter.nix
     ./ui.nix
-    ./utility.nix
     ./visuals.nix
     ./binds.nix
     ./mini.nix
     ./dashboard.nix
     ./keymaps.nix
+    ./filetree.nix
+    ./wakatime.nix
   ];
 }

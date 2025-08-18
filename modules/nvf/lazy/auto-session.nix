@@ -11,6 +11,14 @@
         "~"
         "~/Downloads"
       ];
+
+      post_restore_cmds = [
+        "NvimTreeOpen"
+      ];
+
+      pre_restore_cmds = [
+        "NvimTreeClose"
+      ];
     };
 
     before = ''
