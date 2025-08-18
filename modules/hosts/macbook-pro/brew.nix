@@ -24,6 +24,7 @@
 
       # social
       "discord"
+      "signal"
 
       # file sharing android
       "neardrop"
