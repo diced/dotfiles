@@ -13,6 +13,10 @@
       mappings = {
         openYazi = "<leader>n";
       };
+
+      setupOpts = {
+        open_for_directories = true;
+      };
     };
   };
 

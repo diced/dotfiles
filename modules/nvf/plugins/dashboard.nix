@@ -14,14 +14,6 @@
           }
           {
             pane = 1;
-            icon = " ";
-            title = "Recent Files";
-            section = "recent_files";
-            indent = 2;
-            padding = 1;
-          }
-          {
-            pane = 1;
             icon = " ";
             title = "Projects";
             section = "projects";
@@ -44,6 +36,14 @@
               end
             '';
           }
+          {
+            pane = 1;
+            icon = " ";
+            title = "Recent Files";
+            section = "recent_files";
+            indent = 2;
+            padding = 1;
+          }
 
           # keys
           {
@@ -54,9 +54,22 @@
           }
           {
             icon = " ";
-            key = "<leader>ss";
+            key = "s";
             desc = "Search Sessions";
             action = ":SessionSearch";
+          }
+          {
+            icon = " ";
+            key = "d";
+            desc = "Open dotfiles";
+            action = lib.generators.mkLuaInline ''
+              function()
+                local home = vim.fn.expand("$HOME")
+                local dotfiles_path = home .. "/nix"
+
+                require("auto-session").RestoreSession(dotfiles_path)
+              end
+            '';
           }
         ];
       };
