@@ -12,7 +12,7 @@
     ./languages.nix
     ./lsp.nix
     ./statusline.nix
-    ./telescope.nix
+    ./fzf-lua.nix
     ./treesitter.nix
     ./ui.nix
     ./visuals.nix
