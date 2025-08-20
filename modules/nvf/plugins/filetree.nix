@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
   vim.filetree.nvimTree = {
@@ -27,6 +27,14 @@
 
       renderer = {
         highlight_git = true;
+      };
+
+      diagnostics = {
+        enable = true;
+      };
+
+      trash = {
+        cmd = lib.optionalString pkgs.stdenv.isDarwin "${pkgs.darwin.trash}/bin/trash";
       };
     };
 
