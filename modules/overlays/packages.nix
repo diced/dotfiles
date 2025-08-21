@@ -31,34 +31,40 @@
       };
     })
 
-    (self: prev: {
-      fladder = prev.stdenv.mkDerivation {
-        pname = "fladder";
-        version = "0.7.5-nightly-241";
+    (
+      self: prev:
+      let
+        version = "0.7.5";
+      in
+      {
+        fladder = prev.stdenv.mkDerivation {
+          pname = "fladder";
+          inherit version;
 
-        src = prev.fetchurl {
-          url = "https://github.com/DonutWare/Fladder/releases/download/nightly/Fladder-macOS-0.7.5-nightly.dmg";
-          sha256 = "sha256-tkc1nmbxO0r6iA8nne2tdFu2xRXIo0QCRpIT854o8W8=";
+          src = prev.fetchurl {
+            url = "https://github.com/DonutWare/Fladder/releases/download/v${version}/Fladder-macOS-${version}.dmg";
+            sha256 = "sha256-RqOBBUvX+Tqp/b7dU1+OEhgVvpEyZKqxGfuyyXGgM6U=";
+          };
+
+          nativeBuildInputs = [ prev.undmg ];
+
+          unpackPhase = ''
+            undmg $src
+          '';
+
+          installPhase = ''
+            mkdir -p $out/Applications
+            cp -r Fladder.app $out/Applications/
+          '';
+
+          meta = with prev.lib; {
+            description = "Fladder - A Simple Jellyfin frontend built on top of Flutter.";
+            homepage = "https://github.com/DonutWare/Fladder";
+            license = licenses.gpl3;
+            platforms = platforms.darwin;
+          };
         };
-
-        nativeBuildInputs = [ prev.undmg ];
-
-        unpackPhase = ''
-          undmg $src
-        '';
-
-        installPhase = ''
-          mkdir -p $out/Applications
-          cp -r Fladder.app $out/Applications/
-        '';
-
-        meta = with prev.lib; {
-          description = "Fladder (Jellyfin client) from nightly .dmg release";
-          homepage = "https://github.com/DonutWare/Fladder";
-          license = licenses.gpl3;
-          platforms = platforms.darwin;
-        };
-      };
-    })
+      }
+    )
   ];
 }
