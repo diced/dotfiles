@@ -7,5 +7,6 @@
     ./auto-session.nix
     ./mdx.nix
     ./incline.nix
+    ./nvim-ts-context-commentstring.nix
   ];
 }
