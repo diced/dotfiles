@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   vim.autocomplete.blink-cmp = {
@@ -16,6 +16,12 @@
           "fallback"
         ];
       };
+
+      enabled = lib.generators.mkLuaInline ''
+        function()
+          return not vim.tbl_contains({ "DressingInput" }, vim.bo.filetype)
+        end
+      '';
     };
   };
 }
