@@ -11,7 +11,6 @@
     ./git.nix
     ./languages.nix
     ./lsp.nix
-    # ./statusline.nix
     ./fzf-lua.nix
     ./treesitter.nix
     ./ui.nix
