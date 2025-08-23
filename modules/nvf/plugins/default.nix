@@ -11,7 +11,7 @@
     ./git.nix
     ./languages.nix
     ./lsp.nix
-    ./statusline.nix
+    # ./statusline.nix
     ./fzf-lua.nix
     ./treesitter.nix
     ./ui.nix
@@ -22,5 +22,6 @@
     ./keymaps.nix
     ./filetree.nix
     ./wakatime.nix
+    ./fastaction.nix
   ];
 }

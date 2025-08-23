@@ -40,16 +40,10 @@
         # treesitter
         TreesitterContextSeparator.fg = "#303237";
 
-        # telescope colors
-        TelescopeMatching = {
-          bg = "#082238";
-          fg = "#78bffd";
-        };
-        TelescopeNormal.bg = "#1f1f1f";
-        TelescopeSelection.bg = "#111111";
-
         # copilot.lua colors
         CopilotSuggestion.fg = "#474a4f";
+
+        NormalFloat.bg = "#161616";
       };
     };
   };

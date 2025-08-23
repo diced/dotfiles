@@ -59,12 +59,5 @@ in
       action = fzfSafe "lsp_finder";
       desc = "FzfLua: LSP Finder";
     }
-    {
-      mode = "n";
-      key = "<leader>fla";
-      lua = true;
-      action = fzfSafe "lsp_code_actions";
-      desc = "FzfLua: LSP Code Actions";
-    }
   ];
 }
