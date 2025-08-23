@@ -24,6 +24,8 @@
       cursorline = true;
 
       guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25,r-cr:hor20,o:hor50";
+
+      wrap = false;
     };
   };
 }
