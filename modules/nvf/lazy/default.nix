@@ -8,5 +8,6 @@
     ./mdx.nix
     ./incline.nix
     ./nvim-ts-context-commentstring.nix
+    ./typescript-tools.nix
   ];
 }
