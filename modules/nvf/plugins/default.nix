@@ -22,5 +22,6 @@
     ./filetree.nix
     ./wakatime.nix
     ./fastaction.nix
+    ./statusline.nix
   ];
 }

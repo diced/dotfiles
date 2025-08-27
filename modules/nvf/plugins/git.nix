@@ -2,6 +2,14 @@
 
 {
   vim.git = {
-    enable = true;
+    gitsigns.enable = true;
+
+    neogit = {
+      enable = true;
+
+      setupOpts = {
+        kind = "floating";
+      };
+    };
   };
 }
