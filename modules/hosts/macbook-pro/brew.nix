@@ -37,7 +37,7 @@
       "ghostty"
       "jetbrains-toolbox"
       "visual-studio-code"
-      "yaak"
+      "bruno"
 
       # image
       "gimp"
