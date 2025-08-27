@@ -1,8 +1,12 @@
 { pkgs, ... }:
 
+let
+  package = pkgs.vimPlugins.auto-session;
+in
 {
-  vim.lazy.plugins."${pkgs.vimPlugins.auto-session.pname}" = {
-    package = pkgs.vimPlugins.auto-session;
+  vim.lazy.plugins."${package.pname}" = {
+    inherit package;
+
     setupModule = "auto-session";
     lazy = false;
 

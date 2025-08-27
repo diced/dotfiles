@@ -1,8 +1,12 @@
 { lib, pkgs, ... }:
 
+let
+  package = pkgs.vimPlugins.incline-nvim;
+in
 {
-  vim.lazy.plugins."${pkgs.vimPlugins.incline-nvim.pname}" = {
-    package = pkgs.vimPlugins.incline-nvim;
+  vim.lazy.plugins."${package.pname}" = {
+    inherit package;
+
     setupModule = "incline";
 
     setupOpts = {

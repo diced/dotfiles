@@ -1,8 +1,12 @@
 { pkgs, ... }:
 
+let
+  package = pkgs.vimPlugins.typescript-tools-nvim;
+in
 {
-  vim.lazy.plugins."${pkgs.vimPlugins.typescript-tools-nvim.pname}" = {
-    package = pkgs.vimPlugins.typescript-tools-nvim;
+  vim.lazy.plugins."${package.pname}" = {
+    inherit package;
+
     setupModule = "typescript-tools";
     lazy = false;
 

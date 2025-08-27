@@ -1,8 +1,12 @@
 { pkgs, ... }:
 
+let
+  package = pkgs.vimPlugins.nvim-ts-context-commentstring;
+in
 {
-  vim.lazy.plugins."${pkgs.vimPlugins.nvim-ts-context-commentstring.pname}" = {
-    package = pkgs.vimPlugins.nvim-ts-context-commentstring;
+  vim.lazy.plugins."${package.pname}" = {
+    inherit package;
+
     setupModule = "ts_context_commentstring";
 
     setupOpts = {

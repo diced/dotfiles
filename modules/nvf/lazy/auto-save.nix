@@ -1,8 +1,12 @@
 { pkgs, ... }:
 
+let
+  package = pkgs.vimPlugins.auto-save-nvim;
+in
 {
-  vim.lazy.plugins."${pkgs.vimPlugins.auto-save-nvim.pname}" = {
-    package = pkgs.vimPlugins.auto-save-nvim;
+  vim.lazy.plugins."${package.pname}" = {
+    inherit package;
+
     setupModule = "auto-save";
     cmd = "ASToggle";
     event = [

@@ -14,7 +14,7 @@
     };
 
     avante-nvim = {
-      enable = true;
+      # enable = true;
 
       setupOpts = {
         provider = "copilot";
