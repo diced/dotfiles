@@ -33,6 +33,24 @@
 
     # disable nix channels
     channel.enable = false;
+
+    linux-builder = {
+      enable = false;
+      ephemeral = true;
+      maxJobs = 4;
+      config = {
+        services.openssh.enable = true;
+        virtualisation = {
+          darwin-builder = {
+            diskSize = 64 * 1024;
+            memorySize = 16 * 1024;
+          };
+          cores = 8;
+        };
+
+        # nix.settings.experimental-features = "nix-command flakes";
+      };
+    };
   };
 
   users.users.${user} = {
