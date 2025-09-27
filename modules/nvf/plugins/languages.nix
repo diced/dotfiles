@@ -32,12 +32,6 @@
       format.enable = false;
     };
 
-    yaml = {
-      enable = true;
-      # disable for now since broken in v0.8
-      lsp.enable = false;
-    };
-
     go.enable = true;
     html.enable = true;
     lua.enable = true;
@@ -46,5 +40,6 @@
     tailwind.enable = true;
     sql.enable = true;
     java.enable = true;
+    yaml.enable = true;
   };
 }

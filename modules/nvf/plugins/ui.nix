@@ -5,8 +5,12 @@
     # highlight colors in editor
     colorizer = {
       enable = true;
-      setupOpts.filetypes = {
-        "*" = { };
+      setupOpts = {
+        filetypes = {
+          "*" = { };
+        };
+
+        tailwind = true;
       };
     };
 
