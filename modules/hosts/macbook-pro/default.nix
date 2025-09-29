@@ -91,13 +91,13 @@
         tilesize = 50;
 
         persistent-apps = [
-          { app = "/System/Applications/Launchpad.app"; }
           { app = "/System/Applications/System Settings.app"; }
           { app = "/System/Applications/Utilities/Activity Monitor.app"; }
           { app = "/Applications/Brave Browser.app"; }
           { app = "/Applications/Spotify.app"; }
           { app = "/Applications/Microsoft Outlook.app"; }
           { app = "/Applications/Discord.app"; }
+          { app = "/Applications/Slack.app"; }
           { app = "/Applications/Ghostty.app"; }
           { app = "/Applications/Visual Studio Code.app"; }
           { app = "/Applications/TickTick.app"; }
