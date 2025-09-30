@@ -1,5 +1,12 @@
-{ homeModules, mkNeovim, ... }:
+{
+  homeModules,
+  mkNeovim,
+  ...
+}:
 
+let
+  neovim = (mkNeovim "aarch64-darwin").neovim;
+in
 {
   imports = [
     "${homeModules}/common"
@@ -16,13 +23,14 @@
   ];
 
   home.packages = [
-    (mkNeovim "aarch64-darwin").neovim
+    neovim
   ];
 
   programs.home-manager.enable = true;
 
   home.sessionVariables = {
     "LC_ALL" = "";
+    "EDITOR" = "${neovim}/bin/nvim";
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
