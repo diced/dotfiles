@@ -23,5 +23,6 @@
     ./wakatime.nix
     ./fastaction.nix
     ./statusline.nix
+    ./navigation.nix
   ];
 }

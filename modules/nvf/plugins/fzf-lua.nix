@@ -36,6 +36,20 @@ in
       action = fzfSafe "live_grep";
       desc = "fzf-lua: Live Grep";
     }
+    {
+      mode = "n";
+      key = "<leader>fb";
+      lua = true;
+      action = fzfSafe "buffers";
+      desc = "fzf-lua: Buffers";
+    }
+    {
+      mode = "n";
+      key = "<leader>fc";
+      lua = true;
+      action = fzfSafe "git_commits";
+      desc = "fzf-lua: Git Commits";
+    }
 
     # lsp
     {
