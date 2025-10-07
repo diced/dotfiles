@@ -7,7 +7,7 @@
     font-family = "JetbrainsMono Nerd Font"
     shell-integration-features = true
     theme = "dark:dark,light:light"
-    font-feature = "-calt, -liga, -dlig"
+    # font-feature = "-calt, -liga, -dlig"
 
     window-theme = "ghostty"
   '';
