@@ -39,6 +39,7 @@
     corepack_24
     go
     git
+    python313
 
     # manipulation
     imagemagick
