@@ -43,6 +43,8 @@
       # image
       "gimp"
       "krita"
+      "inkscape"
+      "kicad"
 
       # media
       "spotify"
