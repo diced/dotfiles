@@ -41,5 +41,6 @@
     sql.enable = true;
     java.enable = true;
     yaml.enable = true;
+    clang.enable = true;
   };
 }

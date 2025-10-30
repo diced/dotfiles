@@ -40,6 +40,7 @@
     go
     git
     python313
+    scons
 
     # manipulation
     imagemagick
