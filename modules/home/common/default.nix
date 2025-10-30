@@ -11,6 +11,7 @@
     ../programs/fastfetch.nix
     ../programs/rg.nix
     ../programs/gpg.nix
+    # ../programs/terminal/zellij
   ];
 
   home = {

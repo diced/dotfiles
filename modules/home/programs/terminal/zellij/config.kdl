@@ -1,0 +1,16 @@
+pane_frames false
+simplified_ui true
+default_shell "zsh"
+copy_on_select true
+show_startup_tips false
+
+// If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
+keybinds {
+  normal {
+    bind "Ctrl Shift 1" { GoToTab 1; }
+    bind "Ctrl Shift 2" { GoToTab 2; }
+    bind "Ctrl Shift 3" { GoToTab 3; }
+    bind "Ctrl Shift 4" { GoToTab 4; }
+  }
+}
+

@@ -24,6 +24,10 @@
       url = "github:notashelf/nvf/v0.8";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    zjstatus = {
+      url = "github:dj95/zjstatus";
+    };
   };
 
   outputs =
@@ -36,6 +40,7 @@
       nixpkgs-unstable,
       nix-index-database,
       nvf,
+      zjstatus,
       ...
     }@inputs:
     let
