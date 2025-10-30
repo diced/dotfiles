@@ -10,6 +10,8 @@
     # font-feature = "-calt, -liga, -dlig"
 
     window-theme = "ghostty"
+
+    macos-option-as-alt = true
   '';
 
   home.file.".config/ghostty/themes/dark".text = ''
