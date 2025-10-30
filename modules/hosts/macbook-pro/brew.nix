@@ -45,6 +45,8 @@
       "krita"
       "inkscape"
       "kicad"
+      "bambu-studio"
+      "prusaslicer"
 
       # media
       "spotify"
@@ -58,6 +60,7 @@
       "roblox"
       "steam"
       "prismlauncher"
+      "lunar-client"
       "whisky"
 
       # productivity
