@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   nixpkgs.overlays = [
+    (final: prev: {
+      unstable = import inputs.nixpkgs-unstable { inherit (prev) config system; };
+    })
+
     (final: prev: {
       go-10mb-video = pkgs.buildGoModule {
         pname = "10mb.video";

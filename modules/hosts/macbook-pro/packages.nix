@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     # android
     android-tools
-    scrcpy
+    unstable.scrcpy
 
     # nix
     nil
