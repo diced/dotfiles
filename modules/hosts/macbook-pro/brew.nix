@@ -81,7 +81,6 @@
 
       # local llms
       "lm-studio"
-      "comfyui"
 
       # qemu
       "utm"
