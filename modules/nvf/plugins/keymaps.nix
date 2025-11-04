@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   vim.keymaps = [
@@ -29,6 +29,16 @@
       key = "y";
       action = ''"+y'';
       desc = "Yank to system clipboard";
+    }
+
+    # disables command line history window "q:"
+    {
+      mode = [ "n" ];
+      key = "q:";
+      action = "<nop>";
+      noremap = true;
+      silent = true;
+      desc = "disable cmd window";
     }
   ];
 }
