@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 let
   # quick helper function that moves into the next buffer
@@ -18,6 +18,12 @@ in
 
     setupOpts = {
       previewers.builtin.snacks_image.enabled = false;
+
+      fzf_opts = {
+        "--history" = lib.generators.mkLuaInline ''
+          vim.fn.stdpath("data") .. '/fzf-lua-history'
+        '';
+      };
     };
   };
 
