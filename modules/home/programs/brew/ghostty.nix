@@ -12,6 +12,9 @@
     window-theme = "ghostty"
 
     macos-option-as-alt = true
+
+    unfocused-split-opacity = 0.9
+    split-divider-color = #49494a
   '';
 
   home.file.".config/ghostty/themes/dark".text = ''
