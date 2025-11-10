@@ -38,7 +38,7 @@
     (
       self: prev:
       let
-        version = "0.7.5";
+        version = "0.8.0";
       in
       {
         fladder = prev.stdenv.mkDerivation {
@@ -47,7 +47,7 @@
 
           src = prev.fetchurl {
             url = "https://github.com/DonutWare/Fladder/releases/download/v${version}/Fladder-macOS-${version}.dmg";
-            sha256 = "sha256-RqOBBUvX+Tqp/b7dU1+OEhgVvpEyZKqxGfuyyXGgM6U=";
+            sha256 = "sha256-/p/qqGvMmgUNwbkgUIKtf5I30ddU1zUrWZacji2xnx4=";
           };
 
           nativeBuildInputs = [ prev.undmg ];
