@@ -27,10 +27,6 @@
       "signal"
       "slack"
 
-      # file sharing android
-      "neardrop"
-      "openmtp"
-
       # screenshot
       "ishare"
 
@@ -75,7 +71,7 @@
       "jordanbaird-ice" # hide menu bar items
       "cyberduck" # gui file transfer
       "raycast" # launcher + hella hotkeys
-      "powerflow" # battery history
+      "powerflow" # battery history and monitoring for macOS and iOS
       "unnaturalscrollwheels" # scroll wheel fix on external mouse
       "pearcleaner" # clean up app files
 
@@ -88,7 +84,6 @@
 
     taps = [
       "lzt1008/powerflow"
-      "grishka/grishka"
     ];
   };
 }
