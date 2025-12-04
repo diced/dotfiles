@@ -35,6 +35,7 @@
       "jetbrains-toolbox"
       "visual-studio-code"
       "bruno"
+      "arduino-ide"
 
       # image
       "gimp"
@@ -63,11 +64,12 @@
       "notion"
       "obsidian"
       "ticktick"
+      "anki"
 
       # bench
       "geekbench"
 
-      # mac utils
+      # mac/ios utils
       "jordanbaird-ice" # hide menu bar items
       "cyberduck" # gui file transfer
       "raycast" # launcher + hella hotkeys
