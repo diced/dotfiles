@@ -41,6 +41,7 @@
     git
     python313
     scons
+    awscli2
 
     # manipulation
     imagemagick

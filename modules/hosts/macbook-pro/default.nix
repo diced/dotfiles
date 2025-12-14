@@ -94,6 +94,7 @@
           { app = "/System/Applications/System Settings.app"; }
           { app = "/System/Applications/Utilities/Activity Monitor.app"; }
           { app = "/System/Applications/Calendar.app"; }
+          { app = "/Applications/Helium.app"; }
           { app = "/Applications/Brave Browser.app"; }
           { app = "/Applications/Spotify.app"; }
           { app = "/Applications/Microsoft Outlook.app"; }
@@ -107,6 +108,7 @@
           { app = "/Applications/Obsidian.app"; }
           { app = "/Applications/Prism Launcher.app"; }
           { app = "/Applications/Steam.app"; }
+          { app = "/System/Applications/iPhone Mirroring.app"; }
           { app = "${pkgs.fladder}/Applications/Fladder.app"; }
         ];
 
