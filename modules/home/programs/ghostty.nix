@@ -1,20 +1,25 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    ghostty
-  ];
-
   programs.ghostty = {
     enable = true;
     enableZshIntegration = true;
+
+    # use ghostty-bin package instead of built ghostty since it doesn't exist
+    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
 
     settings = {
       font-family = "JetbrainsMono Nerd Font";
       shell-integration-features = true;
       theme = "dark:dark,light:light";
-      font-feature = "-calt, -liga, -dlig";
+      # font-feature = "-calt, -liga, -dlig";
       window-theme = "ghostty";
+
+      macos-option-as-alt = true;
+      macos-titlebar-style = "tabs";
+
+      unfocused-split-opacity = 0.9;
+      split-divider-color = "#49494a";
     };
 
     themes = {

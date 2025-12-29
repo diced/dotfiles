@@ -102,14 +102,15 @@
           { app = "/System/Applications/Messages.app"; }
           { app = "/Applications/Discord.app"; }
           { app = "/Applications/Slack.app"; }
-          { app = "/Applications/Ghostty.app"; }
+          { app = "${pkgs.ghostty-bin}/Applications/Ghostty.app"; }
           { app = "/Applications/Visual Studio Code.app"; }
           { app = "/Applications/TickTick.app"; }
           { app = "/Applications/Obsidian.app"; }
           { app = "/Applications/Prism Launcher.app"; }
           { app = "/Applications/Steam.app"; }
+          { app = "/Applications/Heroic.app"; }
           { app = "/System/Applications/iPhone Mirroring.app"; }
-          { app = "${pkgs.fladder}/Applications/Fladder.app"; }
+          { app = "/Applications/Jellyfin Desktop.app"; }
         ];
 
         # persistent-others = [

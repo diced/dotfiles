@@ -32,7 +32,6 @@
       "ishare"
 
       # dev
-      "ghostty"
       "jetbrains-toolbox"
       "visual-studio-code"
       "bruno"
@@ -48,7 +47,6 @@
 
       # media
       "spotify"
-      "jellyfin-media-player"
       "stolendata-mpv"
 
       # torrent

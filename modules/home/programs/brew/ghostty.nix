@@ -13,6 +13,8 @@
 
     macos-option-as-alt = true
 
+    macos-titlebar-style = "tabs"
+
     unfocused-split-opacity = 0.9
     split-divider-color = #49494a
   '';

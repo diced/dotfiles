@@ -11,9 +11,7 @@ in
   imports = [
     "${homeModules}/common"
 
-    # broken as of 1.1.3, installed using brew for now
-    # "${homeModules}/programs/ghostty.nix"
-    "${homeModules}/programs/brew/ghostty.nix"
+    "${homeModules}/programs/ghostty.nix"
     "${homeModules}/programs/brew/mpv.nix"
 
     "${homeModules}/programs/git.nix"
