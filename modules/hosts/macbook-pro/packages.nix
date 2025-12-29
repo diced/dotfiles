@@ -42,6 +42,8 @@
     python313
     scons
     awscli2
+    cmake
+    pkg-config
 
     # manipulation
     imagemagick
