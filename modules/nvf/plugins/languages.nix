@@ -8,7 +8,7 @@
 
     nix = {
       enable = true;
-      format.type = "nixfmt";
+      format.type = [ "nixfmt" ];
     };
 
     ts = {

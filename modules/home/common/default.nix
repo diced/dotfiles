@@ -2,16 +2,15 @@
 
 {
   imports = [
-    ../terminal
-    ../programs/direnv.nix
-    ../programs/eza.nix
-    ../programs/fzf.nix
-    ../programs/zoxide.nix
-    ../programs/tealdeer.nix
-    ../programs/fastfetch.nix
-    ../programs/rg.nix
+    ../shell
+    ../programs/terminal/direnv.nix
+    ../programs/terminal/eza.nix
+    ../programs/terminal/fzf.nix
+    ../programs/terminal/zoxide.nix
+    ../programs/terminal/tealdeer.nix
+    ../programs/terminal/fastfetch.nix
+    ../programs/terminal/rg.nix
     ../programs/gpg.nix
-    # ../programs/terminal/zellij
   ];
 
   home = {
