@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ../lazy/harpoon.nix
+    # ../lazy/harpoon.nix
   ];
 }

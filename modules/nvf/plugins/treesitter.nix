@@ -9,7 +9,6 @@
     grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
       dockerfile
       prisma
-      jsonc
       json
     ];
 

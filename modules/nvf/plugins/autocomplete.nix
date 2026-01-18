@@ -6,6 +6,11 @@
     setupOpts = {
       signature.enabled = true;
 
+      completion.list.selection = {
+        preselect = false;
+        auto_insert = false;
+      };
+
       keymap = {
         "<Up>" = [
           "select_prev"

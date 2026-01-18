@@ -48,6 +48,14 @@ in
         CopilotSuggestion.fg = "#474a4f";
 
         NormalFloat.bg = "#161616";
+        
+        # rainbow delimiters
+        RainbowDelimiterBlue.fg = "#80ccff";
+        RainbowDelimiterGreen.fg = "#6fdd8b";
+        RainbowDelimiterYellow.fg = "#eac54f";
+        RainbowDelimiterRed.fg = "#ffaba8";
+        RainbowDelimiterPink.fg = "#ffadda";
+        RainbowDelimiterPurple.fg = "#d8b9ff";
       };
     };
   };

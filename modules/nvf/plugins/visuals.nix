@@ -19,16 +19,15 @@
     };
 
     rainbow-delimiters = {
-      enable = false;
+      enable = true;
       setupOpts = {
         highlight = [
-          "RainbowDelimiterBlue"
-          "RainbowDelimiterRed"
-          "RainbowDelimiterYellow"
-          "RainbowDelimiterOrange"
           "RainbowDelimiterGreen"
-          "RainbowDelimiterViolet"
-          "RainbowDelimiterCyan"
+          "RainbowDelimiterBlue"
+          "RainbowDelimiterYellow"
+          "RainbowDelimiterRed"
+          "RainbowDelimiterPink"
+          "RainbowDelimiterPurple"
         ];
       };
     };

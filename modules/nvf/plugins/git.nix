@@ -11,6 +11,7 @@
         kind = "floating";
 
         commit_editor.kind = "floating";
+        commit_view.kind = "floating";
       };
     };
 

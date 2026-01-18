@@ -19,5 +19,7 @@
 
     # highlights all references of a var
     illuminate.enable = true;
+
+    borders.enable = true;
   };
 }
