@@ -3,7 +3,16 @@
 {
   vim.visuals = {
     # notifications in bottom corner
-    fidget-nvim.enable = true;
+    fidget-nvim = {
+      enable = true;
+      setupOpts = {
+        notification = {
+          override_vim_notify = true;
+
+          window.border = "none";
+        };
+      };
+    };
 
     nvim-scrollbar.enable = true;
     nvim-web-devicons.enable = true;

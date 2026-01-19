@@ -14,9 +14,6 @@
       };
     };
 
-    # replaces cmdline ui
-    noice.enable = true;
-
     # highlights all references of a var
     illuminate.enable = true;
 

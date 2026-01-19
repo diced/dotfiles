@@ -57,7 +57,6 @@
       "steam"
       "prismlauncher"
       "lunar-client"
-      "whisky"
 
       # productivity
       "notion"
