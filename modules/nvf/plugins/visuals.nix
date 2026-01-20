@@ -28,11 +28,11 @@
     };
 
     rainbow-delimiters = {
-      enable = true;
+      enable = false;
       setupOpts = {
         highlight = [
-          "RainbowDelimiterGreen"
           "RainbowDelimiterBlue"
+          "RainbowDelimiterGreen"
           "RainbowDelimiterYellow"
           "RainbowDelimiterRed"
           "RainbowDelimiterPink"
