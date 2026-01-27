@@ -12,7 +12,6 @@
             {
               "mode",
               icons_enabled = true,
-
             }
           ''
           ''
@@ -84,7 +83,9 @@
                 local active_clients = {}
                 for _, client in ipairs(clients) do
                   if client.name == "copilot" then
-                    table.insert(active_clients, " ") -- Example glyph
+                    table.insert(active_clients, " ")
+                  elseif client.name == "typescript-tools" then
+                    table.insert(active_clients, "ts")
                   else
                     table.insert(active_clients, client.name)
                   end

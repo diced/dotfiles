@@ -22,12 +22,16 @@ in
       vim.api.nvim_set_hl(0, "CustomJsxDelimiter", { fg = "#E5EDF3" })
       vim.api.nvim_set_hl(0, "CustomVariable", { fg = "#79c0ff" })
       vim.api.nvim_set_hl(0, "CustomNvimTreeText", { fg = "#79c0ff" })
+      vim.api.nvim_set_hl(0, "Function", { fg = "#d2a8ff" })
 
       vim.api.nvim_set_hl(0, "@tag.attribute.tsx", { link = "CustomJsxAttr" })
       vim.api.nvim_set_hl(0, "@tag", { link = "CustomJsxTag" })
       vim.api.nvim_set_hl(0, "@tag.builtin", { link = "CustomJsxTag" })
       vim.api.nvim_set_hl(0, "@tag.delimiter", { link = "CustomJsxDelimiter" })
       vim.api.nvim_set_hl(0, "@variable.tsx", { link = "CustomVariable" })
+      vim.api.nvim_set_hl(0, "@variable.builtin.python", { link = "@variable" })
+      vim.api.nvim_set_hl(0, "@property.json", { link = "CustomJsxTag" })
+      vim.api.nvim_set_hl(0, "@property.yaml", { link = "CustomJsxTag" })
       vim.api.nvim_set_hl(0, "Operator", { fg = "#ff7b72" })
 
       vim.api.nvim_set_hl(0, "NvimTreeFolderName", { link = "CustomNvimTreeText" })
@@ -51,8 +55,8 @@ in
           teal = "#ff7b72";
           sky = "#89dceb";
           sapphire = "#74c7ec";
-          blue = "#d2a8ff";
-          lavender = "#b4befe";
+          blue = "#79C0FF";
+          lavender = "#cdd6f4";
           text = "#cdd6f4";
           subtext1 = "#bac2de";
           subtext0 = "#a6adc8";

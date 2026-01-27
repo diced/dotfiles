@@ -30,6 +30,7 @@
 
       # screenshot
       "ishare"
+      "obs"
 
       # dev
       "jetbrains-toolbox"
