@@ -6,7 +6,7 @@
     autotagHtml = true;
     fold = true;
 
-    grammars = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+    grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
       dockerfile
       prisma
       json
