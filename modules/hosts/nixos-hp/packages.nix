@@ -23,6 +23,8 @@
     ghostty
     discord
 
+    unstable.brave
+
     (heroic.override {
       extraPkgs =
         pkgs': with pkgs'; [

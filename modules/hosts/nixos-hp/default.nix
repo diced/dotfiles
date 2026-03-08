@@ -8,6 +8,8 @@
     ./hw.nix
     ./packages.nix
     ./nvidia.nix
+
+    ../../overlays/packages.nix
   ];
 
   nix = {
@@ -26,25 +28,31 @@
   };
   nixpkgs.config.allowUnfree = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
-  networking.hostName = "nixos-hp";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixos-hp";
+    networkmanager.enable = true;
+  };
 
   time.timeZone = "America/Los_Angeles";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
   services = {
@@ -94,6 +102,24 @@
   };
 
   programs.zsh.enable = true;
+
+  environment = {
+    gnome.excludePackages = with pkgs; [
+      geary
+      gnome-backgrounds
+      gnome-console
+      gnome-contacts
+      gnome-logs
+      gnome-maps
+      gnome-music
+      gnome-text-editor
+      gnome-tour
+      gnome-weather
+      totem
+      yelp
+      epiphany
+    ];
+  };
 
   system.stateVersion = "25.11";
 }
