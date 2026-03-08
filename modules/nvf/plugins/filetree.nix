@@ -33,8 +33,18 @@
         enable = true;
       };
 
+      actions.open_file = {
+        resize_window = true;
+      };
+
       trash = {
-        cmd = lib.optionalString pkgs.stdenv.isDarwin "${pkgs.darwin.trash}/bin/trash";
+        cmd =
+          if pkgs.stdenv.isDarwin then
+            "${pkgs.darwin.trash}/bin/trash"
+          else if pkgs.stdenv.isLinux then
+            "${pkgs.trash-cli}/bin/trash-put"
+          else
+            "";
       };
 
       on_attach = lib.generators.mkLuaInline ''
@@ -44,7 +54,6 @@
           local function opts(desc)
             return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
           end
-
 
 
           vim.keymap.set("n", "a", api.fs.create, opts("Create File Or Directory"))

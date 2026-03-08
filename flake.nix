@@ -97,7 +97,7 @@
         };
 
       mkNixosSystem =
-        host:
+        host: system:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit
@@ -106,6 +106,7 @@
               host
               user
               mkNeovim
+              system
               ;
           };
           modules = [
@@ -145,11 +146,13 @@
       });
 
       darwinConfigurations."macbook-pro" = mkDarwinSystem "macbook-pro";
-      nixosConfigurations."nixos-vm" = mkNixosSystem "nixos-vm";
+      nixosConfigurations."nixos-vm" = mkNixosSystem "nixos-vm" "aarch64-darwin";
+      nixosConfigurations."nixos-hp" = mkNixosSystem "nixos-hp" "x86_64-linux";
 
       homeConfigurations = {
         "macbook-pro" = mkHome "aarch64-darwin" "macbook-pro";
         "nixos-vm" = mkHome "aarch64-linux" "nixos-vm";
+        "nixos-hp" = mkHome "x86_64-linux" "nixos-hp";
       };
     };
 }
