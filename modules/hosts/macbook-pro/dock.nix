@@ -17,7 +17,8 @@
       { app = "/Applications/Helium.app"; }
       { app = "/Applications/Brave Browser.app"; }
       { app = "/Applications/Spotify.app"; }
-      { app = "/Applications/Microsoft Outlook.app"; }
+      # { app = "/Applications/Microsoft Outlook.app"; }
+      { app = "/System/Applications/Mail.app"; }
       { app = "/System/Applications/Phone.app"; }
       { app = "/System/Applications/Messages.app"; }
       { app = "/Applications/Discord.app"; }
