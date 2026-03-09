@@ -25,8 +25,9 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    zjstatus = {
-      url = "github:dj95/zjstatus";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -40,7 +41,7 @@
       nixpkgs-unstable,
       nix-index-database,
       nvf,
-      zjstatus,
+      disko,
       ...
     }@inputs:
     let
@@ -115,6 +116,19 @@
           ];
         };
 
+      mkNixosVPS =
+        host: system:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs system;
+          };
+
+          modules = [
+            ./modules/hosts/${host}
+            disko.nixosModules.disko
+          ];
+        };
+
       mkHome =
         system: host:
         home-manager.lib.homeManagerConfiguration {
@@ -145,14 +159,21 @@
         neovim = (mkNeovim system).neovim;
       });
 
+      # personal configs
       darwinConfigurations."macbook-pro" = mkDarwinSystem "macbook-pro";
-      nixosConfigurations."nixos-vm" = mkNixosSystem "nixos-vm" "aarch64-darwin";
-      nixosConfigurations."nixos-hp" = mkNixosSystem "nixos-hp" "x86_64-linux";
+      nixosConfigurations = {
+        "nixos-vm" = mkNixosSystem "nixos-vm" "aarch64-darwin";
+        "nixos-hp" = mkNixosSystem "nixos-hp" "x86_64-linux";
 
+        "nixos-phx" = mkNixosVPS "nixos-phx" "aarch64-linux";
+      };
+
+      # home config
       homeConfigurations = {
         "macbook-pro" = mkHome "aarch64-darwin" "macbook-pro";
         "nixos-vm" = mkHome "aarch64-linux" "nixos-vm";
         "nixos-hp" = mkHome "x86_64-linux" "nixos-hp";
+        "nixos-phx" = mkHome "aarch64-linux" "nixos-phx";
       };
     };
 }
