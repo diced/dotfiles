@@ -1,0 +1,10 @@
+keys:
+  - &diced age15d7wc9fmkrhhvv48e22c4tyxrvefmqz6u326hw8hx4xvze8rav9st49zxg
+  - &server_nixos_phx age183mvkzyrkme2radyux2ng9e7hnaw6q3y9e2takkd53s7uy0vm58sjzm73c
+
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_groups:
+      - age:
+          - *diced
+          - *server_nixos_phx

@@ -1,13 +1,16 @@
 {
   pkgs,
   user,
-  modulesPath,
   ...
 }:
 {
   imports = [
     ./disko.nix
     ./hw.nix
+    ./iscsi.nix
+
+    ./caddy
+    ./docker
   ];
 
   nix = {
@@ -15,7 +18,7 @@
       experimental-features = "nix-command flakes";
       trusted-users = [
         "@admin"
-        # user
+        user
       ];
     };
 
@@ -23,6 +26,18 @@
       automatic = true;
       options = "--delete-older-than 30d";
     };
+  };
+
+  sops = {
+    defaultSopsFile = ../../../secrets/nixos-phx.yaml;
+
+    age = {
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = true;
+    };
+
+    # secrets are defined where they are used.
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -55,11 +70,44 @@
 
   services = {
     openssh.enable = true;
+
+    tailscale = {
+      enable = true;
+      openFirewall = true;
+      extraUpFlags = [ "--ssh" ];
+    };
   };
 
-  users.users.root.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJuN0sxvMvy4g7JodYs5FSM30PlqKe2aJax5Sv/uxUd diced"
+  users.users.${user} = {
+    isNormalUser = true;
+    description = user;
+    extraGroups = [
+      "wheel"
+      "acme"
+      "docker"
+      "caddy"
+    ];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJJuN0sxvMvy4g7JodYs5FSM30PlqKe2aJax5Sv/uxUd diced"
+    ];
+
+    shell = pkgs.zsh;
+  };
+
+  security.sudo.extraRules = [
+    {
+      groups = [ "wheel" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
   ];
+
+  programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
     git

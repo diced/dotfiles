@@ -29,6 +29,16 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    arion = {
+      url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    sops = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -42,6 +52,8 @@
       nix-index-database,
       nvf,
       disko,
+      arion,
+      sops,
       ...
     }@inputs:
     let
@@ -120,12 +132,20 @@
         host: system:
         nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs system;
+            inherit
+              inputs
+              system
+              user
+              mkNeovim
+              outputs
+              ;
           };
 
           modules = [
             ./modules/hosts/${host}
             disko.nixosModules.disko
+            arion.nixosModules.arion
+            sops.nixosModules.sops
           ];
         };
 
