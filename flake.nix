@@ -151,11 +151,11 @@
         };
     in
     {
-      formatter = mkSystemPackages [ "x86_64-linux" "aarch64-darwin" ] (
+      formatter = mkSystemPackages [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (
         system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style
       );
 
-      packages = mkSystemPackages [ "x86_64-linux" "aarch64-darwin" ] (system: {
+      packages = mkSystemPackages [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (system: {
         neovim = (mkNeovim system).neovim;
       });
 
