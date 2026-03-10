@@ -2,9 +2,9 @@
 
 {
   sops = {
-    secrets.cloudflare_challenge = { };
+    secrets."services/cf/challenge" = { };
     templates."acme-cloudflare.env".content = ''
-      CLOUDFLARE_DNS_API_TOKEN=${config.sops.placeholder.cloudflare_challenge}
+      CLOUDFLARE_DNS_API_TOKEN=${config.sops.placeholder."services/cf/challenge"}
     '';
   };
 

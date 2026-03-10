@@ -138,7 +138,9 @@
               user
               mkNeovim
               outputs
+              host
               ;
+            nixosModules = "${self}/modules/nixos";
           };
 
           modules = [

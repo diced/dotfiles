@@ -1,15 +1,16 @@
+{ dataDir }:
 { config, ... }:
 
 {
   sops = {
     secrets = {
-      spotify_public = { };
-      spotify_secret = { };
+      "services/spotify/public" = { };
+      "services/spotify/secret" = { };
     };
 
-    templates."service.spotify.env".content = ''
-      SPOTIFY_PUBLIC=${config.sops.placeholder.spotify_public}
-      SPOTIFY_SECRET=${config.sops.placeholder.spotify_secret}
+    templates."services.spotify.env".content = ''
+      SPOTIFY_PUBLIC=${config.sops.placeholder."services/spotify/public"}
+      SPOTIFY_SECRET=${config.sops.placeholder."services/spotify/secret"}
       API_ENDPOINT="https://spotify-srv.phx.diced.sh"
       CLIENT_ENDPOINT="https://spotify.phx.diced.sh"
     '';
@@ -24,7 +25,7 @@
           ports = [ "8080:8080" ];
           depends_on = [ "mongo" ];
           env_file = [
-            config.sops.templates."service.spotify.env".path
+            config.sops.templates."services.spotify.env".path
           ];
         };
       };
@@ -35,7 +36,7 @@
           restart = "always";
           ports = [ "3004:3000" ];
           env_file = [
-            config.sops.templates."service.spotify.env".path
+            config.sops.templates."services.spotify.env".path
           ];
         };
       };
@@ -44,11 +45,16 @@
         service = {
           image = "mongo:6";
           volumes = [
-            "/block/spotify/your_spotify_db:/data/db"
+            "${dataDir}/your_spotify_db:/data/db"
           ];
         };
       };
     };
+  };
+
+  systemd.services."arion-spotify" = {
+    after = [ "iscsi-oracle-login.service" ];
+    requires = [ "iscsi-oracle-login.service" ];
   };
 
   services.caddy.virtualHosts = {

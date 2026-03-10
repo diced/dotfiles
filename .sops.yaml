@@ -3,7 +3,7 @@ keys:
   - &server_nixos_phx age183mvkzyrkme2radyux2ng9e7hnaw6q3y9e2takkd53s7uy0vm58sjzm73c
 
 creation_rules:
-  - path_regex: secrets/.*\.yaml$
+  - path_regex: modules/secrets/.*\.yaml$
     key_groups:
       - age:
           - *diced

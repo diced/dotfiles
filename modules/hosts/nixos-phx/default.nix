@@ -1,16 +1,18 @@
 {
   pkgs,
   user,
+  nixosModules,
+  host,
   ...
 }:
 {
   imports = [
     ./disko.nix
     ./hw.nix
-    ./iscsi.nix
+    ./docker.nix
 
-    ./caddy
-    ./docker
+    "${nixosModules}/caddy"
+    "${nixosModules}/iscsi.nix"
   ];
 
   nix = {
@@ -29,7 +31,7 @@
   };
 
   sops = {
-    defaultSopsFile = ../../../secrets/nixos-phx.yaml;
+    defaultSopsFile = ../../secrets/nixos-phx.yaml;
 
     age = {
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
@@ -48,7 +50,7 @@
   };
 
   networking = {
-    hostName = "nixos-phx";
+    hostName = host;
   };
 
   time.timeZone = "America/Los_Angeles";

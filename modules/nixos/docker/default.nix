@@ -1,10 +1,6 @@
-{ ... }:
+_:
 
 {
-  imports = [
-    ./spotify.nix
-  ];
-
   virtualisation.arion = {
     backend = "docker";
   };
