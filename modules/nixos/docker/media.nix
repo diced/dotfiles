@@ -1,5 +1,5 @@
 { dataDir }:
-{ config, ... }:
+_:
 
 {
   virtualisation.arion.projects."media".settings = {
@@ -92,5 +92,35 @@
       "iscsi-oracle-login.service"
     ];
     requires = [ "iscsi-oracle-login.service" ];
+  };
+
+  services.caddy.virtualHosts = {
+    "media.sjc.diced.sh".extraConfig = ''
+      reverse_proxy 127.0.0.1:8096
+
+      import wc-sjc
+    '';
+    "sonarr.sjc.diced.sh".extraConfig = ''
+      reverse_proxy 127.0.0.1:8989
+
+      import wc-sjc
+    '';
+    "radarr.sjc.diced.sh".extraConfig = ''
+      reverse_proxy 127.0.0.1:7878
+
+      import wc-sjc
+    '';
+
+    "prowlarr.sjc.diced.sh".extraConfig = ''
+      reverse_proxy 127.0.0.1:9696
+
+      import wc-sjc
+    '';
+
+    "qbittorrent.sjc.diced.sh".extraConfig = ''
+      reverse_proxy 127.0.0.1:8112
+
+      import wc-sjc
+    '';
   };
 }

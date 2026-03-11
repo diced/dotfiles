@@ -9,7 +9,7 @@
   imports = [
     ./disko.nix
     ./hw.nix
-    # ./docker.nix
+    ./docker.nix
 
     "${nixosModules}/caddy"
     "${nixosModules}/iscsi.nix"
