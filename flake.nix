@@ -21,7 +21,7 @@
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
     nvf = {
-      url = "github:notashelf/nvf/v0.8";
+      url = "github:notashelf/nvf/main";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
@@ -188,6 +188,7 @@
         "nixos-hp" = mkNixosSystem "nixos-hp" "x86_64-linux";
 
         "nixos-phx" = mkNixosVPS "nixos-phx" "aarch64-linux";
+        "nixos-sjc" = mkNixosVPS "nixos-sjc" "aarch64-linux";
       };
 
       # home config
@@ -196,6 +197,7 @@
         "nixos-vm" = mkHome "aarch64-linux" "nixos-vm";
         "nixos-hp" = mkHome "x86_64-linux" "nixos-hp";
         "nixos-phx" = mkHome "aarch64-linux" "nixos-phx";
+        "nixos-sjc" = mkHome "aarch64-linux" "nixos-sjc";
       };
     };
 }

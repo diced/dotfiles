@@ -1,5 +1,6 @@
 { dataDir }:
 { config, ... }:
+
 {
   virtualisation.arion.projects."media".settings = {
     services = {
@@ -52,7 +53,7 @@
       };
 
       prowlarr = {
-       service = {
+        service = {
           image = "ghcr.io/hotio/prowlarr:latest";
           restart = "unless-stopped";
           ports = [ "9696:9696" ];

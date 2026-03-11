@@ -1,6 +1,7 @@
 keys:
   - &diced age15d7wc9fmkrhhvv48e22c4tyxrvefmqz6u326hw8hx4xvze8rav9st49zxg
   - &server_nixos_phx age183mvkzyrkme2radyux2ng9e7hnaw6q3y9e2takkd53s7uy0vm58sjzm73c
+  - &server_nixos_sjc age17gn2wtajwcvaq5umjw07pzpjhtrzx8jlyv4c2md4ve45ady8j45sysau5x
 
 creation_rules:
   - path_regex: modules/secrets/.*\.yaml$
@@ -8,3 +9,4 @@ creation_rules:
       - age:
           - *diced
           - *server_nixos_phx
+          - *server_nixos_sjc

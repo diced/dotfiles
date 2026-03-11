@@ -15,13 +15,24 @@
       group = "caddy";
     };
 
-    certs."phx-diced-sh" = {
-      domain = "phx.diced.sh";
-      extraDomainNames = [ "*.phx.diced.sh" ];
-      dnsProvider = "cloudflare";
-      dnsResolver = "1.1.1.1:53";
-      dnsPropagationCheck = true;
-      environmentFile = config.sops.templates."acme-cloudflare.env".path;
+    certs = {
+      "phx-diced-sh" = {
+        domain = "phx.diced.sh";
+        extraDomainNames = [ "*.phx.diced.sh" ];
+        dnsProvider = "cloudflare";
+        dnsResolver = "1.1.1.1:53";
+        dnsPropagationCheck = true;
+        environmentFile = config.sops.templates."acme-cloudflare.env".path;
+      };
+
+      "sjc-diced-sh" = {
+        domain = "sjc.diced.sh";
+        extraDomainNames = [ "*.sjc.diced.sh" ];
+        dnsProvider = "cloudflare";
+        dnsResolver = "1.1.1.1:53";
+        dnsPropagationCheck = true;
+        environmentFile = config.sops.templates."acme-cloudflare.env".path;
+      };
     };
   };
 }

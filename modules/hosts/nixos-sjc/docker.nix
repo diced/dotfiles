@@ -1,0 +1,10 @@
+{
+  nixosModules,
+  ...
+}:
+
+{
+  imports = [
+    "${nixosModules}/docker"
+  ];
+}
