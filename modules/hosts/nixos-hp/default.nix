@@ -98,6 +98,11 @@
       "networkmanager"
       "wheel"
     ];
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGBP5NwXTLHvv0ysxlxpf15OxMydlScfW78NKUJfr8r8 diced@macbook-pro"
+    ];
+
     shell = pkgs.zsh;
   };
 
