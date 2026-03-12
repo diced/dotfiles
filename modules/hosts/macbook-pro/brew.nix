@@ -64,7 +64,7 @@
       "obsidian"
       "ticktick"
       "anki"
-      "thunderbird"
+      "bitwarden"
 
       # bench
       "geekbench"

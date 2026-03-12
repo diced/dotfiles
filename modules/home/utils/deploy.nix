@@ -2,6 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    (writeShellScriptBin "deploy-nixos" (builtins.readFile ../../../deploy.sh))
+    (writeShellScriptBin "deploy-nixos" (builtins.readFile ../../../deploy-nixos.sh))
   ];
 }

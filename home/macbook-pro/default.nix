@@ -15,9 +15,12 @@ in
     "${homeModules}/programs/brew/mpv.nix"
 
     "${homeModules}/programs/git.nix"
-    "${homeModules}/utils/switch.nix"
     "${homeModules}/programs/nix-index.nix"
+    "${homeModules}/utils/switch.nix"
+    "${homeModules}/utils/deploy.nix"
     "${homeModules}/programs/nh.nix"
+
+    ./ssh.nix
   ];
 
   home.packages = [
