@@ -11,6 +11,7 @@
     ../programs/terminal/fastfetch.nix
     ../programs/terminal/rg.nix
     ../programs/gpg.nix
+    ../programs/ssh.nix
   ];
 
   home = {

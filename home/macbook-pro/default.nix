@@ -19,8 +19,7 @@ in
     "${homeModules}/utils/switch.nix"
     "${homeModules}/utils/deploy.nix"
     "${homeModules}/programs/nh.nix"
-
-    ./ssh.nix
+    "${homeModules}/programs/ssh.nix"
   ];
 
   home.packages = [

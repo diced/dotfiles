@@ -1,10 +1,9 @@
-_:
+{ user, ... }:
 
 {
-  home.file.".ssh/config".text = ''
-    Host *
-      AddKeysToAgent yes
-      UseKeychain yes
-      IdentityFile ~/.ssh/macbook_pro
-  '';
+  programs.ssh.matchBlocks."*" = {
+    addKeysToAgent = true;
+    useKeychain = true;
+    identityFile = "/home/${user}.ssh/macbook_pro";
+  };
 }
