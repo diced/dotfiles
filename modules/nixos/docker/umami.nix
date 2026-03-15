@@ -55,9 +55,7 @@
     requires = [ "iscsi-oracle-login.service" ];
   };
 
-  services.caddy.virtualHosts = {
-    "http://analytics_.diced.sh".extraConfig = ''
-      reverse_proxy 127.0.0.1:3001
-    '';
-  };
+  services.caddy.virtualHosts."http://analytics_.diced.sh".extraConfig = ''
+    reverse_proxy 127.0.0.1:3001
+  '';
 }
