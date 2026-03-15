@@ -10,5 +10,6 @@
     (import "${nixosModules}/docker/media.nix" { dataDir = "/block/media"; })
     (import "${nixosModules}/docker/yamtrack.nix" { dataDir = "/block/yamtrack"; })
     (import "${nixosModules}/docker/vaultwarden.nix" { dataDir = "/block/vaultwarden"; })
+    (import "${nixosModules}/docker/stalwart.nix" { dataDir = "/block/stalwart"; })
   ];
 }

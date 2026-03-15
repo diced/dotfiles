@@ -21,9 +21,7 @@
   };
 
   systemd.services."arion-vaultwarden" = {
-    after = [
-      "iscsi-oracle-login.service"
-    ];
+    after = [ "iscsi-oracle-login.service" ];
     requires = [ "iscsi-oracle-login.service" ];
   };
 

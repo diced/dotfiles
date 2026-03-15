@@ -22,6 +22,12 @@
           protocols tls1.2 tls1.3
         }
       }
+
+      (wc-diced) {
+        tls /var/lib/acme/diced-sh/cert.pem /var/lib/acme/diced-sh/key.pem {
+          protocols tls1.2 tls1.3
+        }
+      }
     '';
   };
 
