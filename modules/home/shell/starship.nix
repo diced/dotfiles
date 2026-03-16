@@ -17,7 +17,7 @@
 
       hostname = {
         ssh_only = true;
-        format = " [$hostname]($style) in ";
+        format = "[$hostname]($style) in ";
         style = "bold blue";
       };
 
