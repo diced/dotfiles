@@ -33,15 +33,6 @@
         dnsPropagationCheck = true;
         environmentFile = config.sops.templates."acme-cloudflare.env".path;
       };
-
-      "diced-sh" = {
-        domain = "diced.sh";
-        extraDomainNames = [ "*.diced.sh" ];
-        dnsProvider = "cloudflare";
-        dnsResolver = "1.1.1.1:53";
-        dnsPropagationCheck = true;
-        environmentFile = config.sops.templates."acme-cloudflare.env".path;
-      };
     };
   };
 }

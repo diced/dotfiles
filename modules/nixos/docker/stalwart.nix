@@ -1,5 +1,5 @@
 { dataDir }:
-{ config }:
+_:
 
 {
   virtualisation.arion.projects."stalwart".settings = {
@@ -7,18 +7,13 @@
       service = {
         image = "stalwartlabs/stalwart:latest";
         restart = "unless-stopped";
-        tty = true; # Equivalent to -t
 
         ports = [
-          "8080:8080" # Alternative HTTP
-          "25:25" # SMTP
-          "587:587" # SMTP Submission
-          "465:465" # SMTP Over TLS
-          "143:143" # IMAP
-          "993:993" # IMAP Over TLS
-          "4190:4190" # ManageSieve
-          "110:110" # POP3
-          "995:995" # POP3 Over TLS
+          "8080:8080"
+          "25:25"
+          "465:465"
+          "993:993"
+          "995:995"
         ];
 
         volumes = [
@@ -34,8 +29,16 @@
   };
 
   services.caddy.virtualHosts."mail.diced.sh".extraConfig = ''
-    reverse_proxy 127.0.0.1:8080
-
-    import wc-diced
+    reverse_proxy 127.0.0.1:8080 {
+      header_up Host {upstream_hostport}
+      header_up X-Forwarded-Proto {scheme}
+    }
   '';
+
+  networking.firewall.allowedTCPPorts = [
+    25
+    465
+    993
+    995
+  ];
 }
