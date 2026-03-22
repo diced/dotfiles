@@ -21,7 +21,6 @@
       # browser
       "brave-browser"
       "firefox"
-      "helium-browser"
 
       # social
       "discord"
