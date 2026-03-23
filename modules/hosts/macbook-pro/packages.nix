@@ -19,7 +19,7 @@
     nixfmt
 
     # docker
-    colima
+    unstable.colima
     docker
     docker-compose
     docker-buildx
