@@ -10,6 +10,7 @@
       dockerfile
       prisma
       json
+      swift
     ];
 
     context = {

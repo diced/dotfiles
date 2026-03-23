@@ -27,8 +27,7 @@
       "signal"
       "slack"
 
-      # screenshot
-      "ishare"
+      # screen
       "obs"
 
       # dev
@@ -75,7 +74,6 @@
       "powerflow" # battery history and monitoring for macOS and iOS
       "unnaturalscrollwheels" # scroll wheel fix on external mouse
       "pearcleaner" # clean up app files
-      "finetune"
 
       # local llms
       "lm-studio"
