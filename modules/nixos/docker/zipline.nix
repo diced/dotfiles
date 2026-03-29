@@ -47,7 +47,7 @@
 
       zipline = {
         service = {
-          image = "ghcr.io/diced/zipline:v4";
+          image = "ghcr.io/diced/zipline:latest";
           restart = "unless-stopped";
           ports = [ "3002:3000" ];
           depends_on = [ "postgresql" ];
@@ -78,4 +78,8 @@
     after = [ "iscsi-oracle-login.service" ];
     requires = [ "iscsi-oracle-login.service" ];
   };
+
+  services.caddy.virtualHosts."http://z.diced.sh".extraConfig = ''
+    reverse_proxy 127.0.0.1:3002
+  '';
 }
