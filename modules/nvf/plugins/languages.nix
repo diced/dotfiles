@@ -27,6 +27,11 @@
       format.enable = false;
     };
 
+    svelte = {
+      enable = true;
+      format.enable = false;
+    };
+
     markdown = {
       enable = true;
       format.enable = false;

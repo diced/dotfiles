@@ -26,6 +26,12 @@
       guicursor = "n-v-c:block-Cursor,i-ci-ve:ver25,r-cr:hor20,o:hor50";
 
       wrap = false;
+
+      foldcolumn = "1";
+      foldlevel = 99;
+      foldlevelstart = 99;
+      foldenable = true;
+      fillchars = "fold: ,foldopen:,foldsep: ,foldclose:";
     };
   };
 }

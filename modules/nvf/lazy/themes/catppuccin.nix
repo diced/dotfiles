@@ -38,6 +38,13 @@ in
       vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { link = "CustomNvimTreeText" })
       vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { link = "CustomNvimTreeText" })
 
+
+      vim.api.nvim_set_hl(0, "RainbowDelimiterBlue", { fg = "#79C0FF" })
+      vim.api.nvim_set_hl(0, "RainbowDelimiterGreen", { fg = "#7EE787" })
+      vim.api.nvim_set_hl(0, "RainbowDelimiterYellow", { fg = "#E3B342" })
+      vim.api.nvim_set_hl(0, "RainbowDelimiterRed", { fg = "#ff7b72" })
+      vim.api.nvim_set_hl(0, "RainbowDelimiterPink", { fg = "#f5c2e7" })
+      vim.api.nvim_set_hl(0, "RainbowDelimiterPurple", { fg = "#d2a8ff" })
     '';
 
     setupOpts = {

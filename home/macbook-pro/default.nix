@@ -22,17 +22,19 @@ in
     "${homeModules}/programs/ssh.nix"
   ];
 
-  home.packages = [
-    neovim
-  ];
+  home = {
+    packages = [
+      neovim
+    ];
 
-  programs.home-manager.enable = true;
+    sessionVariables = {
+      "LC_ALL" = "";
+      "EDITOR" = "${neovim}/bin/nvim";
+    };
 
-  home.sessionVariables = {
-    "LC_ALL" = "";
-    "EDITOR" = "${neovim}/bin/nvim";
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    stateVersion = "25.11";
   };
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "25.11";
+  programs.home-manager.enable = true;
 }

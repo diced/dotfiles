@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   vim.visuals = {
@@ -28,7 +28,7 @@
     };
 
     rainbow-delimiters = {
-      enable = false;
+      enable = true;
       setupOpts = {
         highlight = [
           "RainbowDelimiterBlue"
@@ -38,6 +38,26 @@
           "RainbowDelimiterPink"
           "RainbowDelimiterPurple"
         ];
+
+        # disables rainbow delimiters in jsx/tsx files
+        strategy = lib.generators.mkLuaInline ''
+          {
+            [""] = function(bufnr)
+              local ft = vim.bo[bufnr].filetype
+              if ft == "typescriptreact" or ft == "javascriptreact" or ft == "html" then
+                return nil -- This disables it
+              end
+              return require('rainbow-delimiters.strategy.global')
+            end,
+          }
+        '';
+
+        query = {
+          "" = "rainbow-delimiters";
+
+          typescriptreact = "";
+          javascriptreact = "";
+        };
       };
     };
   };

@@ -17,6 +17,12 @@
     # highlights all references of a var
     illuminate.enable = true;
 
-    borders.enable = true;
+    noice = {
+      enable = true;
+
+      setupOpts = {
+        notify.enabled = false;
+      };
+    };
   };
 }

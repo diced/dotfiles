@@ -21,6 +21,7 @@
       # browser
       "brave-browser"
       "firefox"
+      "helium-browser"
 
       # social
       "discord"
@@ -68,7 +69,7 @@
       "geekbench"
 
       # mac/ios utils
-      # "jordanbaird-ice" # hide menu bar items
+      "thaw"
       "cyberduck" # gui file transfer
       "raycast" # launcher + hella hotkeys
       "powerflow" # battery history and monitoring for macOS and iOS
