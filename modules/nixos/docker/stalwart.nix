@@ -3,8 +3,8 @@ _:
 
 {
   virtualisation.arion.projects."stalwart".settings = {
-    services.stalwart = {
-      service = {
+    services = {
+      stalwart.service = {
         image = "stalwartlabs/stalwart:latest";
         restart = "unless-stopped";
 
@@ -20,6 +20,19 @@ _:
           "${dataDir}:/opt/stalwart"
         ];
       };
+
+      # jmap-webmail.service = {
+      #   image = "ghcr.io/bulwarkmail/webmail:latest";
+      #   restart = "unless-stopped";
+      #
+      #   ports = [
+      #     "3006:3000"
+      #   ];
+      #
+      #   environment = {
+      #     JMAP_SERVER_URL = "https://mail.diced.sh/";
+      #   };
+      # };
     };
   };
 
@@ -28,12 +41,20 @@ _:
     requires = [ "iscsi-oracle-login.service" ];
   };
 
-  services.caddy.virtualHosts."mail.diced.sh".extraConfig = ''
-    reverse_proxy 127.0.0.1:8080 {
-      header_up Host {upstream_hostport}
-      header_up X-Forwarded-Proto {scheme}
-    }
-  '';
+  services.caddy.virtualHosts = {
+    "mail.diced.sh".extraConfig = ''
+      reverse_proxy 127.0.0.1:8080 {
+        header_up Host {upstream_hostport}
+        header_up X-Forwarded-Proto {scheme}
+      }
+    '';
+
+    # "wm.sjc.diced.sh".extraConfig = ''
+    #   reverse_proxy 127.0.0.1:3006
+    #
+    #   import wc-sjc
+    # '';
+  };
 
   networking.firewall.allowedTCPPorts = [
     25
