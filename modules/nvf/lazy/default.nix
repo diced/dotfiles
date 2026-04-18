@@ -9,5 +9,6 @@
     ./nvim-ts-context-commentstring.nix
     ./typescript-tools.nix
     ./diffview.nix
+    ./glance.nix
   ];
 }
