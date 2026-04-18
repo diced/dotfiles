@@ -27,11 +27,9 @@
 
       wrap = false;
 
-      foldcolumn = "1";
+      foldcolumn = "0";
       foldlevel = 99;
       foldlevelstart = 99;
-      foldenable = true;
-      fillchars = "fold: ,foldopen:,foldsep: ,foldclose:";
     };
   };
 }
