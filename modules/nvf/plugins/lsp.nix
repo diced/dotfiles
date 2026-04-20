@@ -9,8 +9,11 @@
 
     trouble = {
       enable = true;
+      mappings.lspReferences = null;
     };
 
     otter-nvim.enable = true;
+
+    mappings.goToDefinition = null;
   };
 }
