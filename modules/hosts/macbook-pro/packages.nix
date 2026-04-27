@@ -44,6 +44,7 @@
     awscli2
     cmake
     pkg-config
+    rars
 
     # manipulation
     imagemagick
