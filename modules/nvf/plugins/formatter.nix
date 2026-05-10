@@ -16,6 +16,8 @@
         astro = [ "prettier" ];
         markdown = [ "prettier" ];
         mdx = [ "prettier" ];
+        c = [ ];
+        cpp = [ ];
       };
     };
   };

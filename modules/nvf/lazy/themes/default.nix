@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./catppuccin.nix
-    # ./github.nix
+    ./better_gh.nix
   ];
 }
