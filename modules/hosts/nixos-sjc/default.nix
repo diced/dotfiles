@@ -114,6 +114,8 @@
   environment.systemPackages = with pkgs; [
     git
     curl
+    htop
+    neovim
   ];
 
   system.stateVersion = "25.11";
