@@ -1,14 +1,15 @@
 { pkgs, ... }:
 
 let
+  commit = "5e67cee1b6f8cedbad813776b6514ae93c65f7a6";
   package = pkgs.vimUtils.buildVimPlugin {
     pname = "better_gh-nvim";
-    version = "4667aeaf8b38601a1b4da24cf7b87b5bb0f94db9";
+    version = commit;
     src = pkgs.fetchFromGitHub {
       owner = "diced";
       repo = "better_gh.nvim";
-      rev = "4667aeaf8b38601a1b4da24cf7b87b5bb0f94db9";
-      sha256 = "sha256-dx1FS9DXEPT7zd3md7g9tRQaMQn2t8J/NWZsrAKY0c8=";
+      rev = commit;
+      sha256 = "sha256-NAMGeDB1ABidyuCdmulg6hQtF92NsHJHVyclLEAOgKY=";
     };
   };
   # package = pkgs.vimUtils.buildVimPlugin {
@@ -26,7 +27,7 @@ in
     priority = 1000;
 
     setupOpts = {
-      neogit_floating_backdrop = true;
+      # neogit_floating_backdrop = true;
     };
 
     after = ''

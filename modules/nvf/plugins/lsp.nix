@@ -15,5 +15,9 @@
     otter-nvim.enable = true;
 
     mappings.goToDefinition = null;
+
+    presets = {
+      tailwindcss-language-server.enable = true;
+    };
   };
 }

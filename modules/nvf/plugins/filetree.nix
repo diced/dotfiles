@@ -75,8 +75,8 @@
           vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
           vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
           vim.keymap.set("n", "<2-LeftMouse>", api.node.open.edit, opts("Open"))
+          vim.keymap.set("n", "O", api.node.run.system, opts("Open With System Opener"))
 
-          vim.keymap.set("n", "O", api.node.open.preview, opts("Open"))
           vim.keymap.set("n", "<Tab>", api.node.open.preview, opts("Open Preview"))
 
           vim.keymap.set("n", "q", api.tree.close, opts("Close"))

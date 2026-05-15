@@ -3,6 +3,6 @@
 {
   vim.utility.vim-wakatime = {
     enable = true;
-    cli-package = null;
+    setupOpts.cli_path = "";
   };
 }

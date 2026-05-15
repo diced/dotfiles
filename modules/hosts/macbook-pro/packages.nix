@@ -45,6 +45,7 @@
     cmake
     pkg-config
     rars
+    platformio
 
     # manipulation
     imagemagick

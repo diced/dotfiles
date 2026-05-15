@@ -11,7 +11,7 @@
       format.type = [ "nixfmt" ];
     };
 
-    ts = {
+    typescript = {
       enable = true;
       format.enable = false;
       lsp.enable = false; # using typescript-tools instead.
@@ -46,7 +46,6 @@
     lua.enable = true;
     python.enable = true;
     typst.enable = true;
-    tailwind.enable = true;
     sql.enable = true;
     java.enable = true;
     yaml.enable = true;
