@@ -1,8 +1,5 @@
-{ homeModules, mkNeovim, ... }:
+{ homeModules, pkgs, ... }:
 
-let
-  neovim = (mkNeovim "aarch64-linux").neovim;
-in
 {
   imports = [
     "${homeModules}/common"
@@ -12,14 +9,10 @@ in
     "${homeModules}/utils/switch.nix"
   ];
 
-  home.packages = [
-    neovim
-  ];
-
   programs.home-manager.enable = true;
 
   home.sessionVariables = {
-    "EDITOR" = "${neovim}/bin/nvim";
+    "EDITOR" = "${pkgs.neovim}/bin/nvim";
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
