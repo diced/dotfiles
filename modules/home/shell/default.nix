@@ -4,6 +4,6 @@
   imports = [
     ./zsh.nix
     ./bash.nix
-    ./starship.nix
+    # ./starship.nix
   ];
 }

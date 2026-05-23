@@ -41,6 +41,11 @@
       enable = true;
     };
 
+    assembly = {
+      enable = true;
+      format.enable = false;
+    };
+
     go.enable = true;
     html.enable = true;
     lua.enable = true;
@@ -50,6 +55,5 @@
     java.enable = true;
     yaml.enable = true;
     rust.enable = true;
-    assembly.enable = true;
   };
 }
