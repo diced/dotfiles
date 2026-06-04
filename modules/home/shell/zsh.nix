@@ -57,8 +57,8 @@
 
     initContent = lib.mkMerge [
       (lib.mkBefore ''
-        if [[ -r "~/.cache/p10k-instant-prompt-''\${(%):-%n}.zsh" ]]; then
-          source "~/.cache/p10k-instant-prompt-''\${(%):-%n}.zsh"
+        if [[ -r "$HOME/.cache/p10k-instant-prompt-''\${(%):-%n}.zsh" ]]; then
+          source "$HOME/.cache/p10k-instant-prompt-''\${(%):-%n}.zsh"
         fi
 
         source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
