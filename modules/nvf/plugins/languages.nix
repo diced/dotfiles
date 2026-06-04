@@ -46,8 +46,11 @@
       format.enable = false;
     };
 
+    html = {
+      enable = true;
+    };
+
     go.enable = true;
-    html.enable = true;
     lua.enable = true;
     python.enable = true;
     typst.enable = true;
