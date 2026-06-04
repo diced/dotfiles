@@ -1,7 +1,7 @@
 { user, ... }:
 
 {
-  programs.ssh.matchBlocks."*" = {
+  programs.ssh.settings."*" = {
     addKeysToAgent = true;
     useKeychain = true;
     identityFile = "/home/${user}.ssh/macbook_pro";
