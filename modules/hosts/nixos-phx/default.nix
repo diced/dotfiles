@@ -51,7 +51,7 @@
     };
 
     # pin kernel to lts 6.18
-    kernelPackages = pkgs.linuxPackages_6_6;
+    kernelPackages = pkgs.linuxPackages_6_18;
   };
 
   networking = {
