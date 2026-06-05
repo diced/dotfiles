@@ -44,9 +44,14 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot.loader.grub = {
-    efiSupport = true;
-    efiInstallAsRemovable = true;
+  boot = {
+    loader.grub = {
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+    };
+
+    # pin kernel to lts 6.18
+    kernelPackages = pkgs.linuxPackages_6_6;
   };
 
   networking = {
