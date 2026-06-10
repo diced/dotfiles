@@ -57,10 +57,8 @@
 
   services = {
     openssh.enable = true;
-    pipwire = {
+    pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
       pulse.enable = true;
     };
     xserver.xkb.enable = true;
