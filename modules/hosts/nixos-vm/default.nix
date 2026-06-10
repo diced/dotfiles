@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   user,
   ...
 }:
@@ -40,23 +39,9 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   users.users.${user} = {
     isNormalUser = true;
@@ -69,31 +54,20 @@
   };
 
   programs.zsh.enable = true;
-  services.openssh.enable = true;
-
-  # enable hyprland in session manager
-  programs.hyprland.enable = true;
 
   services = {
     xserver.displayManager.gdm.enable = true;
-
-    # qemu
-    spice-vdagentd.enable = true;
+    openssh.enable = true;
+    pipwire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    xserver.xkb.enable = true;
   };
 
-  fileSystems."/mnt/share" = {
-    device = "share";
-    fsType = "9p";
-    options = [
-      "trans=virtio"
-      "version=9p2000.L"
-    ];
-  };
+  virtualisation.vmware.guest.enable = true;
 
-  hardware.enableRedistributableFirmware = lib.mkDefault true;
-
-  # make libgl apps use software rendering
-  environment.variables.LIBGL_ALWAYS_SOFTWARE = "1";
-
-  system.stateVersion = "25.05";
+  system.stateVersion = "26.05";
 }

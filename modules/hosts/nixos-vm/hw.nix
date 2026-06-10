@@ -10,15 +10,14 @@
 }:
 
 {
-  imports = [
-    (modulesPath + "/profiles/qemu-guest.nix")
-  ];
+  imports = [ ];
 
   boot.initrd.availableKernelModules = [
+    "ehci_pci"
+    "ahci"
     "xhci_pci"
-    "virtio_pci"
+    "nvme"
     "usbhid"
-    "usb_storage"
     "sr_mod"
   ];
   boot.initrd.kernelModules = [ ];
@@ -26,29 +25,20 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/24dc1f38-0b42-42f8-82c1-c7d936b2a1fc";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/9e5375a4-0204-4cf3-a3c8-ae02ef2d02eb";
+    fsType = "btrfs";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/AF46-2589";
+    device = "/dev/disk/by-uuid/F7F0-CF7F";
     fsType = "vfat";
     options = [
-      "fmask=0077"
-      "dmask=0077"
+      "fmask=0022"
+      "dmask=0022"
     ];
   };
 
-  swapDevices = [
-    { device = "/dev/disk/by-uuid/81ccdf18-13ad-405b-9482-fef9e412681a"; }
-  ];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp0s1.useDHCP = lib.mkDefault true;
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }
