@@ -56,7 +56,6 @@
   programs.zsh.enable = true;
 
   services = {
-    xserver.displayManager.gdm.enable = true;
     openssh.enable = true;
     pipwire = {
       enable = true;
@@ -65,7 +64,21 @@
       pulse.enable = true;
     };
     xserver.xkb.enable = true;
+
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+
+    gnome = {
+      core-apps.enable = false;
+      core-developer-tools.enable = false;
+      games.enable = false;
+    };
   };
+
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+    gnome-user-docs
+  ];
 
   virtualisation.vmware.guest.enable = true;
 
