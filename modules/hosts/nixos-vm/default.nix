@@ -61,7 +61,10 @@
       enable = true;
       pulse.enable = true;
     };
-    xserver.xkb.enable = true;
+
+    xserver.xkb = {
+      layout = "us";
+    };
 
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
