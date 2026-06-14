@@ -11,6 +11,7 @@
       prisma
       json
       swift
+      tsx
     ];
 
     context = {

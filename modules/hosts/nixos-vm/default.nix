@@ -39,8 +39,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
   users.users.${user} = {
