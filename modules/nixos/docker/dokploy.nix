@@ -45,21 +45,37 @@
         ];
       };
 
+      dokploy-traefik.service = {
+        image = "traefik:v3.6.7";
+        restart = "unless-stopped";
+        networks = [ "dokploy-network" ];
+
+        ports = [
+          "8000:80"
+          # "4443:443"
+          # "4443:443/udp"
+        ];
+
+        volumes = [
+          "${dataDir}/traefik/traefik.yml:/etc/traefik/traefik.yml"
+          "${dataDir}/traefik/dynamic:/etc/dokploy/traefik/dynamic"
+          "/var/run/docker.sock:/var/run/docker.sock:ro"
+        ];
+      };
+
       dokploy.service = {
         image = "dokploy/dokploy:latest";
         restart = "unless-stopped";
-
         networks = [ "dokploy-network" ];
 
         ports = [
           "3006:3000"
-          "8000:80"
-          "4443:443"
         ];
 
         volumes = [
           "/var/run/docker.sock:/var/run/docker.sock"
           "${dataDir}:/etc/dokploy"
+          "dokploy-docker-config:/root/.docker"
         ];
 
         environment = {
@@ -85,7 +101,7 @@
       reverse_proxy 127.0.0.1:3006
     '';
 
-    "http://zipline-preview.diced.sh".extraConfig = ''
+    "http://zipline.diced.sh".extraConfig = ''
       reverse_proxy 127.0.0.1:8000
     '';
   };
