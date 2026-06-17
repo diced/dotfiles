@@ -85,14 +85,9 @@
       reverse_proxy 127.0.0.1:3006
     '';
 
-    # "*.apps.diced.sh".extraConfig = ''
-    #   reverse_proxy 127.0.0.1:8000 {
-    #     header_up Host {host}
-    #     header_up X-Real-IP {remote_host}
-    #     header_up X-Forwarded-For {remote_host}
-    #     header_up X-Forwarded-Proto {scheme}
-    #   }
-    # '';
+    "http://zipline-preview.diced.sh".extraConfig = ''
+      reverse_proxy 127.0.0.1:8000
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [
