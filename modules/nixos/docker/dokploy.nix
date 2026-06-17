@@ -75,7 +75,6 @@
         volumes = [
           "/var/run/docker.sock:/var/run/docker.sock"
           "${dataDir}:/etc/dokploy"
-          "dokploy-docker-config:/root/.docker"
         ];
 
         environment = {
