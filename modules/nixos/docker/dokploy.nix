@@ -12,6 +12,29 @@ _:
     };
 
     services = {
+      dokploy-postgres.service = {
+        image = "postgres:16";
+        restart = "unless-stopped";
+        networks = [ "dokploy-network" ];
+        environment = {
+          POSTGRES_USER = "dokploy";
+          POSTGRES_PASSWORD = "dokploy";
+          POSTGRES_DB = "dokploy";
+        };
+        volumes = [
+          "${dataDir}/postgres:/var/lib/postgresql/data"
+        ];
+      };
+
+      dokploy-redis.service = {
+        image = "redis:7";
+        restart = "unless-stopped";
+        networks = [ "dokploy-network" ];
+        volumes = [
+          "${dataDir}/redis:/data"
+        ];
+      };
+
       dokploy.service = {
         image = "dokploy/dokploy:latest";
         restart = "unless-stopped";
@@ -28,6 +51,11 @@ _:
           "/var/run/docker.sock:/var/run/docker.sock"
           "${dataDir}:/etc/dokploy"
         ];
+
+        environment = {
+          DATABASE_URL = "postgresql://dokploy:dokploy@dokploy-postgres:5432/dokploy";
+          REDIS_URL = "redis://dokploy-redis:6379/0";
+        };
       };
     };
   };
