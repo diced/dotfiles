@@ -1,7 +1,17 @@
 { dataDir }:
-_:
+{ config, ... }:
 
 {
+  sops = {
+    secrets = {
+      "services/dokploy/better_auth_secret" = { };
+    };
+
+    templates."services.dokploy.env".content = ''
+      BETTER_AUTH_SECRET=${config.sops.placeholder."services/dokploy/better_auth_secret"}
+    '';
+  };
+
   virtualisation.arion.projects."dokploy".settings = {
     networks = {
       dokploy-network = {
@@ -56,6 +66,10 @@ _:
           DATABASE_URL = "postgresql://dokploy:dokploy@dokploy-postgres:5432/dokploy";
           REDIS_URL = "redis://dokploy-redis:6379/0";
         };
+
+        env_file = [
+          config.sops.templates."services.dokploy.env".path
+        ];
       };
     };
   };
