@@ -80,7 +80,7 @@
   };
 
   services.caddy.virtualHosts = {
-    "dokploy.diced.sh".extraConfig = ''
+    "http://dokploy.diced.sh".extraConfig = ''
       reverse_proxy 127.0.0.1:3000
     '';
 
