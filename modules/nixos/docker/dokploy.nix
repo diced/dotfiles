@@ -81,10 +81,7 @@
 
   services.caddy.virtualHosts = {
     "dokploy.diced.sh".extraConfig = ''
-      reverse_proxy 127.0.0.1:3006 {
-        header_up Host {upstream_hostport}
-        header_up X-Forwarded-Proto {scheme}
-      }
+      reverse_proxy 127.0.0.1:3000
     '';
 
     # "*.apps.diced.sh".extraConfig = ''
