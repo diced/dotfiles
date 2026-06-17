@@ -81,7 +81,7 @@
 
   services.caddy.virtualHosts = {
     "http://dokploy.diced.sh".extraConfig = ''
-      reverse_proxy 127.0.0.1:3000
+      reverse_proxy 127.0.0.1:3006
     '';
 
     # "*.apps.diced.sh".extraConfig = ''
