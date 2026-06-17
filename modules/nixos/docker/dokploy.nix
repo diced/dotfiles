@@ -100,7 +100,7 @@
       reverse_proxy 127.0.0.1:3006
     '';
 
-    "zipline.diced.sh".extraConfig = ''
+    "http://zipline-preview.diced.sh".extraConfig = ''
       reverse_proxy 127.0.0.1:8000
     '';
   };
