@@ -19,7 +19,6 @@
       SMTP_PASSWORD=${config.sops.placeholder."services/vw/smtp_password"}
       SMTP_SECURITY="force_tls"
       DOMAIN="https://vw.diced.sh"
-      SMTP_DEBUG=true
     '';
   };
 
