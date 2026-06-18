@@ -17,6 +17,7 @@
       SMTP_FROM=${config.sops.placeholder."services/vw/smtp_from"}
       SMTP_USERNAME=${config.sops.placeholder."services/vw/smtp_username"}
       SMTP_PASSWORD=${config.sops.placeholder."services/vw/smtp_password"}
+      SMTP_SECURITY="force_tls"
       DOMAIN="https://vw.diced.sh"
       SMTP_DEBUG=true
     '';
