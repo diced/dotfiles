@@ -18,6 +18,7 @@
       SMTP_USERNAME=${config.sops.placeholder."services/vw/smtp_username"}
       SMTP_PASSWORD=${config.sops.placeholder."services/vw/smtp_password"}
       DOMAIN="https://vw.diced.sh"
+      SMTP_DEBUG=true
     '';
   };
 
