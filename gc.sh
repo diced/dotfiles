@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+sudo nix-collect-garbage --delete-old
+
+nix-collect-garbage --delete-old

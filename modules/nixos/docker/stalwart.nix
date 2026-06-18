@@ -20,19 +20,6 @@ _:
           "${dataDir}:/opt/stalwart"
         ];
       };
-
-      # jmap-webmail.service = {
-      #   image = "ghcr.io/bulwarkmail/webmail:latest";
-      #   restart = "unless-stopped";
-      #
-      #   ports = [
-      #     "3006:3000"
-      #   ];
-      #
-      #   environment = {
-      #     JMAP_SERVER_URL = "https://mail.diced.sh/";
-      #   };
-      # };
     };
   };
 
@@ -48,12 +35,6 @@ _:
         header_up X-Forwarded-Proto {scheme}
       }
     '';
-
-    # "wm.sjc.diced.sh".extraConfig = ''
-    #   reverse_proxy 127.0.0.1:3006
-    #
-    #   import wc-sjc
-    # '';
   };
 
   networking.firewall.allowedTCPPorts = [
