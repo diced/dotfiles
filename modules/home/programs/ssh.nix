@@ -18,10 +18,12 @@ in
       "github.com" = {
         hostname = "github.com";
         identityFile = "${home}/.ssh/github";
+        identitiesOnly = true;
       };
       "github-edu" = {
         hostname = "github.com";
         identityFile = "${home}/.ssh/github_edu";
+        identitiesOnly = true;
       };
     };
   };
