@@ -5,7 +5,7 @@ _:
   virtualisation.arion.projects."stalwart".settings = {
     services = {
       stalwart.service = {
-        image = "stalwartlabs/stalwart:v0.16";
+        image = "stalwartlabs/stalwart:v0.15.5";
         restart = "unless-stopped";
 
         ports = [
@@ -17,8 +17,7 @@ _:
         ];
 
         volumes = [
-          "${dataDir}/data:/var/lib/stalwart"
-          "${dataDir}/config:/etc/stalwart"
+          "${dataDir}:/opt/stalwart"
         ];
       };
     };
