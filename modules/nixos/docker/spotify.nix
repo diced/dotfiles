@@ -27,6 +27,7 @@
           env_file = [
             config.sops.templates."services.spotify.env".path
           ];
+          
         };
       };
 

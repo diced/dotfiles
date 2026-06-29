@@ -15,6 +15,9 @@ _:
             "${dataDir}/jellyfin/config.json:/jellyfin/jellyfin-web/config.json"
             "${dataDir}/libraries:/libraries"
           ];
+          environment = {
+            TZ = "America/Los_Angeles";
+          };
         };
       };
 

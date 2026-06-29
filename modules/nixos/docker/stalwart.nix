@@ -19,6 +19,10 @@ _:
         volumes = [
           "${dataDir}:/opt/stalwart"
         ];
+
+        environment = {
+          TZ = "America/Los_Angeles";
+        };
       };
     };
   };

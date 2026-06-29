@@ -20,6 +20,7 @@
           environment = {
             DATABASE_TYPE = "postgresql";
             DATABASE_URL = "postgresql://umami:umami@db:5432/umami";
+            TZ = "America/Los_Angeles";
           };
         };
       };

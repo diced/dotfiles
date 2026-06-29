@@ -79,6 +79,7 @@
           DATABASE_URL = "postgresql://dokploy:dokploy@dokploy-postgres:5432/dokploy";
           REDIS_URL = "redis://dokploy-redis:6379/0";
           BETTER_AUTH_TRUSTED_ORIGINS = "https://dokploy.diced.sh";
+          TZ = "America/Los_Angeles";
         };
 
         env_file = [

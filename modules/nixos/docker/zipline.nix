@@ -51,12 +51,13 @@
           restart = "unless-stopped";
           ports = [ "3002:3000" ];
           depends_on = [ "postgresql" ];
-          env_file = [ config.sops.templates."services.zipline.env".path ];
+
           volumes = [
             "${dataDir}/uploads:/zipline/uploads"
             "${dataDir}/public:/zipline/public"
             "${dataDir}/themes:/zipline/themes"
           ];
+
           healthcheck = {
             test = [
               "CMD"
@@ -68,6 +69,11 @@
             interval = "15s";
             timeout = "2s";
             retries = 2;
+          };
+
+          env_file = [ config.sops.templates."services.zipline.env".path ];
+          environment = {
+            TZ = "America/Los_Angeles";
           };
         };
       };

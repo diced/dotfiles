@@ -17,9 +17,6 @@
       SMTP_FROM=${config.sops.placeholder."services/vw/smtp_from"}
       SMTP_USERNAME=${config.sops.placeholder."services/vw/smtp_username"}
       SMTP_PASSWORD=${config.sops.placeholder."services/vw/smtp_password"}
-      SMTP_SECURITY="force_tls"
-      DOMAIN="https://vw.diced.sh"
-      SIGNUPS_ALLOWED=false
     '';
   };
 
@@ -40,6 +37,12 @@
         env_file = [
           config.sops.templates."services.vw.env".path
         ];
+        environment = {
+          SMTP_SECURITY = "force_tls";
+          DOMAIN = "https://vw.diced.sh";
+          SIGNUPS_ALLOWED = "false";
+          TZ = "America/Los_Angeles";
+        };
       };
     };
   };
