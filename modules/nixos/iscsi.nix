@@ -8,22 +8,6 @@
     };
   };
 
-  # services.udev.extraRules =
-  #   let
-  #     linkScript = pkgs.writeShellScript "iscsi-linker" ''
-  #       IQN=$(cat ${config.sops.secrets."services/iscsi/iqn".path})
-  #       IP=$(cat ${config.sops.secrets."services/iscsi/ip".path})
-  #       DISK_PATH="ip-$IP-iscsi-$IQN-lun-2"
-  #
-  #       if [[ "$DEVPATH" == *"$DISK_PATH"* ]]; then
-  #         ln -sf "/dev/disk/by-path/$DISK_PATH" /dev/iscsi-disk
-  #       fi
-  #     '';
-  #   in
-  #   ''
-  #     ACTION=="add", SUBSYSTEM=="block", RUN+="${linkScript}"
-  #   '';
-
   services.openiscsi = {
     enable = true;
     name = "iqn.placeholder.unused";
