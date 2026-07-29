@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   vim.formatter.conform-nvim = {
@@ -6,7 +6,7 @@
 
     setupOpts = {
       formatters = {
-        prettier.command = "node_modules/.bin/prettier";
+        prettier.command = lib.mkForce "node_modules/.bin/prettier";
       };
 
       formatters_by_ft = {

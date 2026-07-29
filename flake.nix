@@ -21,7 +21,7 @@
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
     nvf = {
-      url = "github:notashelf/nvf/main";
+      url = "github:notashelf/nvf/release/26.07";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
