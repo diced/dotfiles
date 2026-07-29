@@ -13,14 +13,14 @@
       sub-color='#FFFFFFFF'
       sub-outline-color='#000000'
       sub-outline-size=6
+
     '';
 
     file.".config/duti/video.defaults".text = ''
-      io.mpv mp4 all
-      io.mpv mkv all
-      io.mpv mov all
-      io.mpv avi all
-      io.mpv webm all
+      com.colliderli.iina mkv all
+      com.colliderli.iina mp4 all
+      com.colliderli.iina mov all
+      com.colliderli.iina avi all
     '';
 
     activation.setDefaultVideoApp = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

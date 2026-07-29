@@ -28,7 +28,6 @@
       { app = "/Applications/Obsidian.app"; }
       { app = "/Applications/Prism Launcher.app"; }
       { app = "/Applications/Steam.app"; }
-      { app = "/Applications/Heroic.app"; }
       { app = "/System/Applications/iPhone Mirroring.app"; }
       { app = "/Applications/Jellyfin Desktop.app"; }
     ];

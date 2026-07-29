@@ -15,6 +15,11 @@
       "Xcode" = 497799835;
     };
 
+    # only yubikey manager since through nix is broken
+    brews = [
+      "ykman"
+    ];
+
     # only gui apps since installing them via nix is hit or miss with updates in-app
     casks = [
       # browser
@@ -42,11 +47,10 @@
       "inkscape"
       "kicad"
       "bambu-studio"
-      "prusaslicer"
 
       # media
       "spotify"
-      "stolendata-mpv"
+      "iina"
 
       # torrent
       "transmission"
@@ -69,9 +73,7 @@
 
       # mac/ios utils
       "thaw"
-      "cyberduck" # gui file transfer
       "raycast" # launcher + hella hotkeys
-      "powerflow" # battery history and monitoring for macOS and iOS
       "unnaturalscrollwheels" # scroll wheel fix on external mouse
       "pearcleaner" # clean up app files
 
@@ -80,10 +82,6 @@
 
       # qemu
       "utm"
-    ];
-
-    taps = [
-      "lzt1008/powerflow"
     ];
   };
 }
