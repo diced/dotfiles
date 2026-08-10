@@ -9,6 +9,7 @@
   ];
 
   # packages
+
   environment.systemPackages = with pkgs; [
     # android
     android-tools
@@ -31,6 +32,7 @@
     wget
     ffmpeg
     fladder # from overlay
+    fdk-aac-encoder
 
     # dev
     gh
@@ -39,13 +41,12 @@
     corepack_24
     go
     git
-    python313
-    scons
+    python314
     awscli2
     cmake
     pkg-config
-    rars
     platformio
+    opencode
 
     # manipulation
     imagemagick

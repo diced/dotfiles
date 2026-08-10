@@ -1,4 +1,4 @@
-{ user, ... }:
+{ user, pkgs, ... }:
 
 {
   imports = [
@@ -8,6 +8,32 @@
 
     ../../overlays/packages.nix
   ];
+
+  # fuck ass thing to get opencode to work
+  system.activationScripts.postActivation.text = ''
+    entitlements="$(mktemp)"
+    cat > "$entitlements" << 'EOF'
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>com.apple.security.cs.allow-jit</key><true/>
+          <key>com.apple.security.cs.allow-unsigned-executable-memory</key><true/>
+          <key>com.apple.security.cs.disable-library-validation</key><true/>
+      </dict>
+      </plist>
+    EOF
+
+    find ${pkgs.opencode}/bin -maxdepth 1 -type f | while read -r f; do
+      echo "  signing: $f" >&2
+      chmod u+w "$f" 2>/dev/null || true
+      /usr/bin/codesign --sign - --force --entitlements "$entitlements" "$f" 2>&1 | sed 's/^/    /' >&2
+      chmod u-w "$f" 2>/dev/null || true
+      /usr/bin/codesign -dv "$f" 2>&1 | sed 's/^/    verify: /' >&2
+    done
+
+    rm -f "$entitlements"
+  '';
 
   nixpkgs = {
     config.allowUnfree = true;

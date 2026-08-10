@@ -24,7 +24,7 @@
     casks = [
       # browser
       "brave-browser"
-      "firefox"
+      # "firefox"
       "helium-browser"
 
       # social
