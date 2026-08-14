@@ -47,6 +47,7 @@
     pkg-config
     platformio
     opencode
+    unstable.codex
 
     # manipulation
     imagemagick

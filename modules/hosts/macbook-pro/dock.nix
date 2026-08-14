@@ -23,7 +23,6 @@
       { app = "/Applications/Discord.app"; }
       { app = "/Applications/Slack.app"; }
       { app = "${pkgs.ghostty-bin}/Applications/Ghostty.app"; }
-      { app = "/Applications/Visual Studio Code.app"; }
       { app = "/Applications/TickTick.app"; }
       { app = "/Applications/Obsidian.app"; }
       { app = "/Applications/Prism Launcher.app"; }
