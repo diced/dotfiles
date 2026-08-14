@@ -15,11 +15,6 @@
       "Xcode" = 497799835;
     };
 
-    # only yubikey manager since through nix is broken
-    brews = [
-      "ykman"
-    ];
-
     # only gui apps since installing them via nix is hit or miss with updates in-app
     casks = [
       # browser

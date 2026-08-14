@@ -2,7 +2,10 @@
 {
   nixpkgs.overlays = [
     (final: prev: {
-      unstable = import inputs.nixpkgs-unstable { inherit (prev) config system; };
+      unstable = import inputs.nixpkgs-unstable {
+        inherit (prev) config;
+        localSystem = prev.stdenv.hostPlatform.system;
+      };
     })
 
     (final: prev: {
