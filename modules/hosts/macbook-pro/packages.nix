@@ -48,6 +48,8 @@
     platformio
     opencode
     unstable.codex
+    rustup
+    typst
 
     # manipulation
     imagemagick

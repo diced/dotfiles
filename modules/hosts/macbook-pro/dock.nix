@@ -25,8 +25,6 @@
       { app = "${pkgs.ghostty-bin}/Applications/Ghostty.app"; }
       { app = "/Applications/TickTick.app"; }
       { app = "/Applications/Obsidian.app"; }
-      { app = "/Applications/Prism Launcher.app"; }
-      { app = "/Applications/Steam.app"; }
       { app = "/System/Applications/iPhone Mirroring.app"; }
       { app = "/Applications/Jellyfin Desktop.app"; }
     ];

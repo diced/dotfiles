@@ -20,6 +20,8 @@
 
       unfocused-split-opacity = 0.9;
       split-divider-color = "#49494a";
+
+      wait-after-command = false;
     };
 
     themes = {
