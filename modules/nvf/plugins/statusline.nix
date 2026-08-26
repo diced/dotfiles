@@ -84,8 +84,10 @@
                 for _, client in ipairs(clients) do
                   if client.name == "copilot" then
                     table.insert(active_clients, " ")
-                  elseif client.name == "typescript-tools" then
-                    table.insert(active_clients, "ts")
+                  elseif client.name == "vscode-json-language-server" then
+                    table.insert(active_clients, "json")
+                  elseif client.name == "yaml-language-server" then
+                    table.insert(active_clients, "yaml")
                   else
                     table.insert(active_clients, client.name)
                   end

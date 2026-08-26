@@ -1,24 +1,28 @@
-{ lib, ... }:
+{ ... }:
 
 {
   vim.formatter.conform-nvim = {
     enable = true;
 
-    setupOpts = {
-      formatters = {
-        prettier.command = lib.mkForce "node_modules/.bin/prettier";
-      };
+    setupOpts.formatters_by_ft = {
+      javascript = [ "oxfmt" ];
+      javascriptreact = [ "oxfmt" ];
+      typescript = [ "oxfmt" ];
+      typescriptreact = [ "oxfmt" ];
+      json = [ "oxfmt" ];
+      jsonc = [ "oxfmt" ];
+      css = [ "oxfmt" ];
+      scss = [ "oxfmt" ];
+      less = [ "oxfmt" ];
+      html = [ "oxfmt" ];
+      vue = [ "oxfmt" ];
+      svelte = [ "oxfmt" ];
+      markdown = [ "oxfmt" ];
+      mdx = [ "oxfmt" ];
+      yaml = [ "oxfmt" ];
 
-      formatters_by_ft = {
-        javascript = [ "prettier" ];
-        typescript = [ "prettier" ];
-        typescriptreact = [ "prettier" ];
-        astro = [ "prettier" ];
-        markdown = [ "prettier" ];
-        mdx = [ "prettier" ];
-        c = [ ];
-        cpp = [ ];
-      };
+      c = [ ];
+      cpp = [ ];
     };
   };
 }

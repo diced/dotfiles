@@ -12,6 +12,7 @@
       json
       swift
       tsx
+      proto
     ];
 
     context = {

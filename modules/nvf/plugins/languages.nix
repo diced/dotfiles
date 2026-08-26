@@ -13,8 +13,9 @@
 
     typescript = {
       enable = true;
+      extraDiagnostics.enable = false;
       format.enable = false;
-      lsp.enable = false; # using typescript-tools instead.
+      lsp.enable = false; # using ts v7 instead.
     };
 
     css = {
@@ -24,15 +25,22 @@
 
     astro = {
       enable = true;
+      extraDiagnostics.enable = false;
       format.enable = false;
     };
 
     svelte = {
       enable = true;
+      extraDiagnostics.enable = false;
       format.enable = false;
     };
 
     markdown = {
+      enable = true;
+      format.enable = false;
+    };
+
+    json = {
       enable = true;
       format.enable = false;
     };
@@ -56,7 +64,10 @@
     typst.enable = true;
     sql.enable = true;
     java.enable = true;
-    yaml.enable = true;
+    yaml = {
+      enable = true;
+      format.enable = false;
+    };
     rust.enable = true;
   };
 }

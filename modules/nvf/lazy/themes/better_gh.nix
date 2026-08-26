@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  commit = "5e67cee1b6f8cedbad813776b6514ae93c65f7a6";
+  commit = "6ccb59e23f1813f12a3bd31d42f4211634a095c2";
   package = pkgs.vimUtils.buildVimPlugin {
     pname = "better_gh-nvim";
     version = commit;
@@ -9,13 +9,13 @@ let
       owner = "diced";
       repo = "better_gh.nvim";
       rev = commit;
-      sha256 = "sha256-NAMGeDB1ABidyuCdmulg6hQtF92NsHJHVyclLEAOgKY=";
+      sha256 = "sha256-RJYQ/2b4CYjymEVj3dhbtYxxBKex4/IIs4NFc3TRVcQ=";
     };
   };
   # package = pkgs.vimUtils.buildVimPlugin {
   #   pname = "better_gh-nvim";
   #   version = "dev";
-  #   src = /Users/diced/nvim_theme;
+  #   src = /Users/diced/Projects/better_gh.nvim;
   # };
 in
 {
