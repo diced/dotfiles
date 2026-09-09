@@ -35,6 +35,8 @@
       "visual-studio-code"
       "bruno"
       "arduino-ide"
+      "zed"
+      "ltspice"
 
       # image
       "gimp"
