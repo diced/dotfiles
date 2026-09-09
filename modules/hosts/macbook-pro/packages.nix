@@ -24,6 +24,7 @@
     docker
     docker-compose
     docker-buildx
+    docker-sbx
     dive
 
     # video
@@ -31,7 +32,6 @@
     yt-dlp
     wget
     ffmpeg
-    fladder # from overlay
     fdk-aac-encoder
 
     # dev
