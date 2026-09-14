@@ -23,6 +23,16 @@
       };
 
       servers = {
+        basedpyright.handlers."$/progress" = lib.generators.mkLuaInline ''
+          function(err, result, ctx)
+            -- Filter noisy notifications by only forwarding the first progress token.
+            if result.token == (vim.g.basedpyright_progress_token or result.token) then
+              vim.g.basedpyright_progress_token = result.token
+              vim.lsp.handlers['$/progress'](err, result, ctx)
+            end
+          end
+        '';
+
         clangd = {
           cmd = lib.mkForce [
             "clangd"

@@ -9,6 +9,11 @@ in
     enableDefaultConfig = false;
 
     settings = {
+      "sandbox" = {
+        hostname = "sandbox";
+        user = "codex";
+      };
+
       "*" = {
         addKeysToAgent = true;
         useKeychain = true;

@@ -50,6 +50,7 @@
     unstable.codex
     rustup
     typst
+    uv
 
     # manipulation
     imagemagick
