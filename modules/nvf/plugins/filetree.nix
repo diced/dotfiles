@@ -39,9 +39,9 @@
 
       trash = {
         cmd =
-          if pkgs.stdenv.isDarwin then
+          if pkgs.stdenv.hostPlatform.isDarwin then
             "${pkgs.darwin.trash}/bin/trash"
-          else if pkgs.stdenv.isLinux then
+          else if pkgs.stdenv.hostPlatform.isLinux then
             "${pkgs.trash-cli}/bin/trash-put"
           else
             "";

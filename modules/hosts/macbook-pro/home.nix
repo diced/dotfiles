@@ -1,11 +1,12 @@
 {
   homeModules,
-  mkNeovim,
+  outputs,
+  pkgs,
   ...
 }:
 
 let
-  neovim = (mkNeovim "aarch64-darwin").neovim;
+  neovim = outputs.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
 in
 {
   imports = [
@@ -16,9 +17,7 @@ in
 
     "${homeModules}/programs/git.nix"
     "${homeModules}/programs/nix-index.nix"
-    "${homeModules}/utils/switch.nix"
     "${homeModules}/utils/deploy.nix"
-    "${homeModules}/programs/nh.nix"
     "${homeModules}/programs/ssh.nix"
   ];
 
@@ -31,10 +30,5 @@ in
       "LC_ALL" = "";
       "EDITOR" = "${neovim}/bin/nvim";
     };
-
-    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-    stateVersion = "26.05";
   };
-
-  programs.home-manager.enable = true;
 }

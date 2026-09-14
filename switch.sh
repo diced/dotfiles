@@ -1,62 +1,38 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-usage_str="Usage: $0 [darwin|nixos|home] [-h]"
-
-if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then
-  echo "$usage_str"
-  exit 1
-fi
-
-TARGET="$1"
-SWITCH_HOME=false
-
-if [ "$2" == "-h" ]; then
-  SWITCH_HOME=true
-fi
-
-# load in config
-CONFIG_FILE="$HOME/nix/config.sh"
-if [ ! -f "$CONFIG_FILE" ]; then
-  echo "Config file not found: $CONFIG_FILE"
-  exit 1
-fi
-source "$CONFIG_FILE"
-
-# variables needed in config.sh:
-# FLAKE_DIR, path to flake dir ("$HOME/nix") (no longer needed for nh)
-# CONFIG_NAME, name of the configuration ("macbook-pro")
-
-# FLAKE="$FLAKE_DIR#$CONFIG_NAME"
-
-switch_home() {
-  echo "Running home-manager..."
-  # home-manager switch --flake "$FLAKE"
-  nh home switch -c "$CONFIG_NAME"
+usage() {
+  echo "Usage: $0 [darwin|d|nixos|n] [nh options...]"
 }
 
-case "$TARGET" in
-  nixos|n)
-    echo "Running nixos-rebuild..."
-    # sudo nixos-rebuild switch --flake "$FLAKE"
-    nh os switch -H "$CONFIG_NAME"
+case "${1:-}" in
+  --help|-h)
+    usage
+    exit 0
     ;;
   darwin|d)
-    echo "Running darwin-rebuild..."
-    # sudo darwin-rebuild switch --flake "$FLAKE"
-    nh darwin switch -H "$CONFIG_NAME"
+    target=darwin
+    shift
     ;;
-  home|h)
-    switch_home
+  nixos|n)
+    target=os
+    shift
+    ;;
+  ""|-*)
+    case "$(uname -s)" in
+      Darwin) target=darwin ;;
+      Linux) target=os ;;
+      *) echo "Unsupported OS: $(uname -s)" >&2; exit 1 ;;
+    esac
     ;;
   *)
-    echo "Unknown target: $TARGET"
-    echo "$usage_str"
+    usage >&2
     exit 1
     ;;
 esac
 
-if $SWITCH_HOME && [[ "$TARGET" != "home" ]]; then
-  switch_home
-fi
+config_name="${CONFIG_NAME:-$(hostname -s)}"
+flake="${NH_FLAKE:-path:$HOME/nix}"
+
+exec nh "$target" switch "$flake" -H "$config_name" "$@"

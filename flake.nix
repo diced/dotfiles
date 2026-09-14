@@ -39,7 +39,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs =
@@ -50,7 +49,6 @@
       home-manager,
       nixpkgs,
       nixpkgs-unstable,
-      nix-index-database,
       nvf,
       disko,
       arion,
@@ -97,6 +95,7 @@
           modules = [
             ./modules/hosts/${host}
             home-manager.darwinModules.home-manager
+            ./modules/home/home-manager.nix
             nix-homebrew.darwinModules.nix-homebrew
 
             {
@@ -113,31 +112,30 @@
       mkNixosSystem =
         host: system:
         nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = {
             inherit
               inputs
               outputs
               host
               user
-              mkNeovim
-              system
               ;
           };
           modules = [
             ./modules/hosts/${host}
             home-manager.nixosModules.home-manager
+            ./modules/home/home-manager.nix
           ];
         };
 
       mkNixosVPS =
         host: system:
         nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = {
             inherit
               inputs
-              system
               user
-              mkNeovim
               outputs
               host
               ;
@@ -146,30 +144,11 @@
 
           modules = [
             ./modules/hosts/${host}
+            home-manager.nixosModules.home-manager
+            ./modules/home/home-manager.nix
             disko.nixosModules.disko
             arion.nixosModules.arion
             sops.nixosModules.sops
-          ];
-        };
-
-      mkHome =
-        system: host:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs { inherit system; };
-          extraSpecialArgs = {
-            inherit
-              inputs
-              outputs
-              host
-              user
-              mkNeovim
-              system
-              ;
-            homeModules = "${self}/modules/home";
-          };
-          modules = [
-            ./home/${host}
-            nix-index-database.homeModules.nix-index
           ];
         };
     in
@@ -179,26 +158,17 @@
       );
 
       packages = mkSystemPackages [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (system: {
-        neovim = (mkNeovim system).neovim;
+        inherit ((mkNeovim system)) neovim;
       });
 
       # personal configs
       darwinConfigurations."macbook-pro" = mkDarwinSystem "macbook-pro";
       nixosConfigurations = {
-        "nixos-vm" = mkNixosSystem "nixos-vm" "aarch64-darwin";
+        "nixos-vm" = mkNixosSystem "nixos-vm" "aarch64-linux";
         "nixos-hp" = mkNixosSystem "nixos-hp" "x86_64-linux";
 
         "nixos-phx" = mkNixosVPS "nixos-phx" "aarch64-linux";
         "nixos-sjc" = mkNixosVPS "nixos-sjc" "aarch64-linux";
-      };
-
-      # home config
-      homeConfigurations = {
-        "macbook-pro" = mkHome "aarch64-darwin" "macbook-pro";
-        "nixos-vm" = mkHome "aarch64-linux" "nixos-vm";
-        "nixos-hp" = mkHome "x86_64-linux" "nixos-hp";
-        "nixos-phx" = mkHome "aarch64-linux" "nixos-phx";
-        "nixos-sjc" = mkHome "aarch64-linux" "nixos-sjc";
       };
     };
 }

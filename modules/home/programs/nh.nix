@@ -1,7 +1,7 @@
-{ pkgs, user, ... }:
+{ config, ... }:
 
 let
-  flakeDir = (if pkgs.stdenv.isDarwin then "/Users/${user}" else "/home/${user}") + "/nix";
+  flakeDir = "${config.home.homeDirectory}/nix";
 in
 {
   programs.nh = {

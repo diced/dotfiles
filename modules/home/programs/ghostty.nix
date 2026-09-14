@@ -6,7 +6,7 @@
     enableZshIntegration = true;
 
     # use ghostty-bin package instead of built ghostty since it doesn't exist
-    package = if pkgs.stdenv.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
+    package = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.ghostty-bin else pkgs.ghostty;
 
     settings = {
       font-family = "JetbrainsMono Nerd Font";

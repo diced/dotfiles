@@ -1,7 +1,15 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  host,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
-    (writeShellScriptBin "switch" (builtins.readFile ../../../switch.sh))
+    (writeShellScriptBin "switch" ''
+      export CONFIG_NAME=${lib.escapeShellArg host}
+      ${builtins.readFile ../../../switch.sh}
+    '')
   ];
 }

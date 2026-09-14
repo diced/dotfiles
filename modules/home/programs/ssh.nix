@@ -1,7 +1,7 @@
 { user, pkgs, ... }:
 
 let
-  home = if pkgs.stdenv.isDarwin then "/Users/${user}" else "/home/${user}";
+  home = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${user}" else "/home/${user}";
 in
 {
   programs.ssh = {
