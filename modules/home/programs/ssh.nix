@@ -1,4 +1,10 @@
-{ user, pkgs, ... }:
+{
+  user,
+  pkgs,
+  lib,
+  host,
+  ...
+}:
 
 let
   home = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${user}" else "/home/${user}";
@@ -14,7 +20,7 @@ in
         user = "codex";
       };
 
-      "*" = {
+      "*" = lib.mkIf (host != "macbook-pro") {
         addKeysToAgent = true;
         useKeychain = true;
         identityFile = "${home}/.ssh/macbook_pro";
