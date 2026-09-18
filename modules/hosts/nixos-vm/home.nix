@@ -7,5 +7,6 @@
     "${homeModules}/desktops/hyprland"
     "${homeModules}/programs/ghostty.nix"
     "${homeModules}/programs/git.nix"
+    "${homeModules}/programs/ssh.nix"
   ];
 }
