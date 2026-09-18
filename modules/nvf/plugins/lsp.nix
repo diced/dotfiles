@@ -41,6 +41,11 @@
           ];
         };
 
+        tinymist.settings = {
+          formatterPrintWidth = 80;
+          formatterProseWrap = true;
+        };
+
         oxlint = { };
         tsc = {
           cmd = lib.generators.mkLuaInline ''

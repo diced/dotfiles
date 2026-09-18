@@ -61,7 +61,10 @@
     go.enable = true;
     lua.enable = true;
     python.enable = true;
-    typst.enable = true;
+    typst = {
+      enable = true;
+      format.enable = false; # using tinymist built in typstyle
+    };
     sql.enable = true;
     java.enable = true;
     yaml = {
