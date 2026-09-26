@@ -31,6 +31,7 @@
       "obs"
 
       # dev
+      "ghostty@tip"
       "jetbrains-toolbox"
       "visual-studio-code"
       "bruno"

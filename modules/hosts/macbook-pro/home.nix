@@ -12,7 +12,7 @@ in
   imports = [
     "${homeModules}/common"
 
-    "${homeModules}/programs/ghostty.nix"
+    "${homeModules}/programs/brew/ghostty.nix"
     "${homeModules}/programs/brew/mpv.nix"
 
     "${homeModules}/programs/git.nix"

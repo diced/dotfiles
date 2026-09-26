@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   system.defaults.dock = {
@@ -22,7 +22,7 @@
       { app = "/System/Applications/Messages.app"; }
       { app = "/Applications/Discord.app"; }
       { app = "/Applications/Slack.app"; }
-      { app = "${pkgs.ghostty-bin}/Applications/Ghostty.app"; }
+      { app = "/Applications/Ghostty.app"; }
       { app = "/Applications/TickTick.app"; }
       { app = "/Applications/Obsidian.app"; }
       { app = "/System/Applications/iPhone Mirroring.app"; }
