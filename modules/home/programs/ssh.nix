@@ -20,7 +20,7 @@ in
         user = "codex";
       };
 
-      "*" = lib.mkIf (host != "macbook-pro") {
+      "*" = lib.mkIf (host == "macbook-pro") {
         addKeysToAgent = true;
         useKeychain = true;
         identityFile = "${home}/.ssh/macbook_pro";
