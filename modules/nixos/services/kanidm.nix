@@ -21,25 +21,28 @@
 
       client = {
         enable = true;
+
         settings.uri = "https://idm.diced.sh";
       };
     };
 
-    caddy = {
-      enable = true;
+    caddy.virtualHosts."idm.diced.sh".extraConfig = ''
+      tls /var/lib/acme/diced-sh/fullchain.pem /var/lib/acme/diced-sh/key.pem
 
-      virtualHosts."idm.diced.sh".extraConfig = ''
-        reverse_proxy https://127.0.0.1:8443
+      reverse_proxy 127.0.0.1:8443 {
+        header_up Host idm.diced.sh
 
-        import wc-diced-sh
-      '';
-    };
+        transport http {
+          tls
+          tls_server_name idm.diced.sh
+        }
+      }
+    '';
   };
 
   users.users.kanidm.extraGroups = [ "caddy" ];
 
   security.acme.certs."diced-sh".reloadServices = [
-    "caddy.service"
     "kanidm.service"
   ];
 }
