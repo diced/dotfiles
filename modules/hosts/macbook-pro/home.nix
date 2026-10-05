@@ -21,6 +21,11 @@ in
     "${homeModules}/programs/ssh.nix"
   ];
 
+  programs.ssh.settings."*" = {
+    addKeysToAgent = true;
+    useKeychain = true;
+  };
+
   home = {
     packages = [
       neovim

@@ -1,13 +1,16 @@
-{ ... }:
+{ lib, ... }:
 
+let
+  inherit (lib.generators) mkLuaInline;
+in
 {
   vim.statusline = {
     lualine = {
       enable = true;
-      globalStatus = false;
+      setupOpts.options.globalstatus = false;
 
-      activeSection = {
-        a = [
+      setupOpts.sections = {
+        lualine_a = map mkLuaInline [
           ''
             {
               "mode",
@@ -22,7 +25,7 @@
           ''
         ];
 
-        b = [
+        lualine_b = map mkLuaInline [
           ''
             {
               "filetype",
@@ -46,7 +49,7 @@
           ''
         ];
 
-        c = [
+        lualine_c = map mkLuaInline [
           ''
             {
               "diff",
@@ -61,7 +64,7 @@
           ''
         ];
 
-        x = [
+        lualine_x = map mkLuaInline [
           ''
             {
               -- Lsp server name
@@ -115,7 +118,7 @@
           ''
         ];
 
-        y = [
+        lualine_y = map mkLuaInline [
           ''
             {
               "",
@@ -137,7 +140,7 @@
           ''
         ];
 
-        z = [
+        lualine_z = map mkLuaInline [
           ''
             {
               "",
@@ -166,7 +169,7 @@
         ];
       };
 
-      inactiveSection.c = [
+      setupOpts.inactive_sections.lualine_c = map mkLuaInline [
         ''
           {
             "filename",
