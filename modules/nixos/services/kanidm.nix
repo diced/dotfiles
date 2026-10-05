@@ -29,13 +29,9 @@
       enable = true;
 
       virtualHosts."idm.diced.sh".extraConfig = ''
-        tls /var/lib/acme/diced-sh/fullchain.pem /var/lib/acme/diced-sh/key.pem
+        reverse_proxy https://127.0.0.1:8443
 
-        reverse_proxy https://127.0.0.1:8443 {
-          transport http {
-            tls_server_name idm.diced.sh
-          }
-        }
+        import wc-diced-sh
       '';
     };
   };
