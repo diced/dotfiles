@@ -9,6 +9,8 @@
     ./docker.nix
 
     "${nixosModules}/common/server.nix"
+
+    "${nixosModules}/services/kanidm.nix"
   ];
 
   sops = {
