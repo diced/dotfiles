@@ -6,6 +6,7 @@
     secrets = {
       "services/zipline/secret" = { };
       "services/zipline/pg_password" = { };
+      "services/zipline/oidc_client_secret" = { };
     };
 
     templates."services.zipline.env".content = ''
@@ -15,6 +16,13 @@
       }@postgresql:5432/zipline
       CORE_SECRET=${config.sops.placeholder."services/zipline/secret"}
     '';
+
+    templates."services.zipline.oidc.env" = {
+      content = ''
+        OAUTH_OIDC_CLIENT_SECRET=${config.sops.placeholder."services/zipline/oidc_client_secret"}
+      '';
+      restartUnits = [ "arion-zipline.service" ];
+    };
   };
 
   virtualisation.arion.projects."zipline".settings = {
@@ -71,9 +79,22 @@
             retries = 2;
           };
 
-          env_file = [ config.sops.templates."services.zipline.env".path ];
+          env_file = [
+            config.sops.templates."services.zipline.env".path
+            config.sops.templates."services.zipline.oidc.env".path
+          ];
           environment = {
             TZ = "America/Los_Angeles";
+            CORE_RETURN_HTTPS_URLS = "true";
+            FEATURES_OAUTH_REGISTRATION = "true";
+
+            # OAUTH_LOGIN_ONLY = "true";
+            # OAUTH_BYPASS_LOCAL_LOGIN = "false";
+            OAUTH_OIDC_CLIENT_ID = "zipline";
+            OAUTH_OIDC_AUTHORIZE_URL = "https://idm.diced.sh/ui/oauth2";
+            OAUTH_OIDC_TOKEN_URL = "https://idm.diced.sh/oauth2/token";
+            OAUTH_OIDC_USERINFO_URL = "https://idm.diced.sh/oauth2/openid/zipline/userinfo";
+            OAUTH_OIDC_REDIRECT_URI = "https://z.diced.sh/api/auth/oauth/oidc";
           };
         };
       };
