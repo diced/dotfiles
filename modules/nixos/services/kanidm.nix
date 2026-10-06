@@ -40,6 +40,19 @@
         groups.prowlarr_users.overwriteMembers = false;
         groups.autobrr_users.overwriteMembers = false;
         groups.zipline_users.overwriteMembers = false;
+        groups.vaultwarden_users.overwriteMembers = false;
+
+        systems.oauth2.vaultwarden = {
+          displayName = "Vaultwarden";
+          originLanding = "https://vw.diced.sh";
+          originUrl = "https://vw.diced.sh/identity/connect/oidc-signin";
+          preferShortUsername = true;
+          scopeMaps.vaultwarden_users = [
+            "openid"
+            "email"
+            "profile"
+          ];
+        };
 
         systems.oauth2.zipline = {
           displayName = "Zipline";
