@@ -1,9 +1,14 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
+  sops.secrets."services/kanidm/idm_admin_password" = {
+    owner = "kanidm";
+    restartUnits = [ "kanidm.service" ];
+  };
+
   services = {
     kanidm = {
-      package = pkgs.kanidm_1_11;
+      package = pkgs.kanidm_1_11.withSecretProvisioning;
 
       server = {
         enable = true;
@@ -23,6 +28,25 @@
         enable = true;
 
         settings.uri = "https://idm.diced.sh";
+      };
+
+      provision = {
+        enable = true;
+        autoRemove = false;
+        idmAdminPasswordFile = config.sops.secrets."services/kanidm/idm_admin_password".path;
+
+        groups.sonarr_users.overwriteMembers = false;
+
+        systems.oauth2.sonarr_whatbox = {
+          displayName = "Sonarr";
+          originLanding = "https://sonarr.box.diced.sh";
+          originUrl = "https://sonarr.box.diced.sh/oauth2/callback";
+          scopeMaps.sonarr_users = [
+            "openid"
+            "email"
+            "profile"
+          ];
+        };
       };
     };
 
