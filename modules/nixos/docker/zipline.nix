@@ -89,7 +89,7 @@
             FEATURES_OAUTH_REGISTRATION = "true";
 
             OAUTH_LOGIN_ONLY = "true";
-            OAUTH_BYPASS_LOCAL_LOGIN = "false";
+            OAUTH_BYPASS_LOCAL_LOGIN = "true";
             OAUTH_OIDC_CLIENT_ID = "zipline";
             OAUTH_OIDC_AUTHORIZE_URL = "https://idm.diced.sh/ui/oauth2";
             OAUTH_OIDC_TOKEN_URL = "https://idm.diced.sh/oauth2/token";
