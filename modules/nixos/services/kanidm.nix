@@ -39,6 +39,20 @@
         groups.radarr_users.overwriteMembers = false;
         groups.prowlarr_users.overwriteMembers = false;
         groups.autobrr_users.overwriteMembers = false;
+        groups.zipline_users.overwriteMembers = false;
+
+        systems.oauth2.zipline = {
+          displayName = "Zipline";
+          originLanding = "https://z.diced.sh";
+          originUrl = "https://z.diced.sh/api/auth/oauth/oidc";
+          preferShortUsername = true;
+          scopeMaps.zipline_users = [
+            "openid"
+            "email"
+            "profile"
+            "offline_access"
+          ];
+        };
 
         systems.oauth2.sonarr_whatbox = {
           displayName = "Sonarr";
