@@ -36,12 +36,48 @@
         idmAdminPasswordFile = config.sops.secrets."services/kanidm/idm_admin_password".path;
 
         groups.sonarr_users.overwriteMembers = false;
+        groups.radarr_users.overwriteMembers = false;
+        groups.prowlarr_users.overwriteMembers = false;
+        groups.autobrr_users.overwriteMembers = false;
 
         systems.oauth2.sonarr_whatbox = {
           displayName = "Sonarr";
           originLanding = "https://sonarr.box.diced.sh";
           originUrl = "https://sonarr.box.diced.sh/oauth2/callback";
           scopeMaps.sonarr_users = [
+            "openid"
+            "email"
+            "profile"
+          ];
+        };
+
+        systems.oauth2.radarr_whatbox = {
+          displayName = "Radarr";
+          originLanding = "https://radarr.box.diced.sh";
+          originUrl = "https://radarr.box.diced.sh/oauth2/callback";
+          scopeMaps.radarr_users = [
+            "openid"
+            "email"
+            "profile"
+          ];
+        };
+
+        systems.oauth2.prowlarr_whatbox = {
+          displayName = "Prowlarr";
+          originLanding = "https://prowlarr.box.diced.sh";
+          originUrl = "https://prowlarr.box.diced.sh/oauth2/callback";
+          scopeMaps.prowlarr_users = [
+            "openid"
+            "email"
+            "profile"
+          ];
+        };
+
+        systems.oauth2.autobrr_whatbox = {
+          displayName = "autobrr";
+          originLanding = "https://autobrr.box.diced.sh";
+          originUrl = "https://autobrr.box.diced.sh/api/auth/oidc/callback";
+          scopeMaps.autobrr_users = [
             "openid"
             "email"
             "profile"
