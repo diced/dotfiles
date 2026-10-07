@@ -48,6 +48,7 @@
         systems.oauth2 = {
           komodo = {
             displayName = "Komodo";
+            imageFile = ../../../images/kanidm/komodo.svg;
             originLanding = "https://komodo.diced.sh";
             originUrl = "https://komodo.diced.sh/auth/oidc/callback";
             preferShortUsername = true;
@@ -60,6 +61,7 @@
 
           vaultwarden = {
             displayName = "Vaultwarden";
+            imageFile = ../../../images/kanidm/vaultwarden.svg;
             originLanding = "https://vw.diced.sh";
             originUrl = "https://vw.diced.sh/identity/connect/oidc-signin";
             preferShortUsername = true;
@@ -72,6 +74,7 @@
 
           zipline = {
             displayName = "Zipline";
+            imageFile = ../../../images/kanidm/zipline.svg;
             originLanding = "https://z.diced.sh";
             originUrl = "https://z.diced.sh/api/auth/oauth/oidc";
             preferShortUsername = true;
@@ -85,6 +88,7 @@
 
           sonarr_whatbox = {
             displayName = "Sonarr";
+            imageFile = ../../../images/kanidm/sonarr.svg;
             originLanding = "https://sonarr.box.diced.sh";
             originUrl = "https://sonarr.box.diced.sh/oauth2/callback";
             scopeMaps.sonarr_users = [
@@ -96,6 +100,7 @@
 
           radarr_whatbox = {
             displayName = "Radarr";
+            imageFile = ../../../images/kanidm/radarr.svg;
             originLanding = "https://radarr.box.diced.sh";
             originUrl = "https://radarr.box.diced.sh/oauth2/callback";
             scopeMaps.radarr_users = [
@@ -107,6 +112,7 @@
 
           prowlarr_whatbox = {
             displayName = "Prowlarr";
+            imageFile = ../../../images/kanidm/prowlarr.svg;
             originLanding = "https://prowlarr.box.diced.sh";
             originUrl = "https://prowlarr.box.diced.sh/oauth2/callback";
             scopeMaps.prowlarr_users = [
@@ -118,6 +124,7 @@
 
           autobrr_whatbox = {
             displayName = "autobrr";
+            imageFile = ../../../images/kanidm/autobrr.svg;
             originLanding = "https://autobrr.box.diced.sh";
             originUrl = "https://autobrr.box.diced.sh/api/auth/oidc/callback";
             scopeMaps.autobrr_users = [
