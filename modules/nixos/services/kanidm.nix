@@ -35,80 +35,97 @@
         autoRemove = false;
         idmAdminPasswordFile = config.sops.secrets."services/kanidm/idm_admin_password".path;
 
-        groups.sonarr_users.overwriteMembers = false;
-        groups.radarr_users.overwriteMembers = false;
-        groups.prowlarr_users.overwriteMembers = false;
-        groups.autobrr_users.overwriteMembers = false;
-        groups.zipline_users.overwriteMembers = false;
-        groups.vaultwarden_users.overwriteMembers = false;
-
-        systems.oauth2.vaultwarden = {
-          displayName = "Vaultwarden";
-          originLanding = "https://vw.diced.sh";
-          originUrl = "https://vw.diced.sh/identity/connect/oidc-signin";
-          preferShortUsername = true;
-          scopeMaps.vaultwarden_users = [
-            "openid"
-            "email"
-            "profile"
-          ];
+        groups = {
+          sonarr_users.overwriteMembers = false;
+          radarr_users.overwriteMembers = false;
+          prowlarr_users.overwriteMembers = false;
+          autobrr_users.overwriteMembers = false;
+          zipline_users.overwriteMembers = false;
+          vaultwarden_users.overwriteMembers = false;
+          komodo_users.overwriteMembers = false;
         };
 
-        systems.oauth2.zipline = {
-          displayName = "Zipline";
-          originLanding = "https://z.diced.sh";
-          originUrl = "https://z.diced.sh/api/auth/oauth/oidc";
-          preferShortUsername = true;
-          scopeMaps.zipline_users = [
-            "openid"
-            "email"
-            "profile"
-            "offline_access"
-          ];
-        };
+        systems.oauth2 = {
+          komodo = {
+            displayName = "Komodo";
+            originLanding = "https://komodo.diced.sh";
+            originUrl = "https://komodo.diced.sh/auth/oidc/callback";
+            preferShortUsername = true;
+            scopeMaps.komodo_users = [
+              "openid"
+              "email"
+              "profile"
+            ];
+          };
 
-        systems.oauth2.sonarr_whatbox = {
-          displayName = "Sonarr";
-          originLanding = "https://sonarr.box.diced.sh";
-          originUrl = "https://sonarr.box.diced.sh/oauth2/callback";
-          scopeMaps.sonarr_users = [
-            "openid"
-            "email"
-            "profile"
-          ];
-        };
+          vaultwarden = {
+            displayName = "Vaultwarden";
+            originLanding = "https://vw.diced.sh";
+            originUrl = "https://vw.diced.sh/identity/connect/oidc-signin";
+            preferShortUsername = true;
+            scopeMaps.vaultwarden_users = [
+              "openid"
+              "email"
+              "profile"
+            ];
+          };
 
-        systems.oauth2.radarr_whatbox = {
-          displayName = "Radarr";
-          originLanding = "https://radarr.box.diced.sh";
-          originUrl = "https://radarr.box.diced.sh/oauth2/callback";
-          scopeMaps.radarr_users = [
-            "openid"
-            "email"
-            "profile"
-          ];
-        };
+          zipline = {
+            displayName = "Zipline";
+            originLanding = "https://z.diced.sh";
+            originUrl = "https://z.diced.sh/api/auth/oauth/oidc";
+            preferShortUsername = true;
+            scopeMaps.zipline_users = [
+              "openid"
+              "email"
+              "profile"
+              "offline_access"
+            ];
+          };
 
-        systems.oauth2.prowlarr_whatbox = {
-          displayName = "Prowlarr";
-          originLanding = "https://prowlarr.box.diced.sh";
-          originUrl = "https://prowlarr.box.diced.sh/oauth2/callback";
-          scopeMaps.prowlarr_users = [
-            "openid"
-            "email"
-            "profile"
-          ];
-        };
+          sonarr_whatbox = {
+            displayName = "Sonarr";
+            originLanding = "https://sonarr.box.diced.sh";
+            originUrl = "https://sonarr.box.diced.sh/oauth2/callback";
+            scopeMaps.sonarr_users = [
+              "openid"
+              "email"
+              "profile"
+            ];
+          };
 
-        systems.oauth2.autobrr_whatbox = {
-          displayName = "autobrr";
-          originLanding = "https://autobrr.box.diced.sh";
-          originUrl = "https://autobrr.box.diced.sh/api/auth/oidc/callback";
-          scopeMaps.autobrr_users = [
-            "openid"
-            "email"
-            "profile"
-          ];
+          radarr_whatbox = {
+            displayName = "Radarr";
+            originLanding = "https://radarr.box.diced.sh";
+            originUrl = "https://radarr.box.diced.sh/oauth2/callback";
+            scopeMaps.radarr_users = [
+              "openid"
+              "email"
+              "profile"
+            ];
+          };
+
+          prowlarr_whatbox = {
+            displayName = "Prowlarr";
+            originLanding = "https://prowlarr.box.diced.sh";
+            originUrl = "https://prowlarr.box.diced.sh/oauth2/callback";
+            scopeMaps.prowlarr_users = [
+              "openid"
+              "email"
+              "profile"
+            ];
+          };
+
+          autobrr_whatbox = {
+            displayName = "autobrr";
+            originLanding = "https://autobrr.box.diced.sh";
+            originUrl = "https://autobrr.box.diced.sh/api/auth/oidc/callback";
+            scopeMaps.autobrr_users = [
+              "openid"
+              "email"
+              "profile"
+            ];
+          };
         };
       };
     };
