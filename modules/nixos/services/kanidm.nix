@@ -41,11 +41,18 @@
           prowlarr_users.overwriteMembers = false;
           autobrr_users.overwriteMembers = false;
           zipline_users.overwriteMembers = false;
-          vaultwarden_users.overwriteMembers = false;
+          vaultwarden_users.present = false;
           komodo_users.overwriteMembers = false;
         };
 
         systems.oauth2 = {
+          # Explicit removal is required while autoRemove is false.
+          vaultwarden = {
+            present = false;
+            displayName = "Vaultwarden";
+            originUrl = "https://vw.diced.sh/identity/connect/oidc-signin";
+          };
+
           komodo = {
             displayName = "Komodo";
             imageFile = ../../../images/kanidm/komodo.svg;
@@ -53,19 +60,6 @@
             originUrl = "https://komodo.diced.sh/auth/oidc/callback";
             preferShortUsername = true;
             scopeMaps.komodo_users = [
-              "openid"
-              "email"
-              "profile"
-            ];
-          };
-
-          vaultwarden = {
-            displayName = "Vaultwarden";
-            imageFile = ../../../images/kanidm/vaultwarden.svg;
-            originLanding = "https://vw.diced.sh";
-            originUrl = "https://vw.diced.sh/identity/connect/oidc-signin";
-            preferShortUsername = true;
-            scopeMaps.vaultwarden_users = [
               "openid"
               "email"
               "profile"
