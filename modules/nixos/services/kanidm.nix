@@ -46,10 +46,10 @@
         };
 
         systems.oauth2 = {
-          # Explicit removal is required while autoRemove is false.
           vaultwarden = {
             present = false;
             displayName = "Vaultwarden";
+            originLanding = "https://vw.diced.sh";
             originUrl = "https://vw.diced.sh/identity/connect/oidc-signin";
           };
 
