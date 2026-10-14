@@ -41,18 +41,10 @@
           prowlarr_users.overwriteMembers = false;
           autobrr_users.overwriteMembers = false;
           zipline_users.overwriteMembers = false;
-          vaultwarden_users.present = false;
           komodo_users.overwriteMembers = false;
         };
 
         systems.oauth2 = {
-          vaultwarden = {
-            present = false;
-            displayName = "Vaultwarden";
-            originLanding = "https://vw.diced.sh";
-            originUrl = "https://vw.diced.sh/identity/connect/oidc-signin";
-          };
-
           komodo = {
             displayName = "Komodo";
             imageFile = ../../../images/kanidm/komodo.svg;
