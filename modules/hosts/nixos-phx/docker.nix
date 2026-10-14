@@ -13,6 +13,7 @@
     (import "${nixosModules}/docker/zipline.nix" { dataDir = "/block/zipline4"; })
     # (import "${nixosModules}/docker/dokploy.nix" { dataDir = "/block/dokploy"; })
     (import "${nixosModules}/docker/komodo.nix" { dataDir = "/block/komodo"; })
+    (import "${nixosModules}/docker/weblate.nix" { dataDir = "/block/weblate"; })
   ];
 
   services.caddy.virtualHosts."http://zipline.diced.sh".extraConfig = ''
