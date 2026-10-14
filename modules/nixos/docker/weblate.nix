@@ -107,6 +107,10 @@
             WEBLATE_ADMIN_NAME = "diced";
             WEBLATE_ADMIN_EMAIL = "me@diced.sh";
 
+            WEBLATE_GPG_IDENTITY = "Weblate <weblate@diced.sh>";
+            WEBLATE_DEFAULT_COMMITER_NAME = "Weblate";
+            WEBLATE_DEFAULT_COMMITER_EMAIL = "weblate@diced.sh";
+
             # disabling email but allowing github signup
             WEBLATE_REGISTRATION_OPEN = "1";
             WEBLATE_NO_EMAIL_AUTH = "1";
