@@ -52,7 +52,7 @@
       restart = "unless-stopped";
       labels."komodo.skip" = "";
       depends_on = [ "mongo" ];
-      ports = [ "127.0.0.1:9120:9120" ];
+      ports = [ "9120:9120" ];
       env_file = [ config.sops.templates."services.komodo.core.env".path ];
       environment = {
         TZ = "America/Los_Angeles";
