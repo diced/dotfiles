@@ -102,6 +102,7 @@
             REDIS_HOST = "cache";
             REDIS_PORT = "6379";
 
+            WEBLATE_SITE_TITLE = "Zipline Weblate";
             WEBLATE_SITE_DOMAIN = "wl.diced.sh";
             WEBLATE_ALLOWED_HOSTS = "wl.diced.sh";
             WEBLATE_ADMIN_NAME = "diced";
