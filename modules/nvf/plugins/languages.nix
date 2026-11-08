@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
   vim.languages = {
@@ -38,6 +38,13 @@
     markdown = {
       enable = true;
       format.enable = false;
+      extensions.markview-nvim = {
+        enable = true;
+        setupOpts = {
+          preview.enable = false;
+        };
+      };
+      lsp.servers = [ "rumdl" ];
     };
 
     json = {
@@ -49,6 +56,8 @@
       enable = true;
     };
 
+    make.enable = true;
+
     assembly = {
       enable = true;
       format.enable = false;
@@ -58,19 +67,31 @@
       enable = true;
     };
 
-    go.enable = true;
-    lua.enable = true;
-    python.enable = true;
     typst = {
       enable = true;
-      format.enable = false; # using tinymist built in typstyle
+      # using tinymist builtin formatter
+      format.enable = false;
     };
-    sql.enable = true;
-    java.enable = true;
+
     yaml = {
       enable = true;
       format.enable = false;
     };
+
+    go.enable = true;
+    lua.enable = true;
+    python.enable = true;
+    sql.enable = true;
+    java.enable = true;
     rust.enable = true;
   };
+
+  # markview keys
+  vim.keymaps = [
+    {
+      mode = "n";
+      key = "<leader>s";
+      action = "<CMD>Markview splitToggle<CR>";
+    }
+  ];
 }
