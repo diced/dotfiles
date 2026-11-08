@@ -17,6 +17,9 @@
     };
 
     options = {
+      title = true;
+      titlestring = "nvim (%{fnamemodify(getcwd(), ':t')})";
+
       tabstop = 2;
       shiftwidth = 2;
       expandtab = true;

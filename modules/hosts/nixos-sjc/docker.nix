@@ -11,5 +11,6 @@
     # (import "${nixosModules}/docker/yamtrack.nix" { dataDir = "/block/yamtrack"; })
     (import "${nixosModules}/docker/vaultwarden.nix" { dataDir = "/block/vaultwarden"; })
     (import "${nixosModules}/docker/stalwart.nix" { dataDir = "/block/stalwart"; })
+    (import "${nixosModules}/docker/wakapi.nix" { dataDir = "/block/wakapi"; })
   ];
 }

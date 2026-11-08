@@ -31,12 +31,10 @@
       "obs"
 
       # dev
-      "ghostty@tip"
+      "ghostty"
       "jetbrains-toolbox"
-      "visual-studio-code"
       "bruno"
       "arduino-ide"
-      "zed"
       "ltspice"
 
       # image
@@ -70,8 +68,6 @@
       "geekbench"
 
       # mac/ios utils
-      "thaw"
-      "raycast" # launcher + hella hotkeys
       "unnaturalscrollwheels" # scroll wheel fix on external mouse
       "pearcleaner" # clean up app files
 

@@ -37,8 +37,8 @@
     # dev
     gh
     hyperfine
-    nodejs_24
-    corepack_24
+    nodejs_26
+    corepack
     go
     git
     python314
@@ -46,7 +46,7 @@
     cmake
     pkg-config
     platformio
-    opencode
+    # opencode
     unstable.codex
     rustup
     typst
@@ -59,7 +59,7 @@
     # util
     macmon
     htop
-    qemu-utils
+    qemu_full
     rsync
   ];
 }

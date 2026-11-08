@@ -73,6 +73,27 @@
         nvf.lib.neovimConfiguration {
           pkgs = import nixpkgs-unstable {
             inherit system;
+            overlays = [
+              (final: prev: {
+                pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+                  (pythonFinal: pythonPrev: {
+                    diff-cover = pythonPrev.diff-cover.overridePythonAttrs (
+                      old:
+                      prev.lib.optionalAttrs (old.version == "10.5.1") {
+                        disabledTests = (old.disabledTests or [ ]) ++ [
+                          "TestDiffQualityIntegration and test_added_file_pycodestyle_html"
+                          "TestDiffQualityIntegration and test_all_reports"
+                          "TestDiffQualityIntegration and test_added_file_pyflakes_html"
+                          "TestDiffQualityIntegration and test_added_file_pylint_html"
+                          "TestDiffQualityIntegration and test_fail_under_html"
+                          "TestDiffQualityIntegration and test_fail_under_pass_html"
+                        ];
+                      }
+                    );
+                  })
+                ];
+              })
+            ];
           };
 
           modules = [

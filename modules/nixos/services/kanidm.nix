@@ -42,9 +42,26 @@
           autobrr_users.overwriteMembers = false;
           zipline_users.overwriteMembers = false;
           komodo_users.overwriteMembers = false;
+          wakapi_users = {
+            members = [ "diced" ];
+            overwriteMembers = false;
+          };
         };
 
         systems.oauth2 = {
+          wakapi = {
+            displayName = "Wakapi";
+            originLanding = "https://wakapi.diced.sh";
+            originUrl = "https://wakapi.diced.sh/oidc/kanidm/callback";
+            preferShortUsername = true;
+            allowInsecureClientDisablePkce = true;
+            scopeMaps.wakapi_users = [
+              "openid"
+              "email"
+              "profile"
+            ];
+          };
+
           komodo = {
             displayName = "Komodo";
             imageFile = ../../../images/kanidm/komodo.svg;
