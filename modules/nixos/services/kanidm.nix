@@ -42,10 +42,7 @@
           autobrr_users.overwriteMembers = false;
           zipline_users.overwriteMembers = false;
           komodo_users.overwriteMembers = false;
-          wakapi_users = {
-            members = [ "diced" ];
-            overwriteMembers = false;
-          };
+          wakapi_users.overwriteMembers = false;
         };
 
         systems.oauth2 = {
