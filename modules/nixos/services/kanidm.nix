@@ -48,6 +48,7 @@
         systems.oauth2 = {
           wakapi = {
             displayName = "Wakapi";
+            imageFile = ../../../images/kanidm/wakapi.svg;
             originLanding = "https://wakapi.diced.sh";
             originUrl = "https://wakapi.diced.sh/oidc/kanidm/callback";
             preferShortUsername = true;

@@ -7,6 +7,12 @@
       "services/wakapi/password_salt" = { };
       "services/wakapi/cookie_key" = { };
       "services/wakapi/oidc_client_secret" = { };
+      # Share the existing SMTP account and sender with Vaultwarden.
+      "services/vw/smtp_host" = { };
+      "services/vw/smtp_port" = { };
+      "services/vw/smtp_from" = { };
+      "services/vw/smtp_username" = { };
+      "services/vw/smtp_password" = { };
     };
 
     templates."services.wakapi.env" = {
@@ -16,6 +22,11 @@
         WAKAPI_OIDC_PROVIDERS_0_CLIENT_SECRET=${
           config.sops.placeholder."services/wakapi/oidc_client_secret"
         }
+        WAKAPI_MAIL_SMTP_HOST=${config.sops.placeholder."services/vw/smtp_host"}
+        WAKAPI_MAIL_SMTP_PORT=${config.sops.placeholder."services/vw/smtp_port"}
+        WAKAPI_MAIL_SENDER=${config.sops.placeholder."services/vw/smtp_from"}
+        WAKAPI_MAIL_SMTP_USER=${config.sops.placeholder."services/vw/smtp_username"}
+        WAKAPI_MAIL_SMTP_PASS=${config.sops.placeholder."services/vw/smtp_password"}
       '';
       restartUnits = [ "arion-wakapi.service" ];
     };
@@ -40,13 +51,16 @@
         WAKAPI_DB_TYPE = "sqlite3";
         WAKAPI_DB_NAME = "/data/wakapi.db";
         WAKAPI_INSECURE_COOKIES = "false";
-        WAKAPI_MAIL_ENABLED = "false";
+        WAKAPI_MAIL_ENABLED = "true";
+        WAKAPI_MAIL_PROVIDER = "smtp";
+        WAKAPI_MAIL_SMTP_TLS = "true";
+        WAKAPI_LEADERBOARD_ENABLED = "false";
+        WAKAPI_DISABLE_FRONTPAGE = "true";
 
-        # Kanidm controls who may register; editor clients still use API keys.
         WAKAPI_DISABLE_LOCAL_AUTH = "true";
         WAKAPI_ALLOW_SIGNUP = "false";
         WAKAPI_INVITE_CODES = "false";
-        WAKAPI_OIDC_ALLOW_SIGNUP = "true";
+        WAKAPI_OIDC_ALLOW_SIGNUP = "false";
         WAKAPI_OIDC_PROVIDERS_0_NAME = "kanidm";
         WAKAPI_OIDC_PROVIDERS_0_DISPLAY_NAME = "Kanidm";
         WAKAPI_OIDC_PROVIDERS_0_CLIENT_ID = "wakapi";
@@ -62,7 +76,6 @@
     ];
     requires = [ "iscsi-oracle-login.service" ];
     wants = [ "kanidm.service" ];
-    # Create the bind mount with the upstream image's non-root UID after /block mounts.
     preStart = ''
       ${pkgs.coreutils}/bin/install -d -m 0750 -o 65532 -g 65532 ${dataDir}/data
     '';
